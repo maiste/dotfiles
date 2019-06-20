@@ -1,0 +1,25 @@
+{
+    "workspace.library": [
+        "/home/maiste/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/share/nvim/runtime/lua",
+        "/home/maiste/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/project.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/nvim-treesitter/lua",
+        "/home/maiste/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/home/maiste/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/home/maiste/.local/share/nvim/lazy/which-key.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/catppuccin/lua",
+        "/home/maiste/.local/share/nvim/lazy/nightfox.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/home/maiste/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/LuaSnip/lua",
+        "/home/maiste/.local/share/nvim/lazy/mason.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/home/maiste/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/home/maiste/.dotfiles/editor/.config/nvim/lua",
+        "${3rd}/luv/library",
+        "${3rd}/luv/library",
+        "${3rd}/luv/library"
+    ]
+}

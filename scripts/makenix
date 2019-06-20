@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+###########################
+# Étienne "maiste" Marais #
+#    Nix install script   #
+#    Version 20211005     #
+###########################
+
+cd "$(dirname $0)/.."
+
+printf "\n\n"
+printf "+---------------------+\n"
+printf "|  Nix configuration  |\n"
+printf "+---------------------+\n\n"
+
+printf "ROOT DIRECTORY: %s\n" $PWD
+
+
+
+#-------- Install Nix --------#
+
+printf "\n#----- Install Nix package manager -----#\n"
+which "nix-env" > /dev/null # Check if nix exists
+if [[ $? -eq 1 ]] ; then
+  printf " - Nix not found\n"
+  which curl > /dev/null # Check if curl exists
+
+  if [[ $? -eq 0 ]] ; then
+    printf " - Curl found\n"
+    printf " - Install Nix\n"
+    curl -L https://nixos.org/nix/install | sh
+  else
+    print " - Exit: curl not found\n"
+    exit 1
+  fi
+
+else
+  printf " - Skip: nix already installed\n"
+fi
+
+
+
+#----- Ensure Nix in path -----#
+
+. /home/maiste/.nix-profile/etc/profile.d/nix.sh
+
+
+
+#------ Install packages ------#
+
+printf "\n#----- Install nix packages -----#\n"
+export NIXPKGS_ALLOW_UNFREE=1
+NIX_PKGS="
+discord \
+slack \
+signal-desktop \
+telegram-desktop"
+printf " - Install:\n"
+printf "   - %s\n" $NIX_PKGS
+nix-env -i $NIX_PKGS

@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+#############################
+#  Étienne "maiste" Marais  #
+#  Flatpak install script   #
+#     Version 20211005      #
+#############################
+
+set -e
+
+cd "$(dirname $0)/.."
+
+printf_install () {
+  printf " - Install %s" $1
+}
+
+printf "\n\n"
+printf "+------------------------+\n"
+printf "|  Flapak configuration  |\n"
+printf "+------------------------+\n\n"
+
+
+
+#---- Add remotes ----#
+
+printf "\n#---- Add remotes ----#\n"
+
+printf " - Add flathub remote\n"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
+#---- Install Flatpak packages ----#
+
+printf "\n#---- Install packages ----#\n"
+
+printf_install "signal"
+flatpak install -y flathub org.signal.Signal
+
+printf_install "telegram"
+flatpak install -y flathub org.telegram.desktop
+
+printf_install "slack"
+flatpak install -y flathub com.slack.Slack
+
+printf_install "discord"
+flatpak install -y flathub com.discordapp.Discord
