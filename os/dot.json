@@ -1,0 +1,21 @@
+{
+  "dir" : [
+    "~/.config"
+  ],
+
+  "link" : {
+    "~/dotfiles/.vim" : "~/.config/nvim",
+    "~/dotfiles/shell/.zshrc" : "~/.zshrc",
+    "~/dotfiles/shell/omega.zsh-theme" : "~/.oh-my-zsh/custom/themes/omega.zsh-theme",
+    "~/dotfiles/i3" : "~/.config",
+    "~/dotfiles/rofi" : "~/.config",
+    "~/dotfiles/emacs" : "~/.emacs.d",
+    "~/dotfiles/emacs/emacs" : "~/.emacs",
+    "~/dotfiles/shell/.Xresources" : "~/.Xresources",
+    "~/dotfiles/shell/.gitconfig" : "~/.gitconfig"
+  },
+
+  "cp" : {
+    "~/dotfiles/shell/xbacklight.conf" : "~/etc/X11/xorg.conf.d"
+  }
+}
