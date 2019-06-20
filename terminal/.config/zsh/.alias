@@ -1,0 +1,55 @@
+###########################
+# Etienne (Maiste) MARAIS #
+#      Alias config       #
+#    Version 20211215     #
+###########################
+
+# Alias system
+alias rm="rm --preserve-root"
+
+# Alias displaying
+alias ls="exa"
+alias la="ls -la"
+alias ll="ls -l"
+alias ld="ls -ld"
+
+# Cat replacement
+alias cat='bat -pp --theme="Nord"' # Dark version
+# alias cat='bat -pp --theme="OneHalfLight"'
+
+# Alias moving
+alias ..='cd ..'
+alias .3='cd ../..'
+alias .4='cd ../../..'
+
+# Alias Vim => Neovim
+alias v='nvim'
+alias vim='nvim'
+
+# Alias Emacs
+alias emacs='emacsclient -qc'
+alias emacsnw='emacsclient -qt'
+alias e='emacs'
+
+# Alias Python
+alias venv='python3 -m venv'
+alias pip='python3 -m pip'
+
+# Docker helps
+alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
+alias delete_docker='docker rm $(docker ps -aq)'
+
+# Git alias
+alias g='git'
+
+# OCaml
+alias dub='dune build'
+alias dut='dune runtest'
+alias dutf='dune runtest --force'
+alias duc='dune clean'
+alias dubw='dune build -w --terminal-persistence=clear-on-rebuild'
+alias osw='opam switch'
+alias oin='opam install'
+alias odev='opam install merlin ocamlformat ocaml-lsp-server'
+alias rmo='rm -rf _opam'
+alias oeval='eval $(opam env)'

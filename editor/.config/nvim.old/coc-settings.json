@@ -1,0 +1,64 @@
+// ***************************
+// *    CoC configuration    *
+// *            VIM          *
+// * Étienne (Maiste) Marais *
+// ***************************
+
+{
+
+// ****** EXPLORER ********
+
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": false,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+
+
+// ****** SNIPPETS *****
+
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "~/.config/nvim/UltiSnips"
+  ],
+
+
+// ****** FORMAT *****
+
+  "coc.preferences.formatOnSaveFiletypes": [
+    "ocaml",
+    "rust",
+    "java",
+    "html",
+    "css"
+  ],
+  "java.format.settings.url": "/home/etienne/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+
+
+// ***** LSP Server ********
+
+  "languageserver": {
+
+    "ocaml-lsp": {
+      "command": "opam",
+      "args": ["config", "exec", "--", "ocamllsp"],
+      "filetypes": ["ocaml", "reason"]
+    },
+
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test",
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  }
+
+}

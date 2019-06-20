@@ -1,0 +1,80 @@
+###########################
+# Étienne "maiste" Marais #
+#    Arch Post install    #
+#    Version 20211005     #
+###########################
+
+set -e
+
+# Upgrade package
+sudo pacman -Syu
+
+# Install package
+sudo pacman -Sy neovim \
+                stow \
+                zsh \
+                curl \
+                wget \
+                alacritty \
+                htop \
+                xsel \
+                dmenu \
+                i3-gaps \
+                i3lock \
+                i3status \
+                redshift \
+                rofi \
+                picom \
+                nitrogen \
+                htop \
+                git \
+                tig \
+                nextcloud-client \
+                network-manager-applet \
+                dunst \
+                xorg-xbacklight \
+                arandr \
+                m4 \
+                patch \
+                lxappearance \
+                arc-gtk-theme \
+                arc-icon-theme \
+                ttf-font-awesome \
+                neofetch \
+                python-pip \
+                ripgrep \
+                fzf \
+                gcc \
+                make \
+                texlive-most \
+                texlive-lang \
+                flatpak \
+                bluez \
+                bluez-utils \
+                blueberry \
+                pandoc \
+                tree \
+                bat \
+                exa \
+                git-delta
+
+# Install Yay
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
+rm -rf yay
+
+
+# Install AUR packages
+yay -S nerd-fonts-hack fswatch
+
+# Install Metropolis theme
+cd $HOME
+git clone git@github.com:matze/mtheme.git
+cd mtheme
+make sty
+make install
+cd $HOME
+rm -rf mtheme

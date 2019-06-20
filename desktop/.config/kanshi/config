@@ -1,0 +1,15 @@
+profile "default" {
+    output eDP-1 enable position 0,0
+}
+
+profile "home" {
+    output eDP-1 mode 1920x1200@60.001Hz position 3440,720
+    output "Beihai Century Joint Innovation Technology Co.,Ltd PGM340 Unknown" mode 3440x1440@59.999Hz  position 0,0
+}
+
+profile "office" {
+    # output eDP-1 mode 1920x1200@60.001Hz position 4500,1440
+    output eDP-1 disable
+    output "AOC Q27P1B GNXJ5HA004901" mode 2560x1440@59.951Hz position 0,0
+    output "AOC Q27P1B GNXLAHA181469" mode 2560x1440@59.951Hz position 2560,0
+}

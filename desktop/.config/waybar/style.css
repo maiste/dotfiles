@@ -1,0 +1,76 @@
+@import "mocha.css";
+
+* {
+	font-size: 20px;
+	font-family: monospace;
+}
+
+window#waybar {
+	background: @base;
+	color: @rosewater;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+	color: @base;
+}
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	color: @base;
+	background: @base;
+}
+
+#workspaces,
+#clock.1,
+#clock.2,
+#clock.3,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk,
+#tray {
+	background: @base;
+}
+
+#workspaces button {
+	padding: 0 2px;
+	color: @rosewater;
+}
+#workspaces button.focused {
+	color: @blue;
+}
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+#workspaces button:hover {
+	background: @base;
+	border: @base;
+	padding: 0 3px;
+}
+
+#pulseaudio {
+	color: @blue;
+}
+#memory {
+	color: @green;
+}
+#cpu {
+	color: @mauve;
+}
+#battery {
+	color: @yellow;
+}
+#disk {
+	color: @peach;
+}
+
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk {
+	padding: 0 10px;
+}

@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+###########################
+# Étienne "maiste" Marais #
+#      Install script     #
+#    Version 20210325     #
+###########################
+
+set -e
+cd "$(dirname $0)"
+
+printf "+-----------------------------------+\n"
+printf "|  DISTRIBUTION INSTALLATION SCRIPT |\n"
+printf "|  AUTHOR: Étienne Marais           |\n"
+printf "|  VERSION: 20210325                |\n"
+printf "|  LICENCE: MIT                     |\n"
+printf "+-----------------------------------+\n\n"
+
+printf "ROOT DIRECTORY: %s\n" $PWD
+
+
+
+#-------------- Distro posinstall ------------#
+
+printf "\n#----- Distro postinstall -----#\n"
+case $1 in
+  "arch")
+    printf " - Run archlinux postinstall\n"
+    scripts/arch-install;;
+  "fedora")
+    printf " - Run Fedora postinstall\n"
+    scripts/fedora-install;;
+  "popos")
+    printf " - Run PopOs postinstall\n"
+    scripts/popos-install;;
+  *)
+    printf " - Skip: no postinstall for %s\n" $1
+esac
+
+
+#-------------- Run install ------------#
+scripts/makesys
+scripts/makelinks
+scripts/makeflatpak
+scripts/makelang
+

@@ -1,0 +1,105 @@
+[user]
+    name = Etienne MARAIS
+    email = etienne@maiste.fr
+    signingkey = EC3B896D61BC710F
+
+[core]
+    editor = nvim
+    pager = delta
+
+[commit]
+    gpgsign = true                        # Sign all code
+[gpg]
+    program = gpg                         # Program to sign commit
+
+[init]
+    defaultBranch = main                  # Select main as the main branch
+[pull]
+    rebase = true                         # Force rebase
+[push]
+    default = simple                      # Push the branch like upstream if local has the same name
+
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    line-numbers = true
+    # Use n and N to move between diff sections
+    navigate = true
+    # Theme to use as light theme
+    # syntax-theme = OneHalfLight
+    # Theme to use as dark theme
+    syntax-theme = Nord
+[diff]
+    # Use the default mode
+    colorMoved = default 
+[merge]
+    # Add a parent commit to check the diffs
+    conflictstyle = diff3
+
+[alias]
+
+   # Remote
+    cl = clone
+    pl = pull
+    ps = push
+    psf = push --force
+    fe = fetch
+    fep = fetch -p
+    
+    # Branch
+    br = branch
+    brd = branch -d
+    brD = branch -D
+    sw = switch
+    swc = switch -c
+    re = restore
+    ck = checkout
+    cp = cherry-pick
+    rb = rebase
+    rbi = rebase -i
+    rbf = rebase -i --autosquash
+    mr = merge
+    rs = reset
+    
+    # Status
+    s = status
+    ss = status -s
+    
+    # Diff
+    df = diff
+    dfc = diff --cached
+    dfs = diff --staged
+    
+    # Commits
+    a = add
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+    cf = commit --fixup
+    
+    # Logs
+    l = log --graph --decorate --all
+    lo = log --oneline --graph --all
+    
+    # Stash
+    st = stash
+    stc = stash clear
+    stpu = stash push
+    stpo = stash pop
+    stl = stash list
+    
+    # Worktree
+    wta = worktree add
+    wtr = worktree remove
+    wtp = worktree prune
+    
+    # Submodules
+    sbiu = submodule update --init
+    sbiur = submodule update --init --recursive
+
+[credential "https://github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential

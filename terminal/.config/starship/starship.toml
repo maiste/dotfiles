@@ -1,0 +1,107 @@
+###########################
+# Étienne "maiste" Marais #
+#    Starship Config      #
+#    Version 20210125     #
+###########################
+
+
+##---------- STYLE --------------##
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$dart\
+$golang\
+$java\
+$nodejs\
+$ocaml\
+$python\
+$rust\
+$nix_shell
+$character"""
+
+# Increase the timeout when running a command to allow git to work.
+command_timeout=700
+
+[character]
+format = "$symbol "
+success_symbol = "[ ](bold purple)"
+error_symbol   = "[ ](bold red)"
+
+
+##------ LOCAL MODULES ----------##
+[username]
+format = "[$user]($style)"
+style_root = "bold red"
+style_user = "bold cyan"
+show_always = true
+
+[hostname]
+format = "@[$hostname]($style)"
+style = "bold blue"
+ssh_only = false
+
+[directory]
+format = " \\[[$path]($style)[$read_only]($read_only_style)\\]"
+style = "bold green"
+truncation_length = 3
+
+
+##--------- GIT MODULES --------##
+[git_branch]
+format = " \ue725 [$branch]($style)"
+style = "bold underline purple"
+
+[git_state]
+format = " \ue725 [$state: $progress_current/$progress_total]($style)"
+style = "bold purple"
+rebase = "R"
+merge = "M"
+revert = "Rev"
+cherry_pick = "CP"
+bisect = "B"
+am = "AM"
+am_or_rebase = "AMR"
+
+[git_status]
+untracked = "?"
+stashed = ""
+modified = "~"
+staged = "+"
+renamed = "r"
+deleted = "-"
+style = "bold purple"
+
+
+##-------- LANG MODULES -------##
+[dart]
+format= "  [dart:$version]($style)"
+style = "blue"
+
+[golang]
+format = "  [go:$version]($style)"
+style = "blue"
+
+[java]
+format = "  [java:$version]($style)"
+style = "blue"
+
+[nodejs]
+format = "  [nd:$version]($style)"
+style = "blue"
+
+[ocaml]
+format = "  [ocaml:$version]($style)"
+style = "blue"
+
+[python]
+format = "  [python:${pyenv_prefix}(${virtualenv}->)${version}]($style)"
+style = "blue"
+
+[rust]
+format = "  [rust:$version]($style)"
+style = "blue"

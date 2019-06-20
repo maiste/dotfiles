@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+cd $HOME/Documents
+
+ack --ignore-ack-defaults \
+    --ignore-dir=".opam" \
+    --ignore-dir="_opam" \
+    --ignore-dir="_build" \
+    --ignore-dir=".local" \
+    --ignore-dir="vendor" \
+    --ignore-dir="reviews" \
+    --ignore-dir=".cargo" \
+    -g "\.git/" \
+    | sort \
+    | sed -e 's/.git\/.*/ /' \
+    | uniq \
+    | xargs -I % bash -c 'cd % && pwd && git worktree prune -v'
+
