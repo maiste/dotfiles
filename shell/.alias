@@ -1,0 +1,34 @@
+##################
+# Etienne MARAIS #
+#  alias config  #
+##################
+
+
+# Alias système
+alias rm="rm --preserve-root"
+
+alias la="ls -la"
+alias ll="ls -l"
+alias ld="ls -ld"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Alias emacs
+alias emc="emacs"
+alias enw="emacs -nw"
+ 
+# Alias Vim
+alias vim="nvim"
+
+# Alias python
+alias venv="python3 -m venv"
+alias pip="python3 -m pip"
+
+# todo
+alias td="sh ~/Téléchargements/todo.txt_cli-2.11.0/todo.sh"
+
+#docker
+alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
+
