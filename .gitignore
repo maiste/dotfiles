@@ -1,0 +1,10 @@
+.class
+
+vim/plugged
+vim/neoswap
+
+emacs/elpa
+emacs/auto-save-list
+emacs/ac-comphist.dat
+
+._sync*
