@@ -1,7 +1,7 @@
-##################
-# Étienne MARAIS #
-#  shell config  #
-##################
+############################
+# Étienne (Maiste ) MARAIS #
+#       shell config       #
+############################
 
 
 export DOT=~/dotfiles/

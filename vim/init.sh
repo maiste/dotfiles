@@ -1,3 +1,8 @@
+###########################
+# Étienne (Maiste) Marais #
+#        nvim init        #
+###########################
+
 
 # Support VIM script in python
 pip3 install --user pynvim

@@ -1,7 +1,7 @@
-" ******************
-" * Web Vim config *
-" *     Kolibs     *
-" ******************
+" ****************************
+" *      Web Vim config      *
+" * Étienne (Maiste)  Marais *
+" ****************************
 
 
 " ** Define Emmet only for web

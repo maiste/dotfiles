@@ -1,4 +1,10 @@
-# Modification of lambda-gitster them
+##############
+#  ZSH Theme #
+#   Maiste   #
+##############
+
+
+#Modification of lambda-gitster them
 
 # Return statut color
 local ret_status="%(?:%{$fg_bold[yellow]%} ▶:%{$fg_bold[red]%} ▶%s)%{$reset_color%}"
