@@ -1,0 +1,31 @@
+###########################
+# Etienne (Maiste) MARAIS #
+#      Alias config       #
+#    Version 20210125     #
+###########################
+
+# Alias system
+alias rm="rm --preserve-root"
+
+alias la="ls -la"
+alias ll="ls -l"
+alias ld="ls -ld"
+
+alias ..="cd .."
+alias .3="cd ../.."
+alias .4="cd ../../.."
+
+# Alias notes
+alias notes="nvim -c \":VimwikiIndex\""
+
+# Alias Vim => Neovim
+alias vim="nvim"
+
+# Alias Python
+alias venv="python3 -m venv"
+alias pip="python3 -m pip"
+
+# Docker helps
+alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
+alias delete_docker='docker rm $(docker ps -aq)'
+

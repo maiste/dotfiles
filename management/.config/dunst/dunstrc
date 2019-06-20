@@ -1,0 +1,64 @@
+[global]
+    monitor = 0
+    follow = mouse
+    geometry = "350x5-25-60"
+    indicate_hidden = yes
+    shrink = false
+    transparency = 0
+    notification_height = 0
+    separator_height = 2
+    padding = 10
+    horizontal_padding = 10
+    frame_width = 2
+    frame_color = "#5e81ac"
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+    font = Hack 9
+    line_height = 5
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = off
+    max_icon_size = 32
+    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    force_xinerama = false
+
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    timeout = 10
+
+[urgency_normal]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    timeout = 10
+
+[urgency_critical]
+    background = "#2e3440"
+    foreground = "#ffffff"
+    frame_color = "#bf616a"
+    timeout = 0

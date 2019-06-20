@@ -1,0 +1,56 @@
+###########################
+# Étienne "maiste" Marais #
+#    Arch Post install    #
+#    Version 20210125     #
+###########################
+
+set -e
+
+# Upgrade package
+sudo pacman -Syu
+
+# Install package
+sudo pacman -Sy neovim \
+                stow \
+                zsh \
+                curl \
+                wget \
+                alacritty \
+                htop \
+                xsel \
+                dmenu \
+                i3-gaps \
+                picom \
+                nitrogen \
+                make \
+                git \
+                nextcloud-client \
+                evolution \
+                network-manager-applet \
+                dunst \
+                xorg-xbacklight \
+                m4 \
+                lightdm \
+                lxappearance \
+                arc-gtk-theme \
+                arc-icon-theme \
+                python-pip \
+                lightdm-gtk-greeter \
+                lightdm-gtk-greeter-settings \
+                texmaker \
+                ripgrep \
+                fzf  \
+                rofi
+
+# Install Yay
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
+rm -rf yay
+
+
+# Install AUR packages
+yay -S nerd-fonts-hack
+

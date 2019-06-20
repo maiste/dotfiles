@@ -1,0 +1,8 @@
+[user]
+  name = Etienne MARAIS
+  email = etiennemarais@maiste.fr
+  signingkey = 0468D4EFD9FF672B
+[core]
+  editor = nvim
+[gpg]
+  program = gpg2
