@@ -66,4 +66,5 @@ let g:LanguageClient_serverCommands = {
       \ 'ocaml': [&shell, &shellcmdflag, 'opam config exec -- ocaml-language-server --stdio'],
       \ 'c' : ['clangd', '-background-index'],
       \ 'go': ['go-langserver', '-gocodecompletion'],
+      \ 'Dockerfile': ['docker-langserver', '--stdio']
       \ }

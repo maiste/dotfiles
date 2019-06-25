@@ -24,3 +24,6 @@ rustup component add rls rust-analysis rust-src
 
 # Check for OCaml
 sudo npm install -g ocaml-language-server
+
+# Check for Dockerfile
+sudo npm install -g dockerfile-language-server-nodejs
