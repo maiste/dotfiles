@@ -3,6 +3,8 @@
 #        nvim init        #
 ###########################
 
+# Create neoswap
+mkdir -p neoswap
 
 # Support VIM script in python
 pip3 install --user pynvim
