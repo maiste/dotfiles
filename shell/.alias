@@ -27,7 +27,7 @@ alias venv="python3 -m venv"
 alias pip="python3 -m pip"
 
 # todo
-alias td="sh ~/Téléchargements/todo.txt_cli-2.11.0/todo.sh"
+alias td="sh ~/bin/todo.txt_cli-2.11.0/todo.sh"
 
 #docker
 alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
