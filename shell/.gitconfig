@@ -1,8 +1,8 @@
 [user]
-	name = Etienne MARAIS
-	email = etienne@marais.green
-	signingkey = 0468D4EFD9FF672B
+  name = Etienne MARAIS
+  email = etienne@marais.green
+  signingkey = 0468D4EFD9FF672B
 [core]
-	editor = nvim
+  editor = nvim
 [gpg]
-	program = gpg2
+  program = gpg
