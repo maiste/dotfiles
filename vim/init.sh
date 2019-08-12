@@ -4,7 +4,7 @@
 ###########################
 
 # Create neoswap
-mkdir -p neoswap
+mkdir -p ~/.config/nvim/neoswap
 
 # Support VIM script in python
 pip3 install --user pynvim

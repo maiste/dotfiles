@@ -7,10 +7,10 @@
 " ** Global mapping ** 
 
 " Global keys 
-let mapleader=","        
+let mapleader=","
 
 " Map indentation with <F7>
-nnoremap <F7> mzgg=G`z              
+nnoremap <F7> mzgg=G`z
 
 " Open/Close NerdTree with <F10>
 nmap <silent> <F10> :NERDTreeToggle<CR>
@@ -49,7 +49,7 @@ vnoremap <silent> <Leader>ct= :Tabularize /=<CR>
 vnoremap <silent> <Leader>ct# :Tabularize /#<CR>
 
 " Tabular on pattern
-vnoremap <silent> <Leader>cta :Tabularize /
+vnoremap <silent> <Leader>ctp :Tabularize /
 
 
 
