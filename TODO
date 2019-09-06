@@ -1,10 +1,4 @@
 [WIP] List of changes todo
 
-1- Modify i3 with polybar / dunst / paper icons / arc darker
-2- Replace install.py by a simple script using stow and 
-   list package with a list file. Separate install script into 
-   script for each linux (apt, dng, pacman, eopkg).
-3- use stow structure
-4- Move to keypass instead of enpass
+1- Modify sway with polybar / dunst / paper icons / arc darker
 5- Move to neomutt configuration
-6- Move to arch linux
