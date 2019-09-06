@@ -5,4 +5,4 @@
 [core]
   editor = nvim
 [gpg]
-  program = gpg
+  program = gpg2
