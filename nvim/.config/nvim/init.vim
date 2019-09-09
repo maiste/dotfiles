@@ -104,7 +104,7 @@ endif
 
 " ** Against term color bugs **
 set t_Co=256                                  " 256bits color
-set background=light                           " Define background as dark
+set background=light                          " Define background as light
 if(has("termguicolors"))                      " Set terminal colors or gui colors
   set termguicolors
 end

@@ -17,7 +17,7 @@ set -e
 
 # Python
 PYTHON_LIST="pynvim \
-python-language-server \
+'python-language-server' \
 sphinx"
 
 # Npm
@@ -36,7 +36,8 @@ install_zsh () {
   fi
 
   # Remove .zshrc default
-  rm -rf ~/.zshrc 
+  rm -rf ~/.zshrc
+  rm -rf ~/.oh-my-zsh/custom/theme
   stow -D shell
   stow -v shell
   stow -D oh-my-zsh
@@ -47,8 +48,8 @@ install_zsh () {
 install_i3 () {
   cd ~/.dotfiles
   sudo cp res/xbacklight.conf /etc/X11/xorg.conf.d
-  stow -D rofi i3
-  stow -v rofi i3
+  stow -D rofi i3 dunst
+  stow -v rofi i3 dunst
 }
 
 # Neovim

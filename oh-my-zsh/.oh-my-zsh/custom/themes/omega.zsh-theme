@@ -34,7 +34,7 @@ function get_pwd(){
 
 # Defin zsh prompt
 PROMPT='
-$me %{$fg[cyan]%}[$(get_pwd)] $(git_prompt_info)%{$reset_color%}
+ $me %{$fg[cyan]%}[$(get_pwd)] $(git_prompt_info)%{$reset_color%}
 $(virtualenv_prompt_info)$ret_status '
 
 # Git color and update
