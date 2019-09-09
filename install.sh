@@ -46,6 +46,7 @@ install_zsh () {
 # Graphics
 install_i3 () {
   cd ~/.dotfiles
+  sudo cp res/xbacklight.conf /etc/X11/xorg.conf.d
   stow -D rofi i3
   stow -v rofi i3
 }
@@ -122,6 +123,8 @@ docker \
 lxappearance \
 lightdm-gtk-greeter-settings \
 lightdm \
+arc-theme \
+numix-icon-theme-circle \
 network-managero-applet \
 xbacklight \
 dunst"
@@ -162,7 +165,6 @@ fi
 if [ "$1" = "graphic" ] ; then
   printf "# Install graphic #\n"
   install_i3
-  install_lightdm
 fi
 
 if [ "$1" = "manager" ] ; then
