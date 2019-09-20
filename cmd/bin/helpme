@@ -10,3 +10,4 @@ printf "Screen: xrandr --output <name> --same-as <name>\n"
 printf "User: useradd <name> --create-home -p <pass>\n"
 printf "User: userdel -r <name>\n"
 
+printf "Security: sudo rkhunter --checkall"
