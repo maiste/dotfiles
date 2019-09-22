@@ -3,6 +3,8 @@
 # Help script
 
 printf "Audio: pavucontrol\n"
+
+printf "Conf i3: xprop"
 printf "Screen: xrandr --output <name> --auto\n"
 printf "Screen: xrandr --output <name> --left/right-of <name>\n"
 printf "Screen: xrandr --output <name> --same-as <name>\n"

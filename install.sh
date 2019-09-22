@@ -48,6 +48,7 @@ install_zsh () {
 install_i3 () {
   cd ~/.dotfiles
   sudo cp res/xbacklight.conf /etc/X11/xorg.conf.d
+  rm -rf ~/.config/i3 ~/.config/rofi ~/.config/dunst
   stow -D rofi i3 dunst
   stow -v rofi i3 dunst
 }

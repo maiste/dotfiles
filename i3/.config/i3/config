@@ -121,7 +121,7 @@ set $ws9 " Key"
 set $ws10 " Music"
 
 # Firefox
-assign [class="Firefox"]                $ws4
+assign [class="firefox"]                $ws4
 
 # Spotify
 assign [class="Spotify"]                $ws10
