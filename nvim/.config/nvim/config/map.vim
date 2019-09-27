@@ -4,27 +4,28 @@
 " ****************************
 
 
-" ** Global mapping ** 
+" ******************
+" * Global mapping *
+" ******************
 
-" Global keys 
+" Global keys
 let mapleader=","
 
 " Map indentation with <F7>
 nnoremap <F7> mzgg=G`z
 
-" Open/Close NerdTree with <F10>
-nmap <silent> <F10> :NERDTreeToggle<CR>
-
-" Exit Insert mode with 500 ms timeout
+" Exit insert mode with 800 ms timeout
 imap kk <Esc>
 
 " End research
-nnoremap <silent> <leader> <Esc> :nohlsearch<Bar>:echo<CR>
+noremap <silent> <leader>ss :nohlsearch<Bar>:echo<CR>
 
 
-" ** CtrlP Mapping **
+" *****************
+" * CtrlP Mapping *
+" *****************
 
-" Open CtrlP 
+" Open CtrlP
 nnoremap <silent> <Leader>f :CtrlP<CR>
 
 " Open CtrlP with most recent file
@@ -33,20 +34,20 @@ nnoremap <silent> <Leader>fr :CtrlPMRU<CR>
 " Cycle between buffer
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 
-" Next buffer
+" Next/Previous buffer
 nnoremap <silent> <Leader>bn :bn<CR>
+nnoremap <silent> <Leader>bp :bp<CR>
 
 " Delete the current buffer
 nnoremap <silent> <Leader>bd :bdelete<CR>
 
 
-" ** Tabular **
+" ***********
+" * Tabular *
+" ***********
 
 " Tabular =
 vnoremap <silent> <Leader>ct= :Tabularize /=<CR>
-
-" Tabular #
-vnoremap <silent> <Leader>ct# :Tabularize /#<CR>
 
 " Tabular on pattern
 vnoremap <silent> <Leader>ctp :Tabularize /

@@ -14,16 +14,17 @@ call plug#begin('~/.vim/plugged')
 " ** Common
 Plug 'ervandew/supertab'        " Use Tab
 Plug 'Townk/vim-autoclose'      " Autoclose pairs
-Plug 'scrooloose/nerdtree'      " NerdTree
 Plug 'airblade/vim-gitgutter'   " Git changes
+Plug 'tpope/vim-fugitive'       " Manage Git
 Plug 'sheerun/vim-polyglot'     " Language support
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
 Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy finder
 
 " ** Autocompletion and linting
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'                                " Popup Menu
+Plug 'roxma/nvim-yarp'                          " ncm2 dependency
+                                                " Client LSP
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
   \ 'do': 'bash install.sh',
@@ -35,14 +36,14 @@ Plug 'SirVer/ultisnips'     " TODO
 
 
 " ** Web
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'                          " Vim for web
 
 " ** Scheme
-Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'                  " Status line
+Plug 'vim-airline/vim-airline-themes'           " Status line theme
+Plug 'morhetz/gruvbox'                          " gruvbox colorscheme
 
 call plug#end()
-
 
 
 " *************************
@@ -53,15 +54,15 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
-" ** Simplet setup
+" ** Simple setup
 set nocompatible                                 " No compatible with Vi
 set number                                       " Print line numbers
 set nowrap                                       " Doesn't allow line wrap
 set ruler                                        " Print cursor position
-set showmatch                                    " Show parentheses
+set showmatch                                    " Show parenthese highlight
 set modelines=0                                  " Disable specific code #Security
 set encoding=utf-8                               " Fix utf-8 encoding
-set smartcase                                    " Seach smart
+set smartcase                                    " Search smart
 set ignorecase                                   " Ignore case when searching
 set list                                         " Display invisible chars
 
@@ -79,12 +80,10 @@ au BufWrite * %retab                             " Retab on save
 set hidden
 set autowrite                                    " Autowrite buffer when hidden
 
-" ** Allow friends to use vim **
+" ** Easier vim **
 set mouse=a                                      " Provide mouse
-set showcmd                                      " Display cmd
-
-" ** Time out **
-set timeoutlen=800
+set showcmd                                      " Display cmd keys
+set timeoutlen=800                               " Time in ms for cmd
 
 " ** Swap files **
 set backupdir=~/.vim/neoswap/                    " for the backup files
@@ -97,7 +96,6 @@ if has('nvim')
 endif
 
 
-
 " ***********
 " *  Theme  *
 " ***********
@@ -108,23 +106,23 @@ set background=light                          " Define background as light
 if(has("termguicolors"))                      " Set terminal colors or gui colors
   set termguicolors
 end
-" let base16colorspace=256                    " Define color base
 if &term =~ '256color'                        " Fix xterm color for background
   set t_ut=
 endif
 
-" ** Theme style ** 
+" ** Theme style **
 colorscheme gruvbox                           " Choose color scheme
 
 " ** Improve search **
 set hlsearch                                  " Highlight word
 
 
-
 " *****************
 " *   Sources     *
 " *****************
 
-runtime! config/*.vim
+runtime! config/*.vim                         " Source extern config
+
+
 
 
