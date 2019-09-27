@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+##########
+# Maiste #
+##########
+
+# Start
+notify-send "Run pomodoro cycle"
+
+# Run a pomodoro cycle
+notify-send "Cycle 1"
+sleep 1500 && notify-send "break"; sleep 300 && notify-send "back to work"
+
+notify-send "Cycle 2"
+sleep 1500 && notify-send "break"; sleep 300 && notify-send "back to work"
+
+notify-send "Cycle 3"
+sleep 1500 && notify-send "break"; sleep 300 && notify-send "back to work"
+
+notify-send "Cycle 4"
+sleep 1500 && notify-send "break"; sleep 900 && notify-send "back to work"
+
+# End
+notify-send "Cycle finished"
