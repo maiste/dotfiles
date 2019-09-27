@@ -13,7 +13,8 @@ local ret_status="%(?:%{$fg_bold[yellow]%} ▶:%{$fg_bold[red]%} ▶%s)%{$reset_
 if [[ $UID -eq 0 ]]; then
   local me="%{$fg_bold[red]%}god"
 else
-  local me="%{$fg[green]%}%n%{$fg_bold[green]%}@%m%{$reset_color%}"
+  local me="%{$fg_bold[green]%}%n%{$reset_color%} on %{$fg_bold[blue]%}%m\
+%{$reset_color%} in "
 fi
 
 # Get Path
