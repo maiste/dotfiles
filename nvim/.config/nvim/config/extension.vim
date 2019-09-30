@@ -41,3 +41,14 @@ let g:airline#extensions#hunks#enabled=0
 " Preview git in new buffer
 let g:gitgutter_preview_win_floating = 0
 
+" ************
+" * UltiSnip *
+" ************
+
+" Trigger snippet
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" Move into snippets
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0

@@ -31,9 +31,8 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ }
 
 " ** Snippets
-Plug 'ncm2/ncm2-ultisnips'  " TODO
-Plug 'SirVer/ultisnips'     " TODO
-
+Plug 'ncm2/ncm2-ultisnips'  " Integrate Ultisnips
+Plug 'SirVer/ultisnips'     " Snippet manager
 
 " ** Web
 Plug 'mattn/emmet-vim'                          " Vim for web
