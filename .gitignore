@@ -2,9 +2,12 @@
 
 plugged/
 neoswap/
+.netrwhist
 
 elpa/
 auto-save-list/
 ac-comphist.dat/
 
+
 ._sync*
+
