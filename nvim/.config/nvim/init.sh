@@ -6,17 +6,16 @@
 # Create neoswap
 mkdir -p ~/.config/nvim/neoswap
 
+
+## Language Server
+
 # Support VIM script in python
 pip3 install --user pynvim
-
-# Check for C
-# Install clang-extra-tool
-
 
 # Check for go
 go get -u github.com/sourcegraph/go-langserver
 
-# Check for python 
+# Check for python
 pip install --user python-language-server
 
 # Check for rust
@@ -29,3 +28,11 @@ sudo npm install -g ocaml-language-server
 
 # Check for Dockerfile
 sudo npm install -g dockerfile-language-server-nodejs
+
+# Check for C
+# Install clang-extra-tool
+
+# For Vim-airline install powerline
+
+
+

@@ -109,25 +109,30 @@ bindsym $mod+q focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 ""
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
+set $ws1 " Home"
+set $ws2 " Terminal"
+set $ws3 " Code"
+set $ws4 " Web"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "Pass"
-set $ws10 ""
+set $ws8 " Chat"
+set $ws9 " Key"
+set $ws10 " Music"
 
-assign [class="Code"]                   $ws3
-assign [class="Firefox"]                $ws4
+# Firefox
+assign [class="firefox"]                $ws4
 
 # Spotify
 assign [class="Spotify"]                $ws10
 for_window [class="Spotify"]            move to workspace $ws10
 
-assign [class="Enpass"]                 $ws9
+# Discord
+assign  [class="discord"]               $ws8
+
+# Password Manager
+assign [class="KeePass2"]               $ws9
+for_window [class="KeePass2"]           move to workspace $ws9
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -185,7 +190,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Close session ?' -b 'yes' 'i3-msg exit'"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -201,31 +206,25 @@ bindsym $mod+Ctrl+s exec "i3lock -c 000000 ; systemctl suspend"
 #####################
 # On start commands #
 #####################
-exec --no-startup-id xrdb .Xresources-athena
-
+exec --no-startup-id xrdb .Xresources
 exec --no-startup-id compton
-
-exec --no-startup-id feh --bg-scale ~/dotfiles/res/wallpaper.png
-
+exec --no-startup-id feh --bg-scale ~/.config/.wallpaper.jpg
 exec --no-startup-id nm-applet
-
-exec --no-startup-id  xautolock -time 20 -locker 'i3lock -c 000000'
-
-exec --no-startup-id enpass
-
+exec --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000'
+exec --no-startup-id keepass
 exec --no-startup-id nextcloud
 
 ##################################
-#   Style settings for windows   #              
+#   Style settings for windows   # 
 ##################################
 
 # My font
 font pango:Cantarell 9
 
 # Add space between windows
-# gaps inner 8
-# smart_gaps on
-# smart_borders on
+gaps inner 8
+smart_gaps on
+smart_borders on
 
 for_window [class=".*"] title_format "  %title"
 for_window [class=".*"] border pixel 1
@@ -263,7 +262,7 @@ client.background       $background
 bar {
         position top
         separator_symbol " | "
-          colors {        
+          colors {
                 background          $background
                 statusline          $text
                 separator           $text 
@@ -273,8 +272,7 @@ bar {
                 inactive_workspace  $inactive    $inactive    $o_text
                 urgent_workspace    $urgent      $urgent      $text
         }
-        status_command i3status --config ~/dotfiles/i3/i3statut.conf
-
+        status_command i3status --config ~/.config/i3/i3statut.conf
 }
 
 

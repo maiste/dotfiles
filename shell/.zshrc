@@ -4,20 +4,19 @@
 ############################
 
 
-export DOT=~/dotfiles/
+export DOT=~/.dotfiles/
 
 # Theme
 ZSH_THEME="omega"
 
 # zsh plugins management
-zstyle :omz:plugins:ssh-agent identities id_rsa github
+zstyle :omz:plugins:ssh-agent identities ssh_rsa git_rsa
 
 # Plugins
 plugins=(git sudo ssh-agent npm virtualenv)
 
 # Init with oh-my-zsh
-. "$DOT/shell/.env"
+. "$DOT/res/.env"
+. "$DOT/res/.alias"
 . "$ZSH/oh-my-zsh.sh"
-. "$DOT/shell/.alias"
 
-#todo.txt list

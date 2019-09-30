@@ -9,7 +9,8 @@
 " * OCaml *
 " *********
 
-" ** OPAM
+" ** Opam Default
+
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
@@ -44,6 +45,7 @@ endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
 
 
+
 " **********
 " * C Lang *
 " **********
@@ -53,11 +55,13 @@ autocmd BufNewFile, BufRead *.c set filetype=c
 autocmd Filetype c set tabstop=4
 autocmd Filetype c set shiftwidth=4
 
+
+
 " **************
 " * Global LSP *
 " **************
 
-" Print Error Message in status and note window
+" Print Error Message in status and not window
 let g:LanguageClient_useVirtualText = 0
 
 " LSP Serveur configuration
@@ -66,6 +70,7 @@ let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
       \ 'ocaml': [&shell, &shellcmdflag, 'opam config exec -- ocaml-language-server --stdio'],
       \ 'c' : ['clangd', '-background-index'],
+      \ 'cpp' : ['clangd', '-background-index'],
       \ 'go': ['go-langserver', '-gocodecompletion'],
       \ 'Dockerfile': ['docker-langserver', '--stdio']
       \ }
