@@ -53,7 +53,12 @@ vnoremap <silent> <Leader>ct= :Tabularize /=<CR>
 vnoremap <silent> <Leader>ctp :Tabularize /
 
 
+" ********
+" * NCM2 *
+" ********
 
+" Allow to complete with CR without \n
+imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 
 
 
