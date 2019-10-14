@@ -41,12 +41,23 @@ let g:airline#extensions#hunks#enabled=0
 " Preview git in new buffer
 let g:gitgutter_preview_win_floating = 0
 
+
+" ********
+" * NCM2 *
+" ********
+
+" Trigger snippet
+inoremap <silent> <expr> <c-e> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" Limite list to 10 items
+let g:ncm2#popup_limit = 10
+
 " ************
 " * UltiSnip *
 " ************
 
-" Trigger snippet
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" Expand letter
+let g:UltiSnipsExpandTrigger = "<c-e>"
 
 " Move into snippets
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"

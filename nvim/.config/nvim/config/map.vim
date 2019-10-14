@@ -20,6 +20,11 @@ imap kk <Esc>
 " End research
 noremap <silent> <leader>ss :nohlsearch<Bar>:echo<CR>
 
+" Tab like emacs
+nnoremap <tab> ==
+
+" Tab like emacs, visual mode
+vnoremap <tab> =
 
 " *****************
 " * CtrlP Mapping *
