@@ -171,6 +171,9 @@ bindsym $mod+Return exec gnome-terminal
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
 
+# manage windows
+bindsym $mod+Tab exec rofi -show window
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -196,7 +199,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Close session ?' -b 'yes' 'i
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Lockscreen 
+# Lockscreen
 bindsym $mod+Shift+s exec "i3lock -c 000000"
 
 # Vieille
@@ -206,11 +209,12 @@ bindsym $mod+Ctrl+s exec "i3lock -c 000000 ; systemctl suspend"
 #####################
 # On start commands #
 #####################
+
 exec --no-startup-id xrdb .Xresources
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/.config/.wallpaper.jpg
 exec --no-startup-id nm-applet
-exec --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000'
+exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000'
 exec --no-startup-id keepass
 exec --no-startup-id nextcloud
 
@@ -226,53 +230,39 @@ gaps inner 8
 smart_gaps on
 smart_borders on
 
-for_window [class=".*"] title_format "  %title"
+for_window [class=".*"] title_format " %title"
 for_window [class=".*"] border pixel 1
-
-# Define colors 
-set $active       #fbf1c7
-set $inactive     #665C54
-set $text         #3230f2
-set $o_text       #d5c4a1
-set $urgent       #d65d0e
-set $hold         #000000
-set $background   #ebdbb2
 
 # Define colors from .Xresources
 set_from_resource   $active       color15         #fbf1c7
 set_from_resource   $inactive     color8          #665C54
-set_from_resource   $text         background      #3230f2
-set_from_resource   $o_text       foreground      #d5c4a1
+set_from_resource   $bg           background      #3230f2
+set_from_resource   $fg           foreground      #d5c4a1
 set_from_resource   $urgent       color17         #d65d0e
-set                 $hold                         #000000
 set_from_resource   $background   color21         #ebdbb2
 
-
 # Windows colors
-# class                 border      backgr.     text       indicator    child_border
-client.focused          $active     $active     $text      $text        $active
-client.focused_inactive $inactive   $inactive   $o_text    $inactive    $inactive
-client.unfocused        $inactive   $inactive   $o_text    $inactive    $inactive
-client.urgent           $hold       $urgent     $text      $urgent      $urgent
-client.placeholder      $hold       $hold       $text      $hold        $hold
-
-client.background       $background 
+# class                 border      backgr.     text    indicator    child_border
+client.focused          $active     $active     $bg     $bg          $active
+client.focused_inactive $inactive   $inactive   $fg     $inactive    $inactive
+client.unfocused        $inactive   $inactive   $fg     $inactive    $inactive
+client.urgent           $bg         $urgent     $bg     $urgent      $urgent
+client.placeholder      $fg         $fg         $bg     $fg          $fg
+client.background       $fg
 
 # Statut bar
 bar {
         position top
         separator_symbol " | "
           colors {
-                background          $background
-                statusline          $text
-                separator           $text 
-
-                focused_workspace   $active      $active      $text                
-                active_workspace    $background  $background  $text
-                inactive_workspace  $inactive    $inactive    $o_text
-                urgent_workspace    $urgent      $urgent      $text
+                background          $fg
+                statusline          $bg
+                separator           $bg
+                focused_workspace   $active      $active      $bg
+                active_workspace    $fg          $fg          $bg
+                inactive_workspace  $inactive    $inactive    $fg
+                urgent_workspace    $urgent      $urgent      $bg
         }
         status_command i3status --config ~/.config/i3/i3statut.conf
 }
-
 
