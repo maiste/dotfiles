@@ -1,0 +1,22 @@
+! ====================
+! =    urxvt setup   =
+! ====================
+
+! Disable scrollbar
+URxvt.scrollBar:        false
+
+! Allow and set background
+URxvt.depth:            32
+URxvt.background:       [95]base00
+
+! Font
+URxvt.font:             xft:Inconsolata:size=12, xft:monospace:size=11
+URxvt.intensityStyles : false
+
+! Lines saves
+URxvt.saveLines:        1000
+
+! Cursor Blink
+URxvt.cursorBlink:      true
+
+

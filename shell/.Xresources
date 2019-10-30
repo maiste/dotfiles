@@ -3,114 +3,12 @@
 ! =     Xressources config    =
 ! =============================
 
+! Color
+#include ".Xresources.d/color"
 
-! =====================
-! = Colors Definition =
-! =====================
+! Urxvt
+#include ".Xresources.d/urxvt"
 
-#define base00  #32302f
-#define base01  #3c3836
-#define base02  #504945
-#define base03  #665c54
-#define base04  #bdae93
-#define base05  #d5c4a1
-#define base06  #ebdbb2
-#define base07  #fbf1c7
-#define base08  #fb4934
-#define base09  #fe8019
-#define base0A  #fabd2f
-#define base0B  #b8bb26
-#define base0C  #8ec07c
-#define base0D  #83a598
-#define base0E  #d3869b
-#define base0F  #d65d0e
+! Rofi
+#include ".Xresources.d/rofi"
 
-#define _cursor #d65d0e 
-
-
-! =====================
-! =  Terminal colors  =
-! =====================
-
-*foreground:    base05
-*background:    base00
-*cursorColor:   _cursor
-
-!! Black
-*color0:        base00
-*color8:        base03
-
-!! Red
-*color1:        base08
-*color9:        base08
-
-!! Green 
-*color2:        base0B
-*color10:       base0B
-
-!! Yellow
-*color3:        base0A
-*color11:       base0A
-
-!! Blue
-*color4:        base0D
-*color12:       base0D
-
-
-!! Magenta
-*color5:        base0E
-*color13:       base0E
-
-!! Cyan
-*color6:        base0C
-*color14:       base0C
-
-
-!! White
-*color7:        base05
-*color15:       base07
-
-
-! ====================
-! =    xterm setup   =
-! ====================
-
-! Text size 
-xterm*faceName: monospace
-xterm*faceSize: 10
-
-
-
-! Allow to save a lot of line
-xterm*savelines: 1000
-
-! Allow to get urls
-xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-
-! Disable scrollbar
-xterm*ScrollBar: off
-
-! Jump to the end of term
-xterm*scrollTtyOutput: true
-
-
-! ====================
-! =    urxvt setup   =
-! ====================
-
-! Disable scrollbar
-URxvt.scrollBar:        false
-
-! Allow and set background
-URxvt.depth:            32
-URxvt.background:       [95]base00
-
-! Font
-URxvt.font:             xft:Inconsolata:size=12, xft:monospace:size=11
-URxvt.intensityStyles : false
-
-! Lines saves
-URxvt.saveLines:        1000
-
-! Cursor Blink
-URxvt.cursorBlink:      true

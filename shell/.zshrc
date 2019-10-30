@@ -3,9 +3,6 @@
 #       shell config       #
 ############################
 
-
-export DOT=~/.dotfiles/
-
 # Theme
 ZSH_THEME="omega"
 
@@ -16,7 +13,7 @@ zstyle :omz:plugins:ssh-agent identities ssh_rsa git_rsa
 plugins=(git sudo ssh-agent npm virtualenv)
 
 # Init with oh-my-zsh
-. "$DOT/res/.env"
-. "$DOT/res/.alias"
+. "./.env"
+. "./.alias"
 . "$ZSH/oh-my-zsh.sh"
 
