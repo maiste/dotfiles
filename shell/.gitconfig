@@ -1,6 +1,6 @@
 [user]
   name = Etienne MARAIS
-  email = etienne@marais.green
+  email = etiennemarais@maiste.fr
   signingkey = 0468D4EFD9FF672B
 [core]
   editor = nvim
