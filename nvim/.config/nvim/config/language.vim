@@ -64,6 +64,9 @@ autocmd Filetype c set shiftwidth=4
 " Print Error Message in status and not window
 let g:LanguageClient_useVirtualText = 0
 
+" Display types in a floating window
+let g:LanguageClient_hoverPreview = "Always"
+
 " LSP Serveur configuration
 let g:LanguageClient_serverCommands = {
       \ 'rust':  ['rustup', 'run', 'stable', 'rls'],

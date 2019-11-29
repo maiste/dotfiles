@@ -52,10 +52,10 @@ nnoremap <silent> <Leader>bd :bdelete<CR>
 " ***********
 
 " Tabular =
-vnoremap <silent> <Leader>ct= :Tabularize /=<CR>
+vnoremap <silent> <Leader>t= :Tabularize /=<CR>
 
 " Tabular on pattern
-vnoremap <silent> <Leader>ctp :Tabularize /
+vnoremap <silent> <Leader>tp :Tabularize /
 
 
 " ********
@@ -65,6 +65,13 @@ vnoremap <silent> <Leader>ctp :Tabularize /
 " Allow to complete with CR without \n
 imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 
+
+" *******
+" * LSP *
+" *******
+
+" Display type
+nnoremap <silent> <Leader>gt :call LanguageClient#textDocument_hover()<CR>
 
 
 

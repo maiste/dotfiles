@@ -40,7 +40,7 @@ Plug 'mattn/emmet-vim'                          " Vim for web
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
-Plug 'morhetz/gruvbox'                          " gruvbox colorscheme
+Plug 'arcticicestudio/nord-vim'                " Nord theme
 
 call plug#end()
 
@@ -110,7 +110,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme gruvbox                           " Choose color scheme
+colorscheme nord
 
 " ** Improve search **
 set hlsearch                                  " Highlight word
