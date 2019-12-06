@@ -79,6 +79,9 @@ au BufWrite * %retab                             " Retab on save
 set hidden
 set autowrite                                    " Autowrite buffer when hidden
 
+" ** System clipboard
+set clipboard=unnamed                            " Copy into system clipboard
+
 " ** Easier vim **
 set mouse=a                                      " Provide mouse
 set showcmd                                      " Display cmd keys
