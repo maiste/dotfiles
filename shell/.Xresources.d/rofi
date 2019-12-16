@@ -3,10 +3,8 @@
 ! ========
 
 rofi.color-enabled:                  true
-! Window  bg                          bg
-rofi.color-window:                   base05
-! Selector color                       bg      fg      bg 2  active_bg active_fg
-rofi.color-normal:                   base05,  base00 , base05,  base0D,  base00
+rofi.color-window:                   base03
+rofi.color-normal:                   base03,  base05 , base03,  base05,  base03
 rofi.separator-style:                solid
 rofi.hide-scrollbar:                 true
 rofi.display-run:                    shell

@@ -109,30 +109,27 @@ bindsym $mod+q focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 " Home"
-set $ws2 " Terminal"
-set $ws3 " Code"
-set $ws4 " Web"
+set $ws1 ""
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 " Chat"
-set $ws9 " Key"
-set $ws10 " Music"
-
-# Firefox
-assign [class="firefox"]                $ws4
+set $ws8 ""
+set $ws9 ""
+set $ws10 ""
 
 # Spotify
-assign [class="Spotify"]                $ws10
-for_window [class="Spotify"]            move to workspace $ws10
+assign [class="Spotify"]                $ws9
+for_window [class="Spotify"]            move to workspace $ws9
 
 # Discord
 assign  [class="discord"]               $ws8
 
 # Password Manager
-assign [class="KeePass2"]               $ws9
-for_window [class="KeePass2"]           move to workspace $ws9
+assign [class="KeePass2"]               $ws10
+for_window [class="KeePass2"]           move to workspace $ws10
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -211,7 +208,7 @@ bindsym $mod+Ctrl+s exec "i3lock -c 000000 ; systemctl suspend"
 #####################
 
 exec --no-startup-id xrdb .Xresources
-exec --no-startup-id compton
+exec --no-startup-id picom
 exec --no-startup-id feh --bg-scale ~/.config/.wallpaper.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000'
@@ -234,12 +231,12 @@ for_window [class=".*"] title_format " %title"
 for_window [class=".*"] border pixel 1
 
 # Define colors from .Xresources
-set_from_resource   $active       color15         #fbf1c7
-set_from_resource   $inactive     color8          #665C54
-set_from_resource   $bg           background      #3230f2
-set_from_resource   $fg           foreground      #d5c4a1
-set_from_resource   $urgent       color17         #d65d0e
-set_from_resource   $background   color21         #ebdbb2
+set_from_resource   $active       color15
+set_from_resource   $inactive     color8
+set_from_resource   $bg           background
+set_from_resource   $fg           foreground
+set_from_resource   $urgent       color17
+set_from_resource   $background   color21
 
 # Windows colors
 # class                 border      backgr.     text    indicator    child_border
@@ -255,9 +252,9 @@ bar {
         position top
         separator_symbol " | "
           colors {
-                background          $fg
-                statusline          $bg
-                separator           $bg
+                background          $inactive
+                statusline          $fg
+                separator           $fg
                 focused_workspace   $active      $active      $bg
                 active_workspace    $fg          $fg          $bg
                 inactive_workspace  $inactive    $inactive    $fg
