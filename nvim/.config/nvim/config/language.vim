@@ -62,7 +62,7 @@ autocmd Filetype c set shiftwidth=4
 " **************
 
 " Print Error Message in status and not window
-let g:LanguageClient_useVirtualText = 0
+let g:LanguageClient_useVirtualText = "No"
 
 " Display types in a floating window
 let g:LanguageClient_hoverPreview = "Always"

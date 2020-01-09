@@ -9,7 +9,8 @@
 " * Plugin Manager *
 " ******************
 
-call plug#begin('~/.vim/plugged')
+" Install packages in .config (can be use by vim and neovim)
+call plug#begin('~/.config/vim_plugged')
 
 " ** Common
 Plug 'ervandew/supertab'        " Use Tab
@@ -40,7 +41,7 @@ Plug 'mattn/emmet-vim'                          " Vim for web
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
-Plug 'arcticicestudio/nord-vim'                " Nord theme
+Plug 'morhetz/gruvbox'                          " Gruvbox
 
 call plug#end()
 
@@ -88,8 +89,8 @@ set showcmd                                      " Display cmd keys
 set timeoutlen=800                               " Time in ms for cmd
 
 " ** Swap files **
-set backupdir=~/.vim/neoswap/                    " for the backup files
-set directory=~/.vim/neoswap/                    " for the swap files
+set backupdir=~/.config/neoswap/                    " for the backup files
+set directory=~/.config/neoswap/                    " for the swap files
 
 " ** LSP and autocomplete
 if has('nvim')
@@ -113,7 +114,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme nord
+colorscheme gruvbox
 
 " ** Improve search **
 set hlsearch                                  " Highlight word
