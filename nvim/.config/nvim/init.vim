@@ -38,6 +38,9 @@ Plug 'SirVer/ultisnips'     " Snippet manager
 " ** Web
 Plug 'mattn/emmet-vim'                          " Vim for web
 
+" ** Todo list
+Plug 'aserebryakov/vim-todo-lists'              " Todo list utils
+
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
