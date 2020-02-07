@@ -26,6 +26,9 @@ nnoremap <tab> ==
 " Tab like emacs, visual mode
 vnoremap <tab> =
 
+" Map escap to leave terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " *****************
 " * CtrlP Mapping *
 " *****************
@@ -73,7 +76,7 @@ imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 " Display type
 nnoremap <silent> <Leader>gt :call LanguageClient#textDocument_hover()<CR>
 
-
+nnoremap <silent> <Leader>ge :call LanguageClient#explainErrorAtPoint()<CR>
 
 
 
