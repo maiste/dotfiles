@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+
+# Connect to screen
+xrandr --output DP1 --auto
+xrandr --output DP1 --right-of eDP1
+
+# Set keyboard to the right mappinng
+setxkbmap fr
