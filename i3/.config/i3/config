@@ -128,8 +128,8 @@ for_window [class="Spotify"]            move to workspace $ws9
 assign  [class="discord"]               $ws8
 
 # Password Manager
-assign [class="KeePass2"]               $ws10
-for_window [class="KeePass2"]           move to workspace $ws10
+assign [class="keepassxc"]               $ws10
+for_window [class="keepassxc"]           move to workspace $ws10
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -211,7 +211,7 @@ exec --no-startup-id xrdb .Xresources
 exec --no-startup-id picom
 exec --no-startup-id feh --bg-scale ~/.config/.wallpaper.jpg
 exec --no-startup-id nm-applet
-exec --no-startup-id keepass
+exec --no-startup-id keepassxc
 exec --no-startup-id nextcloud
 
 ##################################
@@ -222,9 +222,9 @@ exec --no-startup-id nextcloud
 font pango:Cantarell 9
 
 # Add space between windows
-gaps inner 8
-smart_gaps on
-smart_borders on
+# gaps inner 8
+# smart_gaps on
+# smart_borders on
 
 for_window [class=".*"] title_format " %title"
 for_window [class=".*"] border pixel 1
