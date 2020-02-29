@@ -1,4 +1,5 @@
 
+
 #+STARTIP: overview
 
 * Environment variables 
@@ -25,10 +26,13 @@
       (which-key-mode))
 
     (setq make-backup-files nil)
+    (setq auto-save-default nil)
 
     (electric-pair-mode t)
-  #+END_SRC
 
+    (setq-default indent-tabs-mode nil)
+  #+END_SRC
+  
 * Appearence 
 
   #+BEGIN_SRC emacs-lisp
@@ -36,9 +40,14 @@
       :ensure t
       :config
       (if window-system
-	  (load-theme 'nord t)
-	(load-theme 'wombat t)))
+          (load-theme 'nord t)
+        (load-theme 'wombat t)))
 
+    (use-package all-the-icons)
+
+    (use-package powerline
+      :ensure t
+      :hook (after-init . powerline-default-theme))
 
     (menu-bar-mode -1)
     (tool-bar-mode -1)
@@ -69,9 +78,18 @@
 * Buffers
 
   #+BEGIN_SRC emacs-lisp
-    (setq ido-enable-flex-matching t)
-    (setq ido-everywhere t)
-    (ido-mode 1)
+    (use-package ivy
+      :ensure t
+      :config
+      (progn
+        (ivy-mode 1)
+        (setq ivy-use-virtual-buffers t)
+        (global-set-key "\C-s" 'swiper)
+        (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+        (global-set-key (kbd "C-c u") 'counsel-unicode-char)
+        (global-set-key (kbd "C-c g") 'counsel-git)
+        (global-set-key (kbd "C-c j") 'counsel-git-grep)
+        ))
   #+END_SRC
 
 * Org
@@ -143,6 +161,15 @@
 	     ("s" "todo" entry (file+headline "~/Documents/todo.org" "Tasks")
 	      "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
    #+END_SRC
+
+* Autocomplete
+  #+BEGIN_SRC emacs-lisp
+    (use-package company
+      :ensure t
+      :config
+      (global-company-mode t))
+  #+END_SRC
+
 * OCaml
 
   #+BEGIN_SRC emacs-lisp

@@ -11,8 +11,11 @@
   (which-key-mode))
 
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (electric-pair-mode t)
+
+(setq-default indent-tabs-mode nil)
 
 (use-package nord-theme
   :ensure t
@@ -21,6 +24,11 @@
       (load-theme 'nord t)
     (load-theme 'wombat t)))
 
+(use-package all-the-icons)
+
+(use-package powerline
+  :ensure t
+  :hook (after-init . powerline-default-theme))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -39,9 +47,18 @@
   (progn
     (global-set-key [remap other-window] 'ace-window)))
 
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+(use-package ivy
+  :ensure t
+  :config
+  (progn
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (global-set-key "\C-s" 'swiper)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "C-c u") 'counsel-unicode-char)
+    (global-set-key (kbd "C-c g") 'counsel-git)
+    (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    ))
 
 (setq org-agenda-files '("~/Documents/todo.org"))
 
@@ -88,5 +105,10 @@
 	"* TODO [#A] %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")
 	("s" "todo" entry (file+headline "~/Documents/todo.org" "Tasks")
 	 "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
+
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode t))
 
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
