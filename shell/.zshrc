@@ -10,10 +10,15 @@ ZSH_THEME="omega"
 zstyle :omz:plugins:ssh-agent identities ssh_rsa git_rsa ip7_rsa
 
 # Plugins
-plugins=(git sudo ssh-agent npm virtualenv)
+plugins=(git \
+         sudo \
+         ssh-agent \
+         npm \
+         colored-man-pages \
+         virtualenv)
 
 # Init with oh-my-zsh
-. "./.env"
-. "./.alias"
+. "$HOME/.env"
+. "$HOME/.alias"
 . "$ZSH/oh-my-zsh.sh"
 
