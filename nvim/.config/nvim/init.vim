@@ -21,6 +21,8 @@ Plug 'sheerun/vim-polyglot'     " Language support
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
 Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy finder
+Plug 'cespare/vim-toml'         " Vim syntax for toml
+Plug 'stephpy/vim-yaml'         " Vim syntax for yaml
 
 " ** Autocompletion and linting
 Plug 'ncm2/ncm2'                                " Popup Menu
@@ -42,6 +44,7 @@ Plug 'mattn/emmet-vim'                          " Vim for web
 Plug 'aserebryakov/vim-todo-lists'              " Todo list utils
 
 " ** Scheme
+Plug 'Yggdroot/indentLine'                      " Display indention
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'morhetz/gruvbox'                          " Gruvbox
