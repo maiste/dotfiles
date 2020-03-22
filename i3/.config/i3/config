@@ -223,20 +223,20 @@ exec --no-startup-id nextcloud
 font pango:Cantarell 9
 
 # Add space between windows
-# gaps inner 8
-# smart_gaps on
-# smart_borders on
+gaps inner 8
+smart_gaps on
+smart_borders on
 
 for_window [class=".*"] title_format " %title"
 for_window [class=".*"] border pixel 1
 
 # Define colors from .Xresources
-set_from_resource   $active       color15    #
-set_from_resource   $inactive     color8     #
+set_from_resource   $active       color15 #
+set_from_resource   $inactive     color8 #
 set_from_resource   $bg           background #
 set_from_resource   $fg           foreground #
-set_from_resource   $urgent       color17    #
-set_from_resource   $background   color21    #
+set_from_resource   $urgent       color17 #
+set_from_resource   $background   color21 #
 
 # Windows colors
 # class                 border      backgr.     text    indicator    child_border

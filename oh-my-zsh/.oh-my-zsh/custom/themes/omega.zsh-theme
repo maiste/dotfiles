@@ -13,8 +13,8 @@ local ret_status="%(?:%{$fg_bold[yellow]%} λ:%{$fg_bold[red]%} λ%s)%{$reset_co
 if [[ $UID -eq 0 ]]; then
   local me="%{$fg_bold[red]%}god"
 else
-  local me="%{$fg_bold[green]%}%n%{$reset_color%} on %{$fg_bold[blue]%}%m\
-%{$reset_color%} in "
+  local me="%{$fg_bold[green]%}%n%{$reset_color%} at %{$fg_bold[blue]%}%m\
+%{$reset_color%} in"
 fi
 
 # Get Path
@@ -35,7 +35,7 @@ function get_pwd(){
 
 # Defin zsh prompt
 PROMPT='
- $me %{$fg[cyan]%}[$(get_pwd)] $(git_prompt_info)%{$reset_color%}
+ $me %{$fg_bold[cyan]%}$(get_pwd) $(git_prompt_info)
 $(virtualenv_prompt_info)$ret_status '
 
 # Git color and update
