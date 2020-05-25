@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-flatpak run com.discordapp.Discord
+flatpak run --filesystem=home com.discordapp.Discord
