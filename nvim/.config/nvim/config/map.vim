@@ -12,7 +12,7 @@
 let mapleader=","
 
 " Map indentation with <F7>
-nnoremap <F7> mzgg=G`z
+nnoremap <F7> :call LanguageClient#textDocument_formatting()<CR>
 
 " Exit insert mode with 800 ms timeout
 imap kk <Esc>
@@ -74,9 +74,9 @@ imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 " *******
 
 " Display type
-nnoremap <silent> <Leader>gt :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>lt :call LanguageClient#textDocument_hover()<CR>
 
-nnoremap <silent> <Leader>ge :call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <silent> <Leader>le :call LanguageClient#explainErrorAtPoint()<CR>
 
 
 

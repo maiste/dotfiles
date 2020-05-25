@@ -104,6 +104,16 @@ if has('nvim')
   set completeopt=noinsert,menuone,noselect
 endif
 
+" Learn vim the hard way
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " ***********
 " *  Theme  *
@@ -111,7 +121,7 @@ endif
 
 " ** Against term color bugs **
 set t_Co=256                                  " 256bits color
-set background=light                          " Define background as light
+set background=dark                          " Define background as light
 if(has("termguicolors"))                      " Set terminal colors or gui colors
   set termguicolors
 end

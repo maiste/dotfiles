@@ -75,5 +75,7 @@ let g:LanguageClient_serverCommands = {
       \ 'c' : ['clangd', '-background-index'],
       \ 'cpp' : ['clangd', '-background-index'],
       \ 'go': ['gopls'],
-      \ 'Dockerfile': ['docker-langserver', '--stdio']
+      \ 'Dockerfile': ['docker-langserver', '--stdio'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'typescript': ['javascript-typescript-stdio'],
       \ }
