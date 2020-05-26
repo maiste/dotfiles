@@ -15,10 +15,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# Alias emacs
-alias emc="emacs"
-alias enw="emacs -nw"
- 
+# Flatpak
+alias todo="flatpak run org.gnome.Todo"
+
 # Alias Vim
 alias vim="nvim"
 
@@ -26,9 +25,8 @@ alias vim="nvim"
 alias venv="python3 -m venv"
 alias pip="python3 -m pip"
 
-# todo
-alias todo="vim ~/Documents/list.todo"
-
-#docker
+# Clean docker images
 alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
 
+# Daily logs
+alias daily_logs="vim ~/Documents/Organizer/current.md"
