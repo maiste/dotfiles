@@ -16,7 +16,6 @@ call plug#begin('~/.config/vim_plugged')
 Plug 'ervandew/supertab'        " Use Tab
 Plug 'Townk/vim-autoclose'      " Autoclose pairs
 Plug 'airblade/vim-gitgutter'   " Git changes
-Plug 'tpope/vim-fugitive'       " Manage Git
 Plug 'sheerun/vim-polyglot'     " Language support
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
@@ -40,11 +39,7 @@ Plug 'SirVer/ultisnips'     " Snippet manager
 " ** Web
 Plug 'mattn/emmet-vim'                          " Vim for web
 
-" ** Todo list
-Plug 'aserebryakov/vim-todo-lists'              " Todo list utils
-
 " ** Scheme
-Plug 'Yggdroot/indentLine'                      " Display indention
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'morhetz/gruvbox'                          " Gruvbox
