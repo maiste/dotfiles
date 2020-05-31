@@ -3,39 +3,48 @@
 ###########################
 #     Install Script      #
 # Étienne "Maiste" Marais #
-#  Version 1 - Sept 2019  #
+#  Version 2 - June 2020  #
 ###########################
 
-# Exit in case of error
+
+
+#####################
+# Utility functions #
+#####################
+
 set -e
 
+ARGS=0
+OS_NAME=${NAME:-"arch"}
+
+exit_if_not_good () {
+  if [[ $ARGS -ne $1 ]]; then
+    printf "Not enough argument(s): got $#, wait $1\n"
+    exit 1
+  fi
+  printf ""
+}
+
 
 
 ###########
-# General #
+# Install #
 ###########
 
-# Python
-PYTHON_LIST="pynvim \
-'python-language-server' \
-sphinx"
+# ------- SHELL ---------- #
 
-# Npm
-NPM_LIST="ocaml-language-server \
-dockerfile-language-server-nodejs"
-
-# Change shell and terminal
 install_zsh () {
-  printf "** Install zsh **\n"
+  printf "** Install zsh **\n- Change shell\n";
   chsh -s /usr/bin/zsh
+  printf " - Install omz\n"
   if [ -e "$HOME/.oh-my-zsh" ] ; then
-    printf "OH-MY-ZSH already install...\n"
+    printf " - OH-MY-ZSH already install...\n"
   else
-    printf "Try curl\n"
+    printf " - Try curl\n"
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   fi
 
-  # Remove .zshrc default
+  printf " - Link files\n"
   rm -rf ~/.zshrc
   rm -rf ~/.oh-my-zsh/custom/theme
   stow -D shell
@@ -44,45 +53,79 @@ install_zsh () {
   stow -v oh-my-zsh
 }
 
-# Graphics
+# ------ GRAPHICS ---------- #
+
 install_i3 () {
+  printf "** Install i3 **\n"
   cd ~/.dotfiles
+  printf " - Copy xbacklight.conf\n"
   sudo cp res/xbacklight.conf /etc/X11/xorg.conf.d
   rm -rf ~/.config/i3 ~/.config/rofi ~/.config/dunst
+
+  printf " - Link files\n"
   stow -D rofi i3 dunst
   stow -v rofi i3 dunst
 }
 
-# Neovim
+install_xmonad () {
+  printf "** Install xmonad **\n"
+  printf " - Link files\n"
+  stow -D rofi xmonad dunst
+  stow -v rofi xmonad dunst
+}
+
+install_lightdm () {
+  sudo systemctl disable gdm
+  sudo systemctl enable lightdm
+}
+
+install_gdm () {
+  sudo systemctl disable lightdm
+  sudo systemctl enable gdm
+}
+
+install_graphic () {
+  case $1 in
+    "i3"     ) install_i3     ;;
+    "xmonad" ) install_xmonad ;;
+  esac
+}
+
+install_manager () {
+  case $1 in
+    "gdm"     ) install_gdm     ;;
+    "ligthdm" ) install_lightdm ;;
+  esac
+}
+
+# ------ PROGRAMING -------- #
+
 install_neovim () {
+  printf "** Install neovim **\n"
   cd ~/.dotfiles
+  printf " - Link files\n"
   stow -D nvim
   stow -v nvim
+  printf " - Install plugins\n"
   nvim -c "PlugInstall | q | q"
 }
 
-# Remove gdm and add lightdm
-install_lightdm () {
-  sudo systemctl disable gdm
-  sudo systemctl enable lightdm 
-}
-
-# Install packages from other repositories
-general_install () {
+install_java () {
   printf "** Install Sdkman! **\n"
   curl -s "https://get.sdkman.io" | bash
-  source "/home/maiste/.sdkman/bin/sdkman-init.sh"
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+}
+
+install_python () {
+  PYTHON_LIST="pynvim \
+    python-language-server"
 
   printf "** Install pip **\n"
   pip3 install --user --upgrade pip
   pip3 install --user $PYTHON_LIST
+}
 
-  printf "** Install npm **\n"
-  sudo npm install -g $NPM_LIST
-
-  printf "** Install go **\n"
-  go get -u github.com/sourcegraph/go-langserver
-
+install_rust () {
   printf "** Install rustup **\n"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   source $HOME/.cargo/env
@@ -90,15 +133,57 @@ general_install () {
   rustup component add rls rust-analysis rust-src
 }
 
+install_npm () {
+  NPM_LIST="ocaml-language-server \
+    dockerfile-language-server-nodejs"
+
+  printf "** Install npm **\n"
+  sudo npm install -g $NPM_LIST
+}
+
+install_go () {
+  printf "** Install go **\n"
+  go get -u golang.org/x/tools/gopls
+}
+
+install_ocaml () {
+  printf "** Install OCaml **\n"
+  OCAML_VERSION="4.10.0"
+  OCAML_LIST="merlin \
+    dune \
+    menhir \
+    odoc"
+  printf " - Install switch\n"
+  opam switch create "$OCAML_VERSION"
+  eval $(opam env)
+  printf " - Install opam packages\n"
+  opam update
+  eval $(opam env)
+  opam install $OCAML_LIST
+}
+
+install_languages () {
+  for lang in $*; do
+    case $lang in
+      "rust"   ) install_rust   ;;
+      "java"   ) install_java   ;;
+      "go"     ) install_go     ;;
+      "python" ) install_python ;;
+      "node"   ) install_node   ;;
+      "ocaml"  ) install_ocaml  ;;
+    esac
+  done
+}
 
 
-##########
-# Fedora #
-##########
+
+###########
+#  System #
+###########
 
 # Package list
-DNF_LIST="gcc \
-keepass \
+PKG_LIST="gcc \
+keepassxc \
 nextcloud-client \
 make \
 neovim \
@@ -129,51 +214,66 @@ arc-theme \
 numix-icon-theme-circle \
 network-managero-applet \
 xbacklight \
-dunst"
+dunst \
+redshift"
 
-
-# Update function
-fedora_update () {
-  printf "** Upgrade packages **\n"
-  sudo dnf upgrade -y
+install_pkgs () {
+  printf "** Install packages **\n"
+  case $1 in
+    "fedora" ) sudo dnf install -y $PKG_LIST ;;
+    *        ) sudo pacman -Syy $PKG_LIST    ;;
+  esac
 }
 
-# Install part
-fedora_install () {
-  printf "** Install packages dnf **\n"
-  sudo dnf copr enable -y gregw/i3desktop 
-  sudo dnf install -y $DNF_LIST
+update_pkgs () {
+  printf "** Update packages **\n"
+  case $1 in
+    "fedora" ) sudo dnf upgrade -y ;;
+    *        ) sudo pacman -Syu   ;;
+  esac
 }
-
 
 
 ###########
-# Install #
+# Scripts #
 ###########
 
-if [ "$1" = "fedora" ] ; then
-  printf "# Install Fedora #\n"
-  fedora_update
-  fedora_install
-  general_install
+ARGS=$#
+
+if [ "$1" = "system" ] ; then
+  printf "# Install system #\n"
+  exit_if_not_good 2
+  update_pkgs $2
+  install_pkgs $2
+  printf "##########\n\n"
 fi
 
 if [ "$1" = "tools" ] ; then
   printf "# Install tools #\n"
-  install_neovim
   install_zsh
+  install_neovim
+  install_languages $@
+  printf "##########\n\n"
 fi
 
 if [ "$1" = "graphic" ] ; then
   printf "# Install graphic #\n"
-  install_i3
+  exit_if_not_good 2
+  install_graphic $2
+  printf "##########\n\n"
 fi
 
-if [ "$1" = "manager" ] ; then
-  printf "# Change to lightdm #"
-  install_lightdm
+if [ "$1" == "manager" ]; then
+  printf "# Install session manager #\n"
+  exit_if_not_good 2
+  install_manager $2
+  printf "##########\n\n"
 fi
 
 if [ "$1" = "help" ] ; then
-  printf "Install script : \n-fedora\n-global\n-graphic\n\-manager"
+  printf "Install script : \n\
+    -system [name]\n\
+    -tools [language list: rust ocaml node python go]\n\
+    -graphic [windows manager]\n\
+    -manager [session manager]\n"
 fi
