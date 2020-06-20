@@ -3,8 +3,8 @@
 ! ========
 
 rofi.color-enabled:                  true
-rofi.color-window:                   base03
-rofi.color-normal:                   base03,  base05 , base03,  base05,  base03
+rofi.color-window:                   nord0
+rofi.color-normal:                   nord0,  nord4, nord0,  nord4, nord0
 rofi.separator-style:                solid
 rofi.hide-scrollbar:                 true
 rofi.display-run:                    shell

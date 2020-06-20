@@ -210,7 +210,7 @@ bindsym $mod+Ctrl+s exec "i3lock -c 000000 ; systemctl suspend"
 exec --no-startup-id xrdb .Xresources
 exec --no-startup-id compton
 exec --no-startup-id redshift
-exec --no-startup-id feh --bg-scale ~/.config/.wallpaper.jpg
+exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nm-applet
 exec --no-startup-id keepassxc
 exec --no-startup-id nextcloud

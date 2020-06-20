@@ -16,6 +16,7 @@ call plug#begin('~/.config/vim_plugged')
 Plug 'ervandew/supertab'        " Use Tab
 Plug 'Townk/vim-autoclose'      " Autoclose pairs
 Plug 'airblade/vim-gitgutter'   " Git changes
+Plug 'tpope/vim-fugitive'         " Git in statusline
 Plug 'sheerun/vim-polyglot'     " Language support
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
@@ -43,6 +44,7 @@ Plug 'mattn/emmet-vim'                          " Vim for web
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'morhetz/gruvbox'                          " Gruvbox
+Plug 'arcticicestudio/nord-vim'                 " Nord
 
 call plug#end()
 
@@ -125,7 +127,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme gruvbox
+colorscheme nord
 
 " ** Improve search **
 set hlsearch                                  " Highlight word

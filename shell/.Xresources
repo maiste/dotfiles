@@ -4,7 +4,7 @@
 ! =============================
 
 ! Color
-#include ".Xresources.d/color"
+#include ".Xresources.d/nord"
 
 ! Urxvt
 #include ".Xresources.d/urxvt"
