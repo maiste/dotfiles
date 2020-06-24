@@ -27,6 +27,7 @@ alias pip="python3 -m pip"
 
 # Clean docker images
 alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
+alias delete_docker='docker rm $(docker ps -aq)'
 
 # Daily logs
 alias daily_logs="vim ~/Documents/Organizer/current.md"
