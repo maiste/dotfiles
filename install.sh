@@ -63,15 +63,15 @@ install_i3 () {
   rm -rf ~/.config/i3 ~/.config/rofi ~/.config/dunst
 
   printf " - Link files\n"
-  stow -D rofi i3 dunst
-  stow -v rofi i3 dunst
+  stow -D i3 dunst
+  stow -v i3 dunst
 }
 
 install_xmonad () {
   printf "** Install xmonad **\n"
   printf " - Link files\n"
-  stow -D rofi xmonad dunst
-  stow -v rofi xmonad dunst
+  stow -D xmonad dunst
+  stow -v xmonad dunst
 }
 
 install_lightdm () {
