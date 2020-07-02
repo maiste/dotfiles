@@ -29,6 +29,13 @@ vnoremap <tab> =
 " Map escap to leave terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+" ************
+" * NerdTree *
+" ************
+
+" Map F9 with toogle tree
+map <F9> :NERDTreeToggle<CR>
+
 " *****************
 " * CtrlP Mapping *
 " *****************

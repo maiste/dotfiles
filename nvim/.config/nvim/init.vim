@@ -20,7 +20,11 @@ Plug 'tpope/vim-fugitive'         " Git in statusline
 Plug 'sheerun/vim-polyglot'     " Language support
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
+Plug 'preservim/nerdtree'       " Open file
 Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy finder
+Plug 'tpope/vim-surround'       " Manafe surrounding
+
+" ** Add syntaxe
 Plug 'cespare/vim-toml'         " Vim syntax for toml
 Plug 'stephpy/vim-yaml'         " Vim syntax for yaml
 
@@ -43,8 +47,7 @@ Plug 'mattn/emmet-vim'                          " Vim for web
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
-Plug 'morhetz/gruvbox'                          " Gruvbox
-Plug 'arcticicestudio/nord-vim'                 " Nord
+Plug 'joshdick/onedark.vim'                     " One dark
 
 call plug#end()
 
@@ -61,6 +64,7 @@ filetype plugin indent on
 set nocompatible                                 " No compatible with Vi
 set number                                       " Print line numbers
 set nowrap                                       " Doesn't allow line wrap
+set cursorline                                   " Highlight current line
 set ruler                                        " Print cursor position
 set showmatch                                    " Show parenthese highlight
 set modelines=0                                  " Disable specific code #Security
@@ -127,7 +131,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme nord
+colorscheme onedark
 
 " ** Improve search **
 set hlsearch                                  " Highlight word
