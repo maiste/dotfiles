@@ -163,7 +163,7 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 ###################
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec alacritty
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
