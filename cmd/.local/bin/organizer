@@ -1,0 +1,11 @@
+#!/bin/bash
+# Ask for a choice in organizer
+
+choices="notes\ntodo"
+
+question=$(echo -e "$choices" | dmenu -i)
+
+case "$question" in
+  "notes") typora ~/.organizer/notes.md ;;
+  "todo") typora ~/.organizer/todo.md ;;
+esac

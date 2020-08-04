@@ -15,8 +15,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# Flatpak
-alias todo="flatpak run org.gnome.Todo"
+# Alias system
+alias todo="typora ~/.organizer/todo.md"
+alias notes="typora ~/.organizer/notes.md"
 
 # Alias Vim
 alias vim="nvim"
@@ -29,5 +30,3 @@ alias pip="python3 -m pip"
 alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
 alias delete_docker='docker rm $(docker ps -aq)'
 
-# Daily logs
-alias daily_logs="vim ~/Documents/Organizer/current.md"
