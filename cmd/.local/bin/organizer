@@ -6,6 +6,6 @@ choices="notes\ntodo"
 question=$(echo -e "$choices" | dmenu -i)
 
 case "$question" in
-  "notes") typora ~/.organizer/notes.md ;;
-  "todo") typora ~/.organizer/todo.md ;;
+  "notes") marker ~/.organizer/notes.md ;;
+  "todo") marker ~/.organizer/todo.md ;;
 esac
