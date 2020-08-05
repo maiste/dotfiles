@@ -1,0 +1,92 @@
+###########################
+# Étienne "maiste" Marais #
+#   Fedora Post install   #
+###########################
+
+set -e
+
+# Add rpm fusion repo
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Add external copr
+sudo dnf copr enable -y audron/polybar
+sudo dnf copr enable -y pschyska/alacritty 
+
+# Update packages
+sudo dnf upgrade -y
+
+# Install packages
+sudo dnf install -y neovim \
+                    stow \
+                    zsh \
+                    curl \
+                    wget \
+                    alacritty \
+		    htop \
+                    fontawesome-fonts \
+		    i3 \
+                    dmenu \
+                    polybar \
+                    util-linux-user \
+                    picom \
+		    nitrogen \
+		    libxcb-devel \
+                    xcb-util-keysyms-devel \
+                    xcb-util-devel \
+                    xcb-util-wm-devel \
+                    xcb-util-xrm-devel \
+                    yajl-devel \
+                    libXrandr-devel \
+                    startup-notification-devel \
+                    libev-devel \
+                    xcb-util-cursor-devel \
+                    libXinerama-devel \
+                    libxkbcommon-devel \
+                    libxkbcommon-x11-devel \
+                    pcre-devel \
+                    pango-devel \
+                    gcc \
+		    make \
+                    automake \
+                    inkscape \
+                    flatpak  \
+                    texmaker \
+                    thunderbird \
+                    nextcloud-client \
+                    lxappearance \
+                    lightdm \
+                    arc-theme \
+                    redshift \
+                    network-manager-applet \
+                    dunst \
+                    xbacklight \
+		    patch \
+		    m4 \
+		    python-devel
+
+# Install i3-gaps
+cd /tmp
+git clone https://www.github.com/Airblader/i3 i3-gaps
+cd i3-gaps
+autoreconf --force --install
+rm -rf build/
+mkdir -p build && cd build
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+make
+sudo make install
+cd /tmp
+rm -rf i3-gaps
+
+# Install hack-fonts
+cd /tmp
+wget https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+wget https://raw.githubusercontent.com/source-foundry/Hack/master/config/fontconfig/45-Hack.conf
+unzip Hack-v3.003-ttf.zip
+sudo mkdir -p /usr/share/fonts/hack
+sudo cp -f ttf/Hack-* /usr/share/fonts/hack
+sudo cp -f 45-Hack.conf /etc/fonts/conf.d
+rm -rf ttf* 45-Hack.conf
+fc-cache -f -v
+
+
