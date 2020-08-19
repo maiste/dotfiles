@@ -16,8 +16,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # Alias system
-alias todo="typora ~/.organizer/todo.md"
-alias notes="typora ~/.organizer/notes.md"
+alias orga="nvim -c \":VimwikiIndex\""
 
 # Alias Vim
 alias vim="nvim"

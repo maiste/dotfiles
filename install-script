@@ -54,7 +54,7 @@ get_node () {
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   nvm install v12.18.3
   npm install -g ocaml-language-server \
-	         dockerfile-language-server-nodejs
+           dockerfile-language-server-nodejs
 }
 
 get_python () {
@@ -117,6 +117,7 @@ link_terminal () {
   printf ">> Link terminal\n"
   rm -rf ~/.config/alacritty
   rm -rf ~/.gitconfig
+  rm -rf ~/.Xresources
   stow -v terminal
   stow -v cmd
 }
@@ -135,14 +136,10 @@ postinstall () {
 get_distro () {
   case $1 in
     "fedora") postinstall $1;;
-    "arch") printf "/!\ arch install not supported yet";;
+    "arch") postinstall $1;;
     *) printf "/!\ Distribution not supported\n"; return;;
   esac
-  get_on_flatpak
-  link_zsh
-  link_terminal
-  link_i3
-  install_nvim
+
 }
 
 #--------- HELP ----------#
@@ -155,6 +152,13 @@ ARGS=$#
 
 case $1 in
   "system")
+    filter_args 1
+    get_on_flatpak
+    link_zsh
+    link_terminal
+    link_i3
+    install_nvim;;
+  "postinstall")
     filter_args 2
     get_distro $2;;
   "lightdm") link_lightdm;;

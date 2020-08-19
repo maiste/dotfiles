@@ -7,7 +7,7 @@
 #Modification of lambda-gitster them
 
 # Return statut color
-local ret_status="%(?:%{$fg_bold[yellow]%} λ:%{$fg_bold[red]%} λ%s)%{$reset_color%}"
+local ret_status="%(?:%{$fg_bold[yellow]%}λ:%{$fg_bold[red]%} λ%s)%{$reset_color%}"
 
 # User
 if [[ $UID -eq 0 ]]; then
@@ -35,7 +35,7 @@ function get_pwd(){
 
 # Defin zsh prompt
 PROMPT='
- $me %{$fg_bold[cyan]%}$(get_pwd) $(git_prompt_info)
+$me %{$fg_bold[cyan]%}$(get_pwd) $(git_prompt_info)
 $(virtualenv_prompt_info)$ret_status '
 
 # Git color and update

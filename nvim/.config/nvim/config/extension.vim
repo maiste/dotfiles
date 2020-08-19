@@ -33,15 +33,6 @@ let g:airline#extensions#disable_rtp_load = 1
 let g:airline#extensions#hunks#enabled=0
 
 
-
-" **************
-" * Git Gutter *
-" **************
-
-" Preview git in new buffer
-let g:gitgutter_preview_win_floating = 0
-
-
 " ********
 " * NCM2 *
 " ********
@@ -51,6 +42,7 @@ inoremap <silent> <expr> <c-e> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 " Limite list to 10 items
 let g:ncm2#popup_limit = 10
+
 
 " ************
 " * UltiSnip *
@@ -64,3 +56,30 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
+
+" ***********
+" * Signify *
+" ***********
+
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change            = '~'
+
+
+" **************
+" * Quickscope *
+" **************
+
+" Trigger highlight
+let g:qs_highlight_on_keys = ['f', 'F']
+
+" Max chars
+let g:qs_max_chars=150
+
+" ***********
+" * VimWiki *
+" ***********
+
+" Set default path to organizer
+let g:vimwiki_list = [{'path': '~/.organizer'}]

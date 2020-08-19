@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# +----------------+
+# | Deezer wrapper |
+# +----------------+
+
+i3-msg 'workspace  ; exec firefox --new-window deezer.com'

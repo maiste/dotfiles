@@ -10,23 +10,25 @@
 " ******************
 
 " Install packages in .config (can be use by vim and neovim)
-call plug#begin('~/.config/vim_plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " ** Common
 Plug 'ervandew/supertab'        " Use Tab
 Plug 'Townk/vim-autoclose'      " Autoclose pairs
-Plug 'airblade/vim-gitgutter'   " Git changes
+Plug 'mhinz/vim-signify'       " Signify keys
 Plug 'tpope/vim-fugitive'         " Git in statusline
-Plug 'sheerun/vim-polyglot'     " Language support
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
 Plug 'preservim/nerdtree'       " Open file
 Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy finder
 Plug 'tpope/vim-surround'       " Manafe surrounding
+Plug 'unblevable/quick-scope'   " Char moving
 
 " ** Add syntaxe
 Plug 'cespare/vim-toml'         " Vim syntax for toml
 Plug 'stephpy/vim-yaml'         " Vim syntax for yaml
+Plug 'mattn/emmet-vim'          " Vim for web
+Plug 'sheerun/vim-polyglot'     " Language support
 
 " ** Autocompletion and linting
 Plug 'ncm2/ncm2'                                " Popup Menu
@@ -40,14 +42,15 @@ Plug 'autozimu/LanguageClient-neovim', {
 " ** Snippets
 Plug 'ncm2/ncm2-ultisnips'  " Integrate Ultisnips
 Plug 'SirVer/ultisnips'     " Snippet manager
-
-" ** Web
-Plug 'mattn/emmet-vim'                          " Vim for web
+Plug 'honza/vim-snippets'   " Snippet collection
 
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'joshdick/onedark.vim'                     " One dark
+
+" ** Utils
+Plug 'vimwiki/vimwiki'                          " Manage data with vim
 
 call plug#end()
 
@@ -69,9 +72,11 @@ set ruler                                        " Print cursor position
 set showmatch                                    " Show parenthese highlight
 set modelines=0                                  " Disable specific code #Security
 set encoding=utf-8                               " Fix utf-8 encoding
+set fileencoding=utf-8                           " Encode file with utf-8
 set smartcase                                    " Search smart
 set ignorecase                                   " Ignore case when searching
 set list                                         " Display invisible chars
+set hlsearch                                     " Highlight word
 
 " ** Setup indentation **
 set smartindent                                  " Smart indentation
@@ -79,6 +84,7 @@ set autoindent                                   " Keep indentation with new lin
 set wrap                                         " Return at the end of a line
 set tabstop=2                                    " Size of a tab when opening file
 set shiftwidth=2                                 " Shift with 2 spaces
+set showtabline=2                                " Show tab as 2 spaces
 set expandtab                                    " Change tabulations in spaces
 set colorcolumn=80                               " Set guidline for 80 columns
 au BufWrite * %retab                             " Retab on save
@@ -88,16 +94,21 @@ set hidden
 set autowrite                                    " Autowrite buffer when hidden
 
 " ** System clipboard
-set clipboard=unnamed                            " Copy into system clipboard
+set clipboard=unnamedplus                            " Copy into system clipboard
 
 " ** Easier vim **
 set mouse=a                                      " Provide mouse
+set cursorline                                   " Display current line
+set cmdheight=2                                  " 2 lines for status
 set showcmd                                      " Display cmd keys
-set timeoutlen=800                               " Time in ms for cmd
+set noshowmode                                   " Hide command mode
+set laststatus=0                                 " Always keep the status line
+
+set iskeyword+=-                                 " Treat word separeted by dash
 
 " ** Swap files **
-set backupdir=~/.config/neoswap/                    " for the backup files
-set directory=~/.config/neoswap/                    " for the swap files
+set backupdir=~/.config/nvim/neoswap/                    " for the backup files
+set directory=~/.config/nvim/neoswap/                    " for the swap files
 
 " ** LSP and autocomplete
 if has('nvim')
@@ -105,16 +116,10 @@ if has('nvim')
   set completeopt=noinsert,menuone,noselect
 endif
 
-" Learn vim the hard way
+" Better split
+set splitbelow
+set splitright
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
 " ***********
 " *  Theme  *
@@ -133,16 +138,10 @@ endif
 " ** Theme style **
 colorscheme onedark
 
-" ** Improve search **
-set hlsearch                                  " Highlight word
-
 
 " *****************
 " *   Sources     *
 " *****************
 
 runtime! config/*.vim                         " Source extern config
-
-
-
 

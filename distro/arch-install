@@ -1,0 +1,46 @@
+###########################
+# Étienne "maiste" Marais #
+#    Arch Post install    #
+###########################
+
+set -e
+
+# Upgrade package
+sudo pacman -Syu
+
+# Install package
+sudo pacman -Sy neovim \
+                stow \
+                zsh \
+                curl \
+                wget \
+                alacritty \
+                htop \
+                xsel \
+                dmenu \
+                i3-gaps \
+                picom \
+                nitrogen \
+                make \
+                git \
+                nextcloud-client \
+                dunst \
+                xorg-xbacklight \
+                m4 \
+                lightdm \
+                lxappearance \
+                python-pip \
+                lightdm-gtk-greeter \
+                lightdm-gtk-greeter-settings
+
+# Install Yay
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
+rm -rf yay
+
+# Install AUR packages
+yay -S nerd-fonts-hack
+

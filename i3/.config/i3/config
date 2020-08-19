@@ -189,8 +189,10 @@ bindsym $mod+Shift+x exec "prompt 'Exit?' 'shutdown now'"
 floating_modifier $mod
 
 # Lockscreen
-bindsym $mod+Shift+s exec "i3lock -c 000000"
+bindsym $mod+Shift+s exec "lock-script"
 
+# Lockscreen black
+bindsym $mod+Ctrl+s exec "i3lock -c 000000"
 
 
 #####################
@@ -215,7 +217,6 @@ font pango:Cantarell 9
 
 # Add space between windows
 gaps inner 8
-smart_gaps on
 smart_borders on
 
 for_window [class=".*"] title_format " %title"
@@ -241,6 +242,7 @@ client.background       $fg
 # Statut bar
 bar {
         position top
+        font pango:Cantarell 9, FontAwesome 9
         separator_symbol " | "
           colors {
                 background          $inactive

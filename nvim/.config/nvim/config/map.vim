@@ -9,19 +9,46 @@
 " ******************
 
 " Global keys
-let mapleader=","
+let mapleader="\<Space>"
+
+" Learn vim the hard way
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " Map indentation with <F7>
 nnoremap <F7> :call LanguageClient#textDocument_formatting()<CR>
 
 " Exit insert mode with 800 ms timeout
-imap kk <Esc>
+imap jk <Esc>
+imap kj <Esc>
+
+" Window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Resizing
+nnoremap <M-j>  :resize +2<CR>
+nnoremap <M-k>  :resize -2<CR>
+nnoremap <M-h>  :vertical resize -2<CR>
+nnoremap <M-l>  :vertical resize +2<CR>
+
+" Tab to move buffer
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+
+" Delete the current buffer
+nnoremap <silent> <Leader>bd :bdelete<CR>
 
 " End research
 noremap <silent> <leader>ss :nohlsearch<Bar>:echo<CR>
-
-" Tab like emacs
-nnoremap <tab> ==
 
 " Tab like emacs, visual mode
 vnoremap <tab> =
@@ -49,12 +76,6 @@ nnoremap <silent> <Leader>fr :CtrlPMRU<CR>
 " Cycle between buffer
 nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 
-" Next/Previous buffer
-nnoremap <silent> <Leader>bn :bn<CR>
-nnoremap <silent> <Leader>bp :bp<CR>
-
-" Delete the current buffer
-nnoremap <silent> <Leader>bd :bdelete<CR>
 
 
 " ***********
@@ -82,8 +103,11 @@ imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 
 " Display type
 nnoremap <silent> <Leader>lt :call LanguageClient#textDocument_hover()<CR>
-
 nnoremap <silent> <Leader>le :call LanguageClient#explainErrorAtPoint()<CR>
+
+" ***********
+" * Signify *
+" ***********
 
 
 
