@@ -144,24 +144,44 @@ get_distro () {
 
 #--------- HELP ----------#
 display_help () {
-  printf "Help:\n"
+  printf "Install script
+
+# INFO
+It's my personnal install script
+
+# USAGE
+ $ ./install-script [CMD]
+
+# CMD
+    * system [arch | fedora] => install all the system utilities 
+    * install => link all the system requirements
+    * lightdm => unlink gdm and link lightdm
+    * languages {list} => Install the language requierements.
+       list => go / ocaml / python / rust / java / node
+
+# AUTHOR
+Script written by maiste
+"
 }
 
 #------- LAUNCHER --------#
 ARGS=$#
 
 case $1 in
-  "system")
+  "install")
     filter_args 1
     get_on_flatpak
-    link_zsh
     link_terminal
     link_i3
-    install_nvim;;
-  "postinstall")
+    install_nvim
+    link_zsh;;
+  "system")
     filter_args 2
-    get_distro $2;;
-  "lightdm") link_lightdm;;
+    get_distro $2
+    get_on_flatpak;;
+  "lightdm")
+    filter_args 1
+    link_lightdm;;
   "languages")
     filter_args 2
     get_languages $@;;
