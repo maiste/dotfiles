@@ -118,10 +118,12 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 ""
 set $ws9 ""
-set $ws10 ""
+set $ws10 ""
 
 # Discord
 assign  [class="discord"]               $ws8
+assign  [class="Evolution"]             $ws10
+
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -205,6 +207,7 @@ exec --no-startup-id redshift
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
+exec --no-startup-id evolution
 
 
 

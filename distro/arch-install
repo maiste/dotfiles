@@ -24,14 +24,19 @@ sudo pacman -Sy neovim \
                 make \
                 git \
                 nextcloud-client \
+                evolution \
+                network-manager-applet \
                 dunst \
                 xorg-xbacklight \
                 m4 \
                 lightdm \
                 lxappearance \
+                arc-gtk-theme \
+                arc-icon-theme \
                 python-pip \
                 lightdm-gtk-greeter \
-                lightdm-gtk-greeter-settings
+                lightdm-gtk-greeter-settings \
+                texmaker
 
 # Install Yay
 cd /tmp

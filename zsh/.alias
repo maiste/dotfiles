@@ -12,11 +12,11 @@ alias ll="ls -l"
 alias ld="ls -ld"
 
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias .3="cd ../.."
+alias .4="cd ../../.."
 
 # Alias system
-alias orga="nvim -c \":VimwikiIndex\""
+alias notes="nvim -c \":VimwikiIndex\""
 
 # Alias Vim
 alias vim="nvim"

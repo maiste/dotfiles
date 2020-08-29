@@ -22,15 +22,15 @@ sudo dnf install -y neovim \
                     curl \
                     wget \
                     alacritty \
-        htop \
+                    htop \
                     fontawesome-fonts \
-        i3 \
+                    i3 \
                     dmenu \
                     polybar \
                     util-linux-user \
                     picom \
-        nitrogen \
-        libxcb-devel \
+                    nitrogen \
+                    libxcb-devel \
                     xcb-util-keysyms-devel \
                     xcb-util-devel \
                     xcb-util-wm-devel \
@@ -46,13 +46,14 @@ sudo dnf install -y neovim \
                     pcre-devel \
                     pango-devel \
                     gcc \
-        make \
+                    make \
                     automake \
                     inkscape \
                     flatpak  \
                     texmaker \
-                    thunderbird \
+                    geary \
                     nextcloud-client \
+                    evolution \
                     lxappearance \
                     lightdm \
                     arc-theme \
@@ -60,9 +61,9 @@ sudo dnf install -y neovim \
                     network-manager-applet \
                     dunst \
                     xbacklight \
-        patch \
-        m4 \
-        python-devel
+                    patch \
+                    m4 \
+                    python-devel \
 
 # Install i3-gaps
 cd /tmp
