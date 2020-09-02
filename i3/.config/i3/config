@@ -184,8 +184,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "prompt 'Close session?' 'i3-msg exit'"
 
 # Shutdown i3
-bindsym $mod+Shift+x exec "prompt 'Exit?' 'shutdown now'"
-
+bindsym $mod+Shift+x exec "prompt 'Ça va être tout noir' 'shutdown now'"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -193,8 +192,8 @@ floating_modifier $mod
 # Lockscreen
 bindsym $mod+Shift+s exec "lock-script"
 
-# Lockscreen black
-bindsym $mod+Ctrl+s exec "i3lock -c 000000"
+# Lock and sleep
+bindsym $mod+Ctrl+s exec "lock-script ; systemctl suspend"
 
 
 #####################
