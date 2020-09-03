@@ -105,10 +105,9 @@ imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 nnoremap <silent> <Leader>lt :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <Leader>le :call LanguageClient#explainErrorAtPoint()<CR>
 
-" ***********
-" * Signify *
-" ***********
+" ********************
+" * Instant markdown *
+" ********************
 
-
-
+autocmd FileType markdown nnoremap <leader>md :InstantMarkdownPreview<CR>
 

@@ -82,4 +82,12 @@ let g:qs_max_chars=150
 " ***********
 
 " Set default path to organizer
-let g:vimwiki_list = [{'path': '~/.organizer'}]
+let g:vimwiki_list = [{ 'path': '~/.organizer','syntax': 'markdown', 'ext': '.md'}]
+
+" ********************
+" * Instant markdown *
+" ********************
+
+" Disable autostart
+let g:instant_markdown_autostart = 0
+

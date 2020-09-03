@@ -28,6 +28,7 @@ Plug 'unblevable/quick-scope'   " Char moving
 Plug 'cespare/vim-toml'         " Vim syntax for toml
 Plug 'stephpy/vim-yaml'         " Vim syntax for yaml
 Plug 'mattn/emmet-vim'          " Vim for web
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'} " Markdown preview
 Plug 'sheerun/vim-polyglot'     " Language support
 
 " ** Autocompletion and linting
