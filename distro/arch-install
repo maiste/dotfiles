@@ -36,7 +36,9 @@ sudo pacman -Sy neovim \
                 python-pip \
                 lightdm-gtk-greeter \
                 lightdm-gtk-greeter-settings \
-                texmaker
+                texmaker \
+                ripgrep \
+                fzf
 
 # Install Yay
 cd /tmp

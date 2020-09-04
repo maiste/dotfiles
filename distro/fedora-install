@@ -64,6 +64,8 @@ sudo dnf install -y neovim \
                     patch \
                     m4 \
                     python-devel \
+                    ripgrep \
+                    fzf
 
 # Install i3-gaps
 cd /tmp

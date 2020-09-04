@@ -15,12 +15,9 @@ call plug#begin('~/.config/nvim/plugged')
 " ** Common
 Plug 'ervandew/supertab'        " Use Tab
 Plug 'Townk/vim-autoclose'      " Autoclose pairs
-Plug 'mhinz/vim-signify'       " Signify keys
-Plug 'tpope/vim-fugitive'         " Git in statusline
 Plug 'godlygeek/tabular'        " Align
 Plug 'scrooloose/nerdcommenter' " Comment code
 Plug 'preservim/nerdtree'       " Open file
-Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy finder
 Plug 'tpope/vim-surround'       " Manafe surrounding
 Plug 'unblevable/quick-scope'   " Char moving
 
@@ -50,8 +47,16 @@ Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'joshdick/onedark.vim'                     " One dark
 
-" ** Utils
+" ** Notes
 Plug 'vimwiki/vimwiki'                          " Manage data with vim
+
+" ** Git
+Plug 'mhinz/vim-signify'       " Signify keys
+Plug 'tpope/vim-fugitive'         " Git in statusline
+
+" ** FZF
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 call plug#end()
 

@@ -63,18 +63,18 @@ tnoremap <Esc> <C-\><C-n>
 " Map F9 with toogle tree
 map <F9> :NERDTreeToggle<CR>
 
-" *****************
-" * CtrlP Mapping *
-" *****************
+" *******
+" * Fzf *
+" *******
 
-" Open CtrlP
-nnoremap <silent> <Leader>f :CtrlP<CR>
+" Open Fzf
+nnoremap <silent> <Leader>f :Files<CR>
 
-" Open CtrlP with most recent file
-nnoremap <silent> <Leader>fr :CtrlPMRU<CR>
+" Check in files
+nnoremap <silent> <Leader>fg :Rg<CR>
 
-" Cycle between buffer
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+" Cycle between buffers
+nnoremap <silent> <Leader>b :Buffers<CR>
 
 
 
