@@ -75,7 +75,14 @@ let g:LanguageClient_serverCommands = {
       \ 'c' : ['clangd', '-background-index'],
       \ 'cpp' : ['clangd', '-background-index'],
       \ 'go': ['gopls'],
+      \ 'sh': ['bash-language-server', 'start'],
+      \ 'elm': ['elm-language-server'],
       \ 'Dockerfile': ['docker-langserver', '--stdio'],
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'typescript': ['javascript-typescript-stdio'],
       \ }
+
+" Language Server root marker
+let g:LanguageClient_rootMarker = {
+  \ 'elm': ['elm.json'],
+\ }

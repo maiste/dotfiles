@@ -46,6 +46,14 @@ get_java () {
 
 }
 
+get_sh () {
+  npm install -g bash-language-server
+}
+
+get_elm () {
+  npm install -g @elm-tooling/elm-language-server
+}
+
 get_node () {
   printf ">> Build node\n"
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -72,6 +80,8 @@ get_languages () {
       "python") get_python;;
       "node") get_node;;
       "java") get_java;;
+      "sh") get_sh;;
+      "elm") get_elm;;
     esac
   done
 }
@@ -157,7 +167,7 @@ It's my personnal install script
     * install => link all the system requirements
     * lightdm => unlink gdm and link lightdm
     * languages {list} => Install the language requierements.
-       list => go / ocaml / python / rust / java / node
+       list => go / ocaml / python / rust / java / node / sh / elm
 
 # AUTHOR
 Script written by maiste
