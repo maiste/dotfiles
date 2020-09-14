@@ -61,28 +61,4 @@ autocmd Filetype c set shiftwidth=4
 " * Global LSP *
 " **************
 
-" Print Error Message in status and not window
-let g:LanguageClient_useVirtualText = "No"
 
-" Display types in a floating window
-let g:LanguageClient_hoverPreview = "Always"
-
-" LSP Serveur configuration
-let g:LanguageClient_serverCommands = {
-      \ 'rust':  ['rustup', 'run', 'stable', 'rls'],
-      \ 'python': ['pyls'],
-      \ 'ocaml': [&shell, &shellcmdflag, 'opam config exec -- ocaml-language-server --stdio'],
-      \ 'c' : ['clangd', '-background-index'],
-      \ 'cpp' : ['clangd', '-background-index'],
-      \ 'go': ['gopls'],
-      \ 'sh': ['bash-language-server', 'start'],
-      \ 'elm': ['elm-language-server'],
-      \ 'Dockerfile': ['docker-langserver', '--stdio'],
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'typescript': ['javascript-typescript-stdio'],
-      \ }
-
-" Language Server root marker
-let g:LanguageClient_rootMarker = {
-  \ 'elm': ['elm.json'],
-\ }

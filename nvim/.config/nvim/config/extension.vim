@@ -4,6 +4,18 @@
 " * Étienne (Maiste) Marais  *
 " ****************************
 
+" *******
+" * CoC *
+" *******
+
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+	\ 'coc-explorer',
+	\ 'coc-marketplace',
+  \ 'coc-json',
+	\ 'coc-vimlsp',
+  \ ]
 
 " ***********
 " * Airline *
@@ -31,17 +43,6 @@ let g:airline#extensions#disable_rtp_load = 1
 
 " Hide hunks count in airline
 let g:airline#extensions#hunks#enabled=0
-
-
-" ********
-" * NCM2 *
-" ********
-
-" Trigger snippet
-inoremap <silent> <expr> <c-e> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-" Limite list to 10 items
-let g:ncm2#popup_limit = 10
 
 
 " ************

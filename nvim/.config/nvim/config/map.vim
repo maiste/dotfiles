@@ -22,7 +22,7 @@ imap <left> <nop>
 imap <right> <nop>
 
 " Map indentation with <F7>
-nnoremap <F7> :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <F7> :CocAction('format')<CR>
 
 " Exit insert mode with 800 ms timeout
 imap jk <Esc>
@@ -61,7 +61,7 @@ tnoremap <Esc> <C-\><C-n>
 " ************
 
 " Map F9 with toogle tree
-map <F9> :NERDTreeToggle<CR>
+map <F9> :CocCommand explorer<CR>
 
 " *******
 " * Fzf *
@@ -88,22 +88,29 @@ vnoremap <silent> <Leader>t= :Tabularize /=<CR>
 " Tabular on pattern
 vnoremap <silent> <Leader>tp :Tabularize /
 
-
-" ********
-" * NCM2 *
-" ********
-
-" Allow to complete with CR without \n
-imap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
-
-
 " *******
-" * LSP *
+" * CoC *
 " *******
+
+" Expand coc snippets
+imap <C-e> <Plug>(coc-snippets-expand)
 
 " Display type
-nnoremap <silent> <Leader>lt :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <Leader>le :call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <silent> <Leader>lt :call <SID>show_documentation()<CR>
+nnoremap <silent> <Leader>le :CocDiagnostics<CR>
+nnoremap <silent> <Leader>gd <Plug>(coc-definition)
+nnoremap <silent> <Leader>gt <Plug>(coc-type-definition)
+nmap <leader>lf  <Plug>(coc-format-selected)
+
+" Use K to show documentation in preview window.
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " ********************
 " * Instant markdown *
