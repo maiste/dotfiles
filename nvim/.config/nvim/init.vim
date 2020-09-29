@@ -22,7 +22,7 @@ Plug 'unblevable/quick-scope'   " Char moving
 
 " ** Add syntaxe
 Plug 'mattn/emmet-vim'          " Vim for web
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'} " Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'sheerun/vim-polyglot'     " Language support
 
 " ** Autocompletion and linting
@@ -35,6 +35,7 @@ Plug 'honza/vim-snippets'   " Snippet collection
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'joshdick/onedark.vim'                     " One dark
+Plug 'morhetz/gruvbox'                          " Gruvbox
 
 " ** Notes
 Plug 'vimwiki/vimwiki'                          " Manage data with vim
@@ -117,7 +118,7 @@ set splitright
 
 " ** Against term color bugs **
 set t_Co=256                                  " 256bits color
-set background=dark                          " Define background as light
+set background=light                          " Define background as light
 if(has("termguicolors"))                      " Set terminal colors or gui colors
   set termguicolors
 end
@@ -126,7 +127,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme onedark
+colorscheme gruvbox
 
 
 " *****************
