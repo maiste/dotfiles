@@ -113,8 +113,8 @@ function! s:show_documentation()
 endfunction
 
 " ********************
-" * Instant markdown *
+" * Markdown preview *
 " ********************
 
-autocmd FileType markdown nnoremap <leader>md :InstantMarkdownPreview<CR>
+autocmd FileType markdown nnoremap <leader>md :MarkdownPreview<CR>
 

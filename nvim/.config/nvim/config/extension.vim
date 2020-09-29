@@ -15,6 +15,7 @@ let g:coc_global_extensions = [
 	\ 'coc-marketplace',
   \ 'coc-json',
 	\ 'coc-vimlsp',
+	\ 'coc-java',
   \ ]
 
 " ***********
@@ -86,9 +87,8 @@ let g:qs_max_chars=150
 let g:vimwiki_list = [{ 'path': '~/.organizer','syntax': 'markdown', 'ext': '.md'}]
 
 " ********************
-" * Instant markdown *
+" * Markdown Preview *
 " ********************
 
-" Disable autostart
-let g:instant_markdown_autostart = 0
-
+" Expand tabulation as space
+autocmd Filetype vimwiki set expandtab
