@@ -136,6 +136,7 @@ get_on_flatpak () {
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak install flathub com.discordapp.Discord
   flatpak install flathub com.google.AndroidStudio
+  flatpak install flathub us.zoom.Zoom
 }
 
 postinstall () {
