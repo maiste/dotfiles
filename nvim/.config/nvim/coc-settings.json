@@ -16,7 +16,7 @@
   },
 
 	"coc.preferences.formatOnSaveFiletypes": [
-		"ocaml", "rust"
+		"ocaml", "rust", "java"
 	],
 
   "explorer.width": 30,
@@ -26,5 +26,6 @@
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
-  }
+  },
+  "java.format.settings.url": "/home/etienne/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
 }
