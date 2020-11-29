@@ -109,4 +109,4 @@ window:
 
 background_opacity: 0.97
 
-colors: *light
+colors: *dark

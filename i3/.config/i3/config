@@ -219,6 +219,7 @@ font pango:Cantarell 9
 
 # Add space between windows
 gaps inner 8
+smart_gaps on
 smart_borders on
 
 for_window [class=".*"] title_format " %title"
