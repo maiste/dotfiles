@@ -96,14 +96,17 @@ vnoremap <silent> <Leader>tp :Tabularize /
 imap <C-e> <Plug>(coc-snippets-expand)
 
 " Display type
-nnoremap <silent> <Leader>lt :call <SID>show_documentation()<CR>
-nnoremap <silent> <Leader>le :CocDiagnostics<CR>
-nnoremap <silent> <Leader>gd <Plug>(coc-definition)
-nnoremap <silent> <Leader>gt <Plug>(coc-type-definition)
-nmap <leader>lf  <Plug>(coc-format-selected)
+nmap <silent> <Leader>lt :call <SID>show_documentation()<CR>
+nmap <Leader>lf  <Plug>(coc-format-selected)
+nmap <leader>lfa <plug>(coc-format)
+nmap <leader>lr <plug>(coc-rename)
+nmap <silent> <Leader>gd <Plug>(coc-definition)
+nmap <silent> <Leader>gdd <Plug>(coc-declaration)
+nmap <silent> <Leader>gt <Plug>(coc-type-definition)
+nmap <silent> <Leader>gi <Plug>(coc-implementation)
+nmap <silent> <Leader>gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')

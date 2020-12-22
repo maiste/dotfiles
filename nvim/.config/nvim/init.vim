@@ -34,8 +34,8 @@ Plug 'honza/vim-snippets'   " Snippet collection
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
-Plug 'joshdick/onedark.vim'                     " One dark
 Plug 'morhetz/gruvbox'                          " Gruvbox
+Plug 'arcticicestudio/nord-vim'                 " Nord
 
 " ** Notes
 Plug 'vimwiki/vimwiki'                          " Manage data with vim
@@ -81,7 +81,7 @@ set wrap                                         " Return at the end of a line
 set tabstop=2                                    " Size of a tab when opening file
 set shiftwidth=2                                 " Shift with 2 spaces
 set showtabline=2                                " Show tab as 2 spaces
-set noexpandtab                                    " Change tabulations in spaces
+set expandtab                                    " Change tabulations in spaces
 set colorcolumn=80                               " Set guidline for 80 columns
 " au BufWrite * %retab                             " Retab on save
 
@@ -127,7 +127,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme gruvbox
+colorscheme nord
 
 
 " *****************
