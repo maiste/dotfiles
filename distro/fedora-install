@@ -65,20 +65,25 @@ sudo dnf install -y neovim \
                     m4 \
                     python-devel \
                     ripgrep \
-                    fzf
+                    fzf \
+                    cpan \
+                    meson \
+                    tig
 
 # Install i3-gaps
+
+sudo cpan install ExtUtils::MakeMaker
+
 cd /tmp
 git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps
-autoreconf --force --install
-rm -rf build/
 mkdir -p build && cd build
-../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-make
-sudo make install
+meson ..
+ninja
+meson install
 cd /tmp
 rm -rf i3-gaps
+
 
 # Install hack-fonts
 cd /tmp

@@ -99,8 +99,9 @@ install_nvim () {
 #-------- SYSTEM --------#
 link_lightdm () {
   printf ">> Link lightdm\n"
-  sudo systemctl enable lightdm
   sudo systemctl disable gdm
+  sudo systemctl enable lightdm
+  sudo systemctl start lightdm
 }
 
 link_i3 () {
@@ -188,8 +189,7 @@ case $1 in
     link_zsh;;
   "system")
     filter_args 2
-    get_distro $2
-    get_on_flatpak;;
+    get_distro $2;;
   "lightdm")
     filter_args 1
     link_lightdm;;
