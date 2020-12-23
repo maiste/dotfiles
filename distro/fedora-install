@@ -26,6 +26,7 @@ sudo dnf install -y neovim \
                     fontawesome-fonts \
                     i3 \
                     dmenu \
+                    rofi \
                     polybar \
                     util-linux-user \
                     picom \

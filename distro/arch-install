@@ -38,7 +38,8 @@ sudo pacman -Sy neovim \
                 lightdm-gtk-greeter-settings \
                 texmaker \
                 ripgrep \
-                fzf
+                fzf  \
+                rofi
 
 # Install Yay
 cd /tmp

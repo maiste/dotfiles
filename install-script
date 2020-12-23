@@ -23,7 +23,7 @@ get_ocaml () {
   sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
   opam init
   opam update -y
-  opam install -y merlin dune menhir odoc
+  opam install -y merlin dune menhir odoc ocaml-lsp-server
 }
 
 get_rust () {
@@ -109,7 +109,7 @@ link_i3 () {
   cd ~/.dotfiles
   sudo cp res/xbacklight.conf /etc/X11/xorg.conf.d
   rm -rf ~/.config/i3 ~/.config/dunst
-  stow -v i3 dunst
+  stow -v i3 management
 }
 
 link_zsh () {
@@ -138,6 +138,7 @@ get_on_flatpak () {
   flatpak install flathub com.discordapp.Discord
   flatpak install flathub com.google.AndroidStudio
   flatpak install flathub us.zoom.Zoom
+  flatpak install flathub org.telegram.desktop
 }
 
 postinstall () {

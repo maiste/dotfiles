@@ -160,7 +160,7 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 bindsym $mod+Return exec alacritty
 
 # start rofi (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show drun
 
 # kill focused window
 bindsym $mod+Shift+q kill
