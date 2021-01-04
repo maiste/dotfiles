@@ -21,3 +21,4 @@ plugins=(git \
 . "$HOME/.env"
 . "$HOME/.alias"
 . "$ZSH/oh-my-zsh.sh"
+. "$HOME/.nix-profile/etc/profile.d/nix.sh"
