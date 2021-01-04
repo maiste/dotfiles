@@ -4,4 +4,4 @@
 # | Deezer wrapper |
 # +----------------+
 
-i3-msg 'workspace ; exec brave --new-window deezer.com'
+i3-msg 'workspace ; exec firefox --new-window deezer.com'
