@@ -24,7 +24,7 @@ sudo pacman -Sy neovim \
                 make \
                 git \
                 nextcloud-client \
-                evolution \
+                thunderbird \
                 network-manager-applet \
                 dunst \
                 xorg-xbacklight \

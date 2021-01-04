@@ -54,7 +54,7 @@ sudo dnf install -y neovim \
                     texmaker \
                     geary \
                     nextcloud-client \
-                    evolution \
+                    thunderbird \
                     lxappearance \
                     lightdm \
                     arc-theme \
