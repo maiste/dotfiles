@@ -20,7 +20,6 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-html',
 	\ 'coc-emmet',
-	\ 'coc-prettier'
   \ ]
 
 " ***********
