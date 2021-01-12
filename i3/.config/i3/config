@@ -121,8 +121,9 @@ set $ws9 ""
 set $ws10 ""
 
 # Discord
-assign  [class="discord"]                 $ws8
-assign  [class="Thunderbird"]             $ws10
+assign  [class="discord"]        $ws8
+assign  [class="Thunderbird"]    $ws10
+assign  [class="Evolution"]      $ws10
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -205,7 +206,7 @@ exec --no-startup-id redshift
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
-exec --no-startup-id thunderbird
+exec --no-startup-id evolution
 
 
 
@@ -256,5 +257,6 @@ bar {
                 urgent_workspace    $urgent      $urgent      $bg
         }
         status_command i3status --config ~/.config/i3/i3statut.conf
+        tray_output primary
 }
 
