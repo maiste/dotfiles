@@ -5,6 +5,7 @@
 " ***************************
 
 
+
 " ******************
 " * Plugin Manager *
 " ******************
@@ -13,42 +14,52 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " ** Common
-Plug 'ervandew/supertab'        " Use Tab
-Plug 'godlygeek/tabular'        " Align
-Plug 'scrooloose/nerdcommenter' " Comment code
-Plug 'preservim/nerdtree'       " Open file
-Plug 'tpope/vim-surround'       " Manafe surrounding
-Plug 'unblevable/quick-scope'   " Char moving
-
-" ** Add syntaxe
-Plug 'mattn/emmet-vim'          " Vim for web
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'sheerun/vim-polyglot'     " Language support
+Plug 'scrooloose/nerdcommenter'                 " Comment code
+Plug 'tpope/vim-surround'                       " Manafe surrounding
+Plug 'unblevable/quick-scope'                   " Char moving
+Plug 'godlygeek/tabular'                        " Align
+Plug 'sheerun/vim-polyglot'                     " Language support
 
 " ** Autocompletion and linting
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ncm2/ncm2'                                " Autocompletion system
+Plug 'roxma/nvim-yarp'                          " Dependency
+Plug 'ncm2/ncm2-bufword'                        " Completion in buffer
+Plug 'ncm2/ncm2-path'                           " Path completion
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }                                         " Language Server
+Plug 'ncm2/ncm2-ultisnips'                      " Integration for ncm2 snippets
+Plug 'SirVer/ultisnips'                         " Snippet manager
+Plug 'honza/vim-snippets'                       " Snippet collection
+Plug 'scalameta/nvim-metals'                    " Metals for nvim
 
-" ** Snippets
-Plug 'honza/vim-snippets'   " Snippet collection
+" ** Notes
+Plug 'vimwiki/vimwiki'                          " Manage data with vim
+Plug 'iamcco/markdown-preview.nvim', {
+      \ 'do': { -> mkdp#util#install() },
+      \ 'for': ['markdown', 'vim-plug']
+      \ }                                       " Preview for notes
+
+" ** Git
+Plug 'mhinz/vim-signify'                        " Signify keys
+Plug 'tpope/vim-fugitive'                       " Git in statusline
+
+" ** FZF
+Plug 'junegunn/fzf', {
+      \ 'do': { -> fzf#install() }
+      \ }                                       " Fzf
+Plug 'junegunn/fzf.vim'                         " Vim integration of fzf
+Plug 'airblade/vim-rooter'                      " Project root
+
 
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'morhetz/gruvbox'                          " Gruvbox
 Plug 'arcticicestudio/nord-vim'                 " Nord
-
-" ** Notes
-Plug 'vimwiki/vimwiki'                          " Manage data with vim
-
-" ** Git
-Plug 'mhinz/vim-signify'       " Signify keys
-Plug 'tpope/vim-fugitive'         " Git in statusline
-
-" ** FZF
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-
 call plug#end()
+
 
 
 " *************************
@@ -88,8 +99,6 @@ set colorcolumn=80                               " Set guidline for 80 columns
 " ** Buffers setup **
 set hidden
 set autowrite                                    " Autowrite buffer when hidden
-set updatetime=300                               " Require by CoC
-set shortmess+=c                                 " Don't send message
 
 " ** System clipboard
 set clipboard=unnamedplus                            " Copy into system clipboard
@@ -112,6 +121,7 @@ set splitbelow
 set splitright
 
 
+
 " ***********
 " *  Theme  *
 " ***********
@@ -128,6 +138,58 @@ endif
 
 " ** Theme style **
 colorscheme nord
+
+
+
+" ******************
+" * Global mapping *
+" ******************
+
+" Global keys
+let mapleader="\<Space>"
+
+" Learn vim the hard way
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+" Map indentation with <F7>
+nnoremap <F7> :CocAction('format')<CR>
+
+" Exit insert mode with 800 ms timeout
+imap jk <Esc>
+imap kj <Esc>
+
+" Window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Resizing
+nnoremap <M-j>  :resize +2<CR>
+nnoremap <M-k>  :resize -2<CR>
+nnoremap <M-h>  :vertical resize -2<CR>
+nnoremap <M-l>  :vertical resize +2<CR>
+
+" Tab to move buffer
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+
+" Delete the current buffer
+nnoremap <silent> <Leader>bd :bdelete<CR>
+
+" End research
+noremap <silent> <leader>ss :nohlsearch<Bar>:echo<CR>
+
+" Map escap to leave terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 
 
 " *****************

@@ -4,23 +4,6 @@
 " * Étienne (Maiste) Marais  *
 " ****************************
 
-" *******
-" * CoC *
-" *******
-
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-	\ 'coc-explorer',
-	\ 'coc-marketplace',
-  \ 'coc-json',
-	\ 'coc-vimlsp',
-	\ 'coc-java',
-	\ 'coc-metals',
-	\ 'coc-css',
-	\ 'coc-html',
-	\ 'coc-emmet',
-  \ ]
 
 " ***********
 " * Airline *
@@ -50,6 +33,7 @@ let g:airline#extensions#disable_rtp_load = 1
 let g:airline#extensions#hunks#enabled=0
 
 
+
 " ************
 " * UltiSnip *
 " ************
@@ -63,6 +47,7 @@ let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
 
+
 " ***********
 " * Signify *
 " ***********
@@ -71,6 +56,19 @@ let g:signify_sign_add               = '+'
 let g:signify_sign_delete            = '_'
 let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
+
+
+
+" ***********
+" * Tabular *
+" ***********
+
+" Tabular =
+vnoremap <silent> <Leader>t= :Tabularize /=<CR>
+
+" Tabular on pattern
+vnoremap <silent> <Leader>tp :Tabularize /
+
 
 
 " **************
@@ -83,6 +81,23 @@ let g:qs_highlight_on_keys = ['f', 'F']
 " Max chars
 let g:qs_max_chars=150
 
+
+
+" *******
+" * Fzf *
+" *******
+
+" Open Fzf
+nnoremap <silent> <Leader>ff :GFiles<CR>
+
+" Check in files
+nnoremap <silent> <Leader>fg :Rg<CR>
+
+" Cycle between buffers
+nnoremap <silent> <Leader>b :Buffers<CR>
+
+
+
 " ***********
 " * VimWiki *
 " ***********
@@ -90,9 +105,63 @@ let g:qs_max_chars=150
 " Set default path to organizer
 let g:vimwiki_list = [{ 'path': '~/.organizer','syntax': 'markdown', 'ext': '.md'}]
 
+
+
 " ********************
 " * Markdown Preview *
 " ********************
 
 " Expand tabulation as space
 autocmd Filetype vimwiki set expandtab
+autocmd FileType markdown nnoremap <leader>md :MarkdownPreview<CR>
+
+
+
+" *********
+" * NCM2  *
+" *********
+
+" Enable buffer
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" Display one menu
+set completeopt=noinsert,menuone,noselect
+
+" Short messages
+set shortmess+=c
+
+" Autotrigger on text changes
+au TextChangedI * call ncm2#auto_trigger()
+
+" Setup NCM2 keybindings
+inoremap <c-c> <ESC>
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+
+
+" ********************
+" * Language Server  *
+" ********************
+
+" Declare new servers
+let g:LanguageClient_serverCommands = {
+    \ 'ocaml': [&shell, &shellcmdflag, 'opam config exec -- ocamllsp'],
+    \ 'rust': ['rls'],
+    \ 'python': ['pyls'],
+    \ 'Dockerfile': ['docker-langserver', '--stdio'],
+    \ }
+
+" Keybindings
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
