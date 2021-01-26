@@ -110,12 +110,17 @@ link_i3 () {
 }
 
 link_zsh () {
-  printf "Link zsh\n"
+  printf ">> Link zsh\n"
   chsh -s /usr/bin/zsh
+  printf ">> Install starship\n"
+  curl -fsSL https://starship.rs/install.sh | bash
+  printf ">> Install oh-my-zsh"
   if [ -e "$HOME/.oh-my-zsh" ] ; then
     printf "OH-MY-ZSH already installed....\n"
   else
-        sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+              $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   fi
   rm -rf ~/.zshrc
   stow -v zsh
