@@ -14,7 +14,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " ** Common
-Plug 'scrooloose/nerdcommenter'                 " Comment code
+Plug 'preservim/nerdcommenter'                 " Comment code
 Plug 'tpope/vim-surround'                       " Manafe surrounding
 Plug 'unblevable/quick-scope'                   " Char moving
 Plug 'godlygeek/tabular'                        " Align
@@ -158,9 +158,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-" Map indentation with <F7>
-nnoremap <F7> :CocAction('format')<CR>
 
 " Exit insert mode with 800 ms timeout
 imap jk <Esc>
