@@ -150,9 +150,16 @@ inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 let g:LanguageClient_serverCommands = {
     \ 'ocaml': [&shell, &shellcmdflag, 'opam config exec -- ocamllsp'],
     \ 'rust': ['rls'],
+    \ 'scala': ['metals-vim'],
     \ 'python': ['pyls'],
     \ 'Dockerfile': ['docker-langserver', '--stdio'],
     \ }
+
+" Print Error Message in status and not window
+let g:LanguageClient_useVirtualText = "No"
+
+" Display types in a floating window
+let g:LanguageClient_hoverPreview = "Always"
 
 " Keybindings
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>

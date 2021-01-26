@@ -32,7 +32,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'ncm2/ncm2-ultisnips'                      " Integration for ncm2 snippets
 Plug 'SirVer/ultisnips'                         " Snippet manager
 Plug 'honza/vim-snippets'                       " Snippet collection
-Plug 'scalameta/nvim-metals'                    " Metals for nvim
+Plug 'derekwyatt/vim-scala'                     " Scala
 
 " ** Notes
 Plug 'vimwiki/vimwiki'                          " Manage data with vim
@@ -99,9 +99,10 @@ set colorcolumn=80                               " Set guidline for 80 columns
 " ** Buffers setup **
 set hidden
 set autowrite                                    " Autowrite buffer when hidden
+set updatetime=300                               " Require by LSP
 
 " ** System clipboard
-set clipboard=unnamedplus                            " Copy into system clipboard
+set clipboard=unnamedplus                        " Copy into system clipboard
 
 " ** Easier vim **
 set mouse=a                                      " Provide mouse
