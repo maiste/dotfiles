@@ -15,7 +15,7 @@ To install my dotfiles I have written a script. You can execute it as follow:
  * **PopOS** based (transition to nix)
  * **I3-Gaps** as window manager
  * **Rofi** as app launcher
- * **Zsh** as shell
+ * **Zsh** as shell with **Starship** as a prompt
  * **Alacritty** as terminal
  * **Neovim** to code and take notes
 

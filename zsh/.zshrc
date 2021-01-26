@@ -4,22 +4,25 @@
 #      Version 20210125    #
 ############################
 
-# Theme
-ZSH_THEME="omega"
-
-# zsh plugins management
-zstyle :omz:plugins:ssh-agent identities public private
-
 # Plugins
+zstyle :omz:plugins:ssh-agent identities public private
 plugins=(git \
+         tig \
          sudo \
          ssh-agent \
-         npm \
          colored-man-pages \
-         virtualenv)
+         zsh-autosuggestions \
+         docker-compose \
+         sdk \
+         cargo \
+         flutter \
+         sbt)
 
-# Init with oh-my-zsh
+# Init env
 . "$HOME/.env"
 . "$HOME/.alias"
 . "$ZSH/oh-my-zsh.sh"
 . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+# Run the starship prompt
+eval "$(starship init zsh)"

@@ -1,0 +1,107 @@
+###########################
+# Étienne "maiste" Marais #
+#    Starship Config      #
+#    Version 20210125     #
+###########################
+
+
+##---------- STYLE --------------##
+format = """
+$username\
+$hostname\
+$directory\
+$dart\
+$golang\
+$java\
+$nodejs\
+$nix_shell\
+$ocaml\
+$python\
+$rust\
+$git_branch\
+$git_status\
+$git_state
+$character"""
+
+[character]
+format = "$symbol "
+success_symbol = "[λ](bold white)"
+error_symbol   = "[λ](bold red)"
+
+
+##------ LOCAL MODULES ----------##
+[username]
+format = "[$user]($style)"
+style_root = "bold red"
+style_user = "bold blue"
+show_always = true
+
+[hostname]
+format = "::[$hostname]($style)"
+style = "bold purple"
+ssh_only = false
+
+[directory]
+format = "::[$path]($style)[$read_only]($read_only_style)"
+style = "bold cyan"
+truncation_length = 2
+
+
+##--------- GIT MODULES --------##
+[git_branch]
+format = "::[$branch]($style)"
+style = "bold yellow"
+
+[git_state]
+format = "=[$state: $progress_current/$progress_total]($style)"
+style = "bold yellow"
+rebase = "R"
+merge = "M"
+revert = "Rev"
+cherry-pick = "CP"
+bisect = "B"
+am = "AM"
+am_or_rebase = "AMR"
+
+[git_status]
+untracked = "?"
+stashed = ""
+modified = "~"
+staged = "+"
+renamed = "r"
+deleted = "-"
+style = "bold yellow"
+
+
+##-------- LANG MODULES -------##
+[dart]
+format= "::[dart $version]($style)"
+style = "bold blue"
+
+[golang]
+format = "::[go $version]($style)"
+style = "bold cyan"
+
+[java]
+format = "::[java $version]($style)"
+style = "bold green"
+
+[nix_shell]
+format  = "::[$name->$state]($style)"
+stule = "bold blue"
+
+[nodejs]
+format = "::[node $version]($style)"
+style = "bold green"
+
+[ocaml]
+format = "::[ocaml $version]($style)"
+style = "bold yellow"
+
+[python]
+format = "::[py ${pyenv_prefix}(${virtualenv}->)${version}]($style)"
+style = "bold yellow"
+
+[rust]
+format = "::[rust $version]($style)"
+style = "bold red"
