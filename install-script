@@ -2,7 +2,7 @@
 ###########################
 # Étienne "maiste" Marais #
 #   Installation script   #
-#    Version: 20200805    #
+#    Version: 20210126    #
 ###########################
 
 #--------- UTILS ---------#
@@ -43,15 +43,14 @@ get_java () {
   printf ">> Build java\n"
   curl -s "https://get.sdkman.io" | bash
   source "$HOME/.sdkman/bin/sdkman-init.sh"
-
+  sdk install java 11.0.2-open
 }
 
-get_sh () {
-  npm install -g bash-language-server
-}
-
-get_elm () {
-  npm install -g @elm-tooling/elm-language-server
+get_scala () {
+  printf ">> Build scala\n"
+  get_java
+  sdk install sbt
+  sdk install scala
 }
 
 get_node () {
@@ -61,8 +60,7 @@ get_node () {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   nvm install v12.18.3
-  npm install -g ocaml-language-server \
-           dockerfile-language-server-nodejs
+  npm install -g dockerfile-language-server-nodejs
 }
 
 get_python () {
@@ -80,8 +78,7 @@ get_languages () {
       "python") get_python;;
       "node") get_node;;
       "java") get_java;;
-      "sh") get_sh;;
-      "elm") get_elm;;
+      "scala") get_scala;;
     esac
   done
 }
@@ -166,14 +163,14 @@ It's my personnal install script
  $ ./install-script [CMD]
 
 # CMD
-    * system [arch | fedora] => install all the system utilities 
+    * system [arch | fedora] => install all the system utilities
     * install => link all the system requirements
     * lightdm => unlink gdm and link lightdm
     * languages {list} => Install the language requierements.
-       list => go / ocaml / python / rust / java / node / sh / elm
+       list => go / ocaml / python / rust / java / node / scala
 
 # AUTHOR
-Script written by maiste
+Script written by Étienne Marais
 "
 }
 
@@ -181,6 +178,9 @@ Script written by maiste
 ARGS=$#
 
 case $1 in
+  "system")
+    filter_args 2
+    get_distro $2;;
   "install")
     filter_args 1
     get_on_flatpak
@@ -188,10 +188,7 @@ case $1 in
     link_i3
     install_nvim
     link_zsh;;
-  "system")
-    filter_args 2
-    get_distro $2;;
-  "lightdm")
+    "lightdm")
     filter_args 1
     link_lightdm;;
   "languages")

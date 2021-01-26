@@ -1,3 +1,8 @@
+###########################
+# Étienne "maiste" Marais #
+#    Alacritty Config     #
+#    Version 20210125     #
+###########################
 
 ## ------- KEYS ------------ ##
 
@@ -98,6 +103,8 @@ schemes:
         cyan: '#8fbcbb'
         white: '#eceff4'
 
+## ------- SETUP -------- ##
+
 offset:
   x: 2
   y: 2
@@ -108,5 +115,4 @@ window:
     y: 3
 
 background_opacity: 0.97
-
 colors: *dark

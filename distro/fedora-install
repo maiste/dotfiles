@@ -1,6 +1,7 @@
 ###########################
 # Étienne "maiste" Marais #
 #   Fedora Post install   #
+#   Version 20210125      #
 ###########################
 
 set -e
@@ -27,7 +28,6 @@ sudo dnf install -y neovim \
                     i3 \
                     dmenu \
                     rofi \
-                    polybar \
                     util-linux-user \
                     picom \
                     nitrogen \
@@ -49,13 +49,11 @@ sudo dnf install -y neovim \
                     gcc \
                     make \
                     automake \
-                    inkscape \
                     flatpak  \
                     texmaker \
-                    geary \
                     nextcloud-client \
-                    thunderbird \
                     lxappearance \
+                    evolution \
                     lightdm \
                     arc-theme \
                     redshift \
@@ -72,9 +70,7 @@ sudo dnf install -y neovim \
                     tig
 
 # Install i3-gaps
-
 sudo cpan install ExtUtils::MakeMaker
-
 cd /tmp
 git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps

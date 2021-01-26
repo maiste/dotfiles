@@ -1,6 +1,7 @@
 ############################
 # Étienne (Maiste ) MARAIS #
-#       shell config       #
+#       Shell config       #
+#      Version 20210125    #
 ############################
 
 # Theme

@@ -12,9 +12,9 @@ To install my dotfiles I have written a script. You can execute it as follow:
 
 ### Actual configuration
 
- * **Fedora** based
- * **I3** as window manager
- * **Dmenu** as app launcher
+ * **PopOS** based (transition to nix)
+ * **I3-Gaps** as window manager
+ * **Rofi** as app launcher
  * **Zsh** as shell
  * **Alacritty** as terminal
  * **Neovim** to code and take notes
