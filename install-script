@@ -101,6 +101,11 @@ link_lightdm () {
   sudo systemctl start lightdm
 }
 
+link_setkeyboard() {
+  echo "setxkbmap -option 'ctrl:nocaps'" >> $HOME/.xinitrc
+  echo "setxkbmap -option 'shift:both_capslock'" >> $HOME/.xinitrc
+}
+
 link_i3 () {
   printf ">> Link i3\n"
   cd ~/.dotfiles
@@ -189,6 +194,7 @@ case $1 in
   "install")
     filter_args 1
     get_on_flatpak
+    #link_setkeyboard
     link_terminal
     link_i3
     install_nvim
