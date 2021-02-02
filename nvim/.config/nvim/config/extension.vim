@@ -152,8 +152,14 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ 'scala': ['metals-vim'],
     \ 'python': ['pyls'],
+    \ 'elm': ['elm-language-server'],
     \ 'Dockerfile': ['docker-langserver', '--stdio'],
     \ }
+
+" Root marker
+let g:LanguageClient_rootMarkers = {
+  \ 'elm': ['elm.json'],
+  \ }
 
 " Print Error Message in status and not window
 let g:LanguageClient_useVirtualText = "No"
