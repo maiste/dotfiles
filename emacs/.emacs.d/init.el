@@ -331,10 +331,15 @@
 
 ;; LSP-Client
 ;; TODO add lsp with hydra
+(defun bk/lsp-mode-setup ()
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (lsp-headerline-breadcrumb-mode))
+
 (use-package lsp-mode
-  :commands (lsp lsp-deffered)
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . efs/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-keymap-prefix "C-c l") 
   :config
   (lsp-enable-which-key-integration t))
 
@@ -365,22 +370,17 @@
 ;; **************
 
 ;; Autocompletion for emacs
-(use-package company
-  :after lsp-mode
-  :hook (lsp-mode . company-mode)
-  :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
-        (:map lsp-mode-map
-         ("<tab>" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
-
-
-;; Improve completion quality
-(use-package company-box
-  :hook (company-mode . company-box-mode))
-
+ (use-package company
+    :after lsp-mode
+    :hook (lsp-mode . company-mode)
+    :bind (:map company-active-map
+           ;;("<tab>" . company-complete-selection)
+          ("<tab>" . company-complete-common-or-cycle)) ;; This line was the key
+          (:map lsp-mode-map
+           ("<tab>" . company-indent-or-complete-common))
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0))
 
 
 ;; **************
@@ -418,9 +418,13 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+(use-package git-timemachine
+  :ensure t)
+
 ;; Add to magit call to general
 (bk/leader-keys
   "gs" '(magit-status :which-key "call magit"))
+
 
 
 
@@ -428,5 +432,5 @@
 ;; * SPECIFIC CONF *
 ;; *****************
 
-;; (require 'python-conf.el)
+(require 'bk-python)
 
