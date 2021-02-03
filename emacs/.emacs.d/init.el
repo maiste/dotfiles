@@ -1,4 +1,5 @@
-;; ***************************
+; ***************************
+
 ;; *  Default configuration  *
 ;; *     EMACS - 20210201    *
 ;; * Étienne (Maiste) Marais *
@@ -79,6 +80,9 @@
 
 ;; Easier scroll
 (setq mouse-wheel-progressive-speed nil)
+
+;; Set electric pair mode
+(electric-pair-mode 1)
 
 
 
@@ -231,7 +235,9 @@
 
   (bk/leader-keys
     "tt"  '(bk-toggle-theme :which-key "toggle theme")
-    "bl"  '(counsel-switch-buffer :which-key "switch buffer")))
+    "bl"  '(counsel-switch-buffer :which-key "switch buffer")
+    "bn"  '(next-buffer :which-key "next buffer")
+    "bp"  '(previous-buffer :which-key "previous buffer")))
 
 ;; Invert comments
 (use-package evil-nerd-commenter
@@ -319,7 +325,7 @@
 
 ;; Add hydra to general
 (bk/leader-keys
-  "st" '(hydra-text-scale/body :which-key "scale text "))
+  "st" '(hydra-text-scale/body :which-key "scale text"))
 
 ;; TODO define more hydra keys for LSP / treemacs / buffers / projectile
 
@@ -336,8 +342,9 @@
   (lsp-headerline-breadcrumb-mode))
 
 (use-package lsp-mode
+  :ensure t
   :commands (lsp lsp-deferred)
-  :hook (lsp-mode . efs/lsp-mode-setup)
+  :hook (lsp-mode . bk/lsp-mode-setup)
   :init
   (setq lsp-keymap-prefix "C-c l") 
   :config
@@ -433,4 +440,4 @@
 ;; *****************
 
 (require 'bk-python)
-
+(require 'bk-ocaml)
