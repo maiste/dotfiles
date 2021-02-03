@@ -21,18 +21,10 @@ Plug 'godlygeek/tabular'                        " Align
 Plug 'sheerun/vim-polyglot'                     " Language support
 
 " ** Autocompletion and linting
-Plug 'ncm2/ncm2'                                " Autocompletion system
-Plug 'roxma/nvim-yarp'                          " Dependency
-Plug 'ncm2/ncm2-bufword'                        " Completion in buffer
-Plug 'ncm2/ncm2-path'                           " Path completion
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }                                         " Language Server
-Plug 'ncm2/ncm2-ultisnips'                      " Integration for ncm2 snippets
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'SirVer/ultisnips'                         " Snippet manager
 Plug 'honza/vim-snippets'                       " Snippet collection
-Plug 'derekwyatt/vim-scala'                     " Scala
+
 
 " ** Notes
 Plug 'vimwiki/vimwiki'                          " Manage data with vim
@@ -58,6 +50,7 @@ Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'morhetz/gruvbox'                          " Gruvbox
 Plug 'arcticicestudio/nord-vim'                 " Nord
+Plug 'sonph/onehalf', { 'rtp': 'vim' }          " One hal
 call plug#end()
 
 
@@ -138,7 +131,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme nord
+colorscheme onehalfdark
 
 
 
