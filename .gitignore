@@ -10,4 +10,6 @@ ac-comphist.dat/
 cmd/.local/bin/py*
 cmd/.local/bin/pip*
 ._sync*
+var/
+etc/
 
