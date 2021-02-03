@@ -117,64 +117,109 @@ autocmd FileType markdown nnoremap <leader>md :MarkdownPreview<CR>
 
 
 
-" *********
-" * NCM2  *
-" *********
+" ********
+" * CoC  *
+" ********
 
-" Enable buffer
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" Ensure diagnostics work well
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
-" Display one menu
-set completeopt=noinsert,menuone,noselect
+" Map <TAB> as completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Short messages
-set shortmess+=c
+" Select completion object
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Autotrigger on text changes
-au TextChangedI * call ncm2#auto_trigger()
+" Go to the next / previous diagnostic
+nmap <silent> <leader>lnd <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>lpd <Plug>(coc-diagnostic-next)
 
-" Setup NCM2 keybindings
-inoremap <c-c> <ESC>
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" GoTo code navigation.
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lr <Plug>(coc-references)
 
 
+" Display documentation
+nnoremap <silent> <leader>lh :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
-" ********************
-" * Language Server  *
-" ********************
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Declare new servers
-let g:LanguageClient_serverCommands = {
-    \ 'ocaml': [&shell, &shellcmdflag, 'opam config exec -- ocamllsp'],
-    \ 'rust': ['rls'],
-    \ 'scala': ['metals-vim'],
-    \ 'python': ['pyls'],
-    \ 'elm': ['elm-language-server'],
-    \ 'Dockerfile': ['docker-langserver', '--stdio'],
-    \ }
+" Rename symbol
+nmap <leader>lcn <Plug>(coc-rename)
 
-" Root marker
-let g:LanguageClient_rootMarkers = {
-  \ 'elm': ['elm.json'],
-  \ }
+" Formatting selected code
+xmap <leader>lf  <Plug>(coc-format-selected)
+nmap <leader>lf  <Plug>(coc-format-selected)
 
-" Print Error Message in status and not window
-let g:LanguageClient_useVirtualText = "No"
+" Applying codeAction to the selected region
+xmap <leader>la  <Plug>(coc-codeaction-selected)
+nmap <leader>la  <Plug>(coc-codeaction-selected)
 
-" Display types in a floating window
-let g:LanguageClient_hoverPreview = "Always"
+" Applying codeAction to the current buffer
+nmap <leader>lab  <Plug>(coc-codeaction)
 
-" Keybindings
-nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+" Show all diagnostics
+nnoremap <silent> <leader>lcd  :<C-u>CocList diagnostics<cr>
+
+" Show commands
+nnoremap <silent> <leader>lcc  :<C-u>CocList commands<cr>
+
+" Find symbol of current document
+nnoremap <silent> <leader>lco  :<C-u>CocList outline<cr>
+
+" Search workspace symbols
+nnoremap <silent> <leader>lss  :<C-u>CocList -I symbols<cr>
+
+" Map F9 with toogle tree
+map <F9> :CocCommand explorer<CR>
+
+" Add `:Format` command to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:IMP` command for organize imports of the current buffer.
+command! -nargs=0 IMP  :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" To install implementations
+let g:coc_global_extensions = [
+    \ 'coc-pairs',
+    \ 'coc-snippets',
+    \ 'coc-explorer',
+    \ 'coc-marketplace',
+    \ 'coc-vimlsp',
+    \ 'coc-json',
+    \ 'coc-metals',
+    \ 'coc-flutter',
+    \ 'coc-python',
+    \ 'coc-java',
+    \ 'coc-css',
+    \ 'coc-html',
+    \ 'coc-prettier',
+    \ ]
