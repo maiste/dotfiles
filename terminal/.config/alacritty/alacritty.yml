@@ -115,4 +115,4 @@ window:
     y: 3
 
 background_opacity: 0.97
-colors: *dark
+colors: *nord
