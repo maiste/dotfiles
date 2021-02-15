@@ -50,7 +50,6 @@ Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'morhetz/gruvbox'                          " Gruvbox
 Plug 'arcticicestudio/nord-vim'                 " Nord
-Plug 'sonph/onehalf', { 'rtp': 'vim' }          " One hal
 call plug#end()
 
 
@@ -131,7 +130,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme onehalfdark
+colorscheme nord
 
 
 
