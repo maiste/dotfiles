@@ -114,7 +114,7 @@ link_i3 () {
   stow -v i3 management
 }
 
-link_zsh () {
+link_terminal () {
   printf ">> Link zsh\n"
   chsh -s /usr/bin/zsh
   printf ">> Install starship\n"
@@ -127,12 +127,8 @@ link_zsh () {
     git clone https://github.com/zsh-users/zsh-autosuggestions \
               $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   fi
-  rm -rf ~/.zshrc
-  stow -v zsh
-}
-
-link_terminal () {
   printf ">> Link terminal\n"
+  rm -rf ~/.zshrc
   rm -rf ~/.config/alacritty
   rm -rf ~/.gitconfig
   rm -rf ~/.Xresources
@@ -144,8 +140,12 @@ get_on_flatpak () {
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak install flathub com.discordapp.Discord
   flatpak install flathub com.google.AndroidStudio
-  flatpak install flathub us.zoom.Zoom
   flatpak install flathub org.telegram.desktop
+}
+
+get_nix () {
+  printf ">> Install nixpkg\n"
+  curl -L https://nixos.org/nix/install | sh
 }
 
 postinstall () {
@@ -173,8 +173,8 @@ It's my personnal install script
  $ ./install-script [CMD]
 
 # CMD
-    * system [arch | fedora] => install all the system utilities
-    * install => link all the system requirements
+    * base [arch | fedora] => install all the system utilities
+    * setup => link all the system requirements
     * lightdm => unlink gdm and link lightdm
     * languages {list} => Install the language requierements.
        list => go / ocaml / python / rust / java / node / scala
@@ -188,17 +188,16 @@ Script written by Étienne Marais
 ARGS=$#
 
 case $1 in
-  "system")
+  "base")
     filter_args 2
     get_distro $2;;
-  "install")
+  "setup")
     filter_args 1
     get_on_flatpak
-    #link_setkeyboard
+    link_setkeyboard
     link_terminal
     link_i3
     install_nvim
-    link_zsh;;
     "lightdm")
     filter_args 1
     link_lightdm;;
