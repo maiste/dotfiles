@@ -202,11 +202,11 @@ bindsym $mod+Ctrl+s exec "i3lock -c 000000 ; systemctl suspend"
 
 exec --no-startup-id xrdb .Xresources
 exec --no-startup-id compton
-exec --no-startup-id redshift
 exec --no-startup-id nitrogen --restore &
-exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
-exec --no-startup-id evolution
+exec --no-startup-id redshift
+exec --no-startup-id nm-applet
+exec --no-startup-id i3-msg 'workspace $w10 ; exec firefox'
 
 
 
