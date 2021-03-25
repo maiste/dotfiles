@@ -170,7 +170,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Rename symbol
-nmap <leader>lcn <Plug>(coc-rename)
+nmap <leader>lcr <Plug>(coc-rename)
 
 " Formatting selected code
 xmap <leader>lf  <Plug>(coc-format-selected)
