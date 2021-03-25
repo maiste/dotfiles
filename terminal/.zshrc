@@ -19,8 +19,8 @@ plugins=(git \
          sbt)
 
 # Init env
-. "$HOME/.env"
-. "$HOME/.alias"
+. "$HOME/.config/zsh/.env"
+. "$HOME/.config/zsh/.alias"
 . "$ZSH/oh-my-zsh.sh"
 . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
