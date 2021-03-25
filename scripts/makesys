@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+###########################
+# Étienne "maiste" Marais #
+#   Sys install script    #
+#    Version 20210325     #
+###########################
+
+set -e
+cd "$(dirname $0)/.."
+
+printf "\n\n"
+printf "+---------------------+\n"
+printf "|  Sys configuration  |\n"
+printf "+---------------------+\n\n"
+
+printf "ROOT DIRECTORY: %s\n" $PWD
+
+
+
+#-------------- Terminal ------------#
+
+printf "\n#----- Terminal -----#\n"
+if [[ $? -eq 1 ]] ; then
+  printf " - Exit: curl not found\n"
+  exit 1
+fi
+
+printf " - Zsh as default\n"
+chsh -s /usr/bin/zsh
+
+printf " - Install starship\n"
+which starship > /dev/null
+if [[ $? -eq 1 ]] ; then
+  curl -fsSL https://starship.rs/install.sh | bash
+else
+  printf "   - Skip: starship already install\n"
+fi
+
+printf " - Install oh-my-zsh\n"
+if [ -e "$HOME/.oh-my-zsh" ] ; then
+  printf "   - Skip: oh-my-zsh already installed\n"
+else
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  git clone https://github.com/zsh-users/zsh-autosuggestions \
+            $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+
+
+#-------------- Keyboard ------------#
+
+printf "\n#----- Keyboard -----#\n"
+
+printf " - Export nocaps\n"
+echo "setxkbmap -option 'ctrl:nocaps'" >> $HOME/.xinitrc
+printf " - Export shift = capslock\n"
+echo "setxkbmap -option 'shift:both_capslock'" >> $HOME/.xinitrc
+
