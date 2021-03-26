@@ -1,0 +1,10 @@
+###########################
+# Étienne "maiste" Marais #
+#   Fedora Post install   #
+#   Version 20210325      #
+###########################
+
+set -e
+
+# Init repo
+sudo apt update -y && apt upgrade -y
