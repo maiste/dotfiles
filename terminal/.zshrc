@@ -24,5 +24,7 @@ plugins=(git \
 . "$ZSH/oh-my-zsh.sh"
 . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
+cat "$HOME/.config/zsh/banner"
+
 # Run the starship prompt
 eval "$(starship init zsh)"
