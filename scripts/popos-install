@@ -8,3 +8,10 @@ set -e
 
 # Init repo
 sudo apt update -y && apt upgrade -y
+
+# Add ppas
+sudo add-apt-repository ppa:kgilmer/speed-ricer
+sudo add-apt-repository ppa:aslatter/ppa
+
+# Install
+sudo apt install stow curl zsh rofi compton gcc m4 xbacklight dunst redshift arc-theme nitrogen htop nextcloud-desktop patch python3-pip tig fzf ripgrep make meson alacritty fonts-font-awesome texmaker lxappearance suckless-tools i3status i3lock i3-gaps
