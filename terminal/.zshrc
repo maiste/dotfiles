@@ -5,7 +5,7 @@
 ############################
 
 # Plugins
-zstyle :omz:plugins:ssh-agent identities public private
+zstyle :omz:plugins:ssh-agent identities nomadic
 plugins=(git \
          tig \
          sudo \

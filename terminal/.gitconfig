@@ -1,7 +1,7 @@
 [user]
   name = Etienne MARAIS
-  email = etiennemarais@protonmail.com
-  signingkey = 0468D4EFD9FF672B
+  email = etienne.marais@nomadic-labs.com
+  signingkey = 6E6896D598B7AA0C
 [core]
   editor = nvim
 [gpg]

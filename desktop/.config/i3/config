@@ -160,7 +160,7 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 bindsym $mod+Return exec alacritty
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show run
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -204,9 +204,8 @@ exec --no-startup-id xrdb .Xresources
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nextcloud
-exec --no-startup-id redshift
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'workspace $w10 ; exec firefox'
+exec --no-startup-id redshift
 
 
 
