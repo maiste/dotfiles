@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'                       " Manafe surrounding
 Plug 'unblevable/quick-scope'                   " Char moving
 Plug 'godlygeek/tabular'                        " Align
 Plug 'sheerun/vim-polyglot'                     " Language support
+Plug 'ocaml/vim-ocaml'                          " Improve OCaml support
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " ** Autocompletion and linting
