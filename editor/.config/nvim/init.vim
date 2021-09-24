@@ -50,8 +50,8 @@ Plug 'airblade/vim-rooter'                      " Project root
 " ** Scheme
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
-Plug 'morhetz/gruvbox'                          " Gruvbox
 Plug 'arcticicestudio/nord-vim'                 " Nord
+Plug 'rakr/vim-one'                             " OneDark variant
 call plug#end()
 
 
@@ -123,7 +123,7 @@ set splitright
 
 " ** Against term color bugs **
 set t_Co=256                                  " 256bits color
-set background=light                          " Define background as light
+set background=dark                           " Define background as light
 if(has("termguicolors"))                      " Set terminal colors or gui colors
   set termguicolors
 end
@@ -132,7 +132,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme nord
+colorscheme one
 
 
 
