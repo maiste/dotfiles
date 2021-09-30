@@ -122,8 +122,6 @@ set $ws10 ""
 
 # Discord
 assign  [class="discord"]        $ws8
-assign  [class="Thunderbird"]    $ws10
-assign  [class="Evolution"]      $ws10
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -166,13 +164,13 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Shift+q kill
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- unmute
-bindsym XF86AudioMute exec amixer -D pulse set Master +1 toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
+bindsym XF86AudioMute exec amixer set Master +1 toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -206,8 +204,6 @@ exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nextcloud
 exec --no-startup-id redshift
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'workspace $w10 ; exec firefox'
-
 
 
 ##################################
