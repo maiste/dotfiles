@@ -12,7 +12,7 @@ distributions. Currently, I support:
 ### Actual configuration
 
 Actually, I'm working on the following configuration:
- * **PopOS** based (transition to nix)
+ * **Fedora** based (transition to nix)
  * **i3-gaps** as window manager
  * **Rofi** as app launcher
  * **Zsh** as shell with **Starship** as a prompt
