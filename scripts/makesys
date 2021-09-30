@@ -51,7 +51,7 @@ fi
 printf "\n#----- Keyboard -----#\n"
 
 printf " - Export nocaps\n"
-echo "setxkbmap -option 'ctrl:nocaps'" >> $HOME/.xinitrc
+echo "setxkbmap -option 'ctrl:nocaps'" >> $HOME/.profile
 printf " - Export shift = capslock\n"
-echo "setxkbmap -option 'shift:both_capslock'" >> $HOME/.xinitrc
+echo "setxkbmap -option 'shift:both_capslock'" >> $HOME/.profile
 

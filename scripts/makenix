@@ -38,7 +38,16 @@ else
   printf " - Skip: nix already installed\n"
 fi
 
+
+
+#----- Ensure Nix in path -----#
+
+. /home/maiste/.nix-profile/etc/profile.d/nix.sh
+
+
+
 #------ Install packages ------#
+
 printf "\n#----- Install nix packages -----#\n"
 export NIXPKGS_ALLOW_UNFREE=1
 NIX_PKGS="
