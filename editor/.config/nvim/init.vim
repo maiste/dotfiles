@@ -20,7 +20,7 @@ Plug 'unblevable/quick-scope'                   " Char moving
 Plug 'godlygeek/tabular'                        " Align
 Plug 'sheerun/vim-polyglot'                     " Language support
 Plug 'ocaml/vim-ocaml'                          " Improve OCaml support
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " ** Autocompletion and linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
