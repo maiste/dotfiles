@@ -202,7 +202,7 @@ exec --no-startup-id xrdb .Xresources
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nextcloud
-exec --no-startup-id redshift
+exec --no-startup-id redshift -P -O 3000 &
 exec --no-startup-id nm-applet
 
 
