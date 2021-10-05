@@ -41,6 +41,6 @@ esac
 #-------------- Run install ------------#
 scripts/makesys
 scripts/makelinks
-scripts/makenix
+scripts/makeflatpak
 scripts/makelang
 

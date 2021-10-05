@@ -12,7 +12,7 @@ distributions. Currently, I support:
 ### Actual configuration
 
 Actually, I'm working on the following configuration:
- * **EndervourOS** (Arch based) with Nix as side package manager
+ * **EndervourOS** (Arch based) with Flatpak as side package manager
  * **i3-gaps** as window manager
  * **Rofi** as app launcher
  * **Zsh** as shell with **Starship** as a prompt
