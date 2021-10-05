@@ -3,7 +3,7 @@
 ###########################
 # Étienne "maiste" Marais #
 #    Nix install script   #
-#    Version 20210325     #
+#    Version 20211005     #
 ###########################
 
 cd "$(dirname $0)/.."
@@ -51,11 +51,10 @@ fi
 printf "\n#----- Install nix packages -----#\n"
 export NIXPKGS_ALLOW_UNFREE=1
 NIX_PKGS="
-neovim \
 discord \
 slack \
 signal-desktop \
-flameshot"
+telegram-desktop"
 printf " - Install:\n"
 printf "   - %s\n" $NIX_PKGS
 nix-env -i $NIX_PKGS

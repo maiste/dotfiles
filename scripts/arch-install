@@ -1,7 +1,7 @@
 ###########################
 # Étienne "maiste" Marais #
 #    Arch Post install    #
-#    Version 20210125     #
+#    Version 20211005     #
 ###########################
 
 set -e
@@ -20,27 +20,34 @@ sudo pacman -Sy neovim \
                 xsel \
                 dmenu \
                 i3-gaps \
+                i3lock \
+                i3status \
+                redshift \
+                rofi \
                 picom \
                 nitrogen \
-                make \
+                htop \
                 git \
                 nextcloud-client \
-                evolution \
                 network-manager-applet \
                 dunst \
                 xorg-xbacklight \
+                arandr \
                 m4 \
-                lightdm \
+                patch \
                 lxappearance \
                 arc-gtk-theme \
                 arc-icon-theme \
+                ttf-font-awesome \
+                neofetch \
                 python-pip \
-                lightdm-gtk-greeter \
-                lightdm-gtk-greeter-settings \
-                texmaker \
                 ripgrep \
-                fzf  \
-                rofi
+                fzf \
+                gcc \
+                make \
+                texlive-most \
+                texlive-lang \
+                flatpak
 
 # Install Yay
 cd /tmp
@@ -54,3 +61,11 @@ rm -rf yay
 # Install AUR packages
 yay -S nerd-fonts-hack
 
+# Install Metropolis theme
+cd $HOME
+git clone git@github.com:matze/mtheme.git
+cd mtheme
+make sty
+make install
+cd $HOME
+rm -rf mtheme

@@ -126,6 +126,6 @@ get_language "rust"  "rustup"
 
 #-------------- Editors ------------#
 
-printf "\n#----- Install languages -----#\n"
+printf "\n#----- Install editors -----#\n"
 printf " - Install neovim plugins\n"
 nvim -c "PlugInstall | q | q"
