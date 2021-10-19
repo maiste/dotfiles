@@ -28,6 +28,7 @@ sudo pacman -Sy neovim \
                 nitrogen \
                 htop \
                 git \
+                tig \
                 nextcloud-client \
                 network-manager-applet \
                 dunst \
@@ -47,7 +48,10 @@ sudo pacman -Sy neovim \
                 make \
                 texlive-most \
                 texlive-lang \
-                flatpak
+                flatpak \
+                bluez \
+                bluez-utils \
+                blueberry
 
 # Install Yay
 cd /tmp
