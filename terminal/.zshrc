@@ -6,30 +6,23 @@
 
 # Plugins
 zstyle :omz:plugins:ssh-agent identities public private
-plugins=(git \
-         tig \
-         sudo \
+plugins=(sudo \
          ssh-agent \
          colored-man-pages \
-         zsh-autosuggestions \
-         docker-compose \
-         sdk \
-         cargo \
-         flutter \
-         sbt)
+         zsh-autosuggestions)
 
 # Init env
 . "$HOME/.config/zsh/.env"
-. "$HOME/.config/zsh/.alias"
 . "$ZSH/oh-my-zsh.sh"
-#. "$HOME/.nix-profile/etc/profile.d/nix.sh"
+. "$HOME/.config/zsh/.alias"
 
+# Print banner
 cat "$HOME/.config/zsh/banner"
 
 # Run the starship prompt
 eval "$(starship init zsh)"
 
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# Sdk export path
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

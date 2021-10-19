@@ -7,10 +7,13 @@
 # Alias system
 alias rm="rm --preserve-root"
 
+# Alias displaying
+alias ls="exa"
 alias la="ls -la"
 alias ll="ls -l"
 alias ld="ls -ld"
 
+# Alias moving
 alias ..="cd .."
 alias .3="cd ../.."
 alias .4="cd ../../.."
@@ -19,6 +22,7 @@ alias .4="cd ../../.."
 alias notes="nvim -c \":VimwikiIndex\""
 
 # Alias Vim => Neovim
+alias v="nvim"
 alias vim="nvim"
 
 # Alias Python
@@ -29,3 +33,16 @@ alias pip="python3 -m pip"
 alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
 alias delete_docker='docker rm $(docker ps -aq)'
 
+# Git alias
+alias ga="git add"
+alias gs="git switch"
+alias gsc="git switch -c"
+alias gst="git status"
+alias gcs="git commit -S"
+alias gcsm="git commit -S -m"
+alias gcsf="git commit -S --fixup"
+alias gcsa="git commit -S --amend"
+alias glg="git log --graph"
+alias glgo="git log --graph --oneline --decorate"
+alias gd="git diff"
+alias gdc="git diff --cached"
