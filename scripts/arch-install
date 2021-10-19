@@ -51,7 +51,11 @@ sudo pacman -Sy neovim \
                 flatpak \
                 bluez \
                 bluez-utils \
-                blueberry
+                blueberry \
+                pandoc \
+                tree \
+                bat \
+                exa
 
 # Install Yay
 cd /tmp
@@ -63,7 +67,7 @@ rm -rf yay
 
 
 # Install AUR packages
-yay -S nerd-fonts-hack
+yay -S nerd-fonts-hack fswatch
 
 # Install Metropolis theme
 cd $HOME
