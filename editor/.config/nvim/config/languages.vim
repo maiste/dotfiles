@@ -3,6 +3,16 @@
 " * Étienne (Maiste)  Marais *
 " ****************************
 
+" *********
+" * OCaml *
+" *********
+
+" Find merlin in path
+let g:opamshare = substitute(system('opam var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+
+
 " **********
 " * C Lang *
 " **********
