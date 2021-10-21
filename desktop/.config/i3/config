@@ -238,10 +238,12 @@ client.urgent           $bg         $urgent     $bg     $urgent      $urgent
 client.placeholder      $fg         $fg         $bg     $fg          $fg
 client.background       $fg
 
-# Statut bar
+# Statut bar - Primary
+
 bar {
+        output primary
         position top
-        font pango:Cantarell 9, FontAwesome 9
+        font pango:Cantarell 11, FontAwesome 11
         separator_symbol " | "
           colors {
                 background          $inactive
@@ -256,3 +258,19 @@ bar {
         tray_output primary
 }
 
+bar {
+        output nonprimary
+        position top
+        font pango:Cantarell 10, FontAwesome 10
+          colors {
+                background          $inactive
+                statusline          $fg
+                separator           $fg
+                focused_workspace   $active      $active      $bg
+                active_workspace    $fg          $fg          $bg
+                inactive_workspace  $inactive    $inactive    $fg
+                urgent_workspace    $urgent      $urgent      $bg
+        }
+        status_command i3status --config ~/.config/i3/i3statut-side.conf
+        tray_output none
+}
