@@ -124,7 +124,7 @@ set splitright
 
 " ** Against term color bugs **
 set t_Co=256                                  " 256bits color
-set background=dark                           " Define background as light
+set background=light                          " Define background as light
 if(has("termguicolors"))                      " Set terminal colors or gui colors
   set termguicolors
 end
@@ -133,7 +133,7 @@ if &term =~ '256color'                        " Fix xterm color for background
 endif
 
 " ** Theme style **
-colorscheme one
+colorscheme nord
 
 
 
