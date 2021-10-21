@@ -46,3 +46,11 @@ alias glg="git log --graph"
 alias glgo="git log --graph --oneline --decorate"
 alias gd="git diff"
 alias gdc="git diff --cached"
+
+# OCaml
+alias dub="dune build"
+alias dut="dune runtest"
+alias opamsc="opam switch create"
+alias opami="opam install"
+alias opamdev="opam install merlin ocamlformat ocaml-lsp-server"
+alias rmopam="rm -rf _opam"
