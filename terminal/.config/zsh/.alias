@@ -25,6 +25,11 @@ alias notes="nvim -c \":VimwikiIndex\""
 alias v="nvim"
 alias vim="nvim"
 
+# Alias Emacs
+alias emacs="emacsclient -qc"
+alias emacsnw="emacsclient -qt"
+alias e="emacs"
+
 # Alias Python
 alias venv="python3 -m venv"
 alias pip="python3 -m pip"
