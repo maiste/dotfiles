@@ -444,6 +444,20 @@
   :ensure t)
 
 
+;; *********
+; * MAGIT *
+;; *********
+
+;; The incredible magit package for git
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+;; Add to magit call to general
+(maiste/leader-key
+  "gs" '(magit-status :which-key "magit status"))
+
+
 
 ;; *************
 ;; * Languages *
