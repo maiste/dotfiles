@@ -39,6 +39,7 @@ Plug 'iamcco/markdown-preview.nvim', {
 " ** Git
 Plug 'mhinz/vim-signify'                        " Signify keys
 Plug 'tpope/vim-fugitive'                       " Git in statusline
+Plug 'mkotha/conflict3'                         " Conflict manager
 
 " ** FZF
 Plug 'junegunn/fzf', {
@@ -52,7 +53,8 @@ Plug 'airblade/vim-rooter'                      " Project root
 Plug 'vim-airline/vim-airline'                  " Status line
 Plug 'vim-airline/vim-airline-themes'           " Status line theme
 Plug 'arcticicestudio/nord-vim'                 " Nord
-Plug 'rakr/vim-one'                             " OneDark variant
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'catppuccin/nvim'
 call plug#end()
 
 
@@ -131,6 +133,7 @@ end
 if &term =~ '256color'                        " Fix xterm color for background
   set t_ut=
 endif
+set gcr="a:block-Cursor"                   " The block cursor to all mode
 
 " ** Theme style **
 colorscheme nord
@@ -155,8 +158,8 @@ imap <left> <nop>
 imap <right> <nop>
 
 " Exit insert mode with 800 ms timeout
-imap jk <Esc>
-imap kj <Esc>
+imap jk <Esc>l
+imap kj <Esc>l
 
 " Window navigation
 nnoremap <C-h> <C-w>h
