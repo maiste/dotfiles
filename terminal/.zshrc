@@ -5,7 +5,7 @@
 ############################
 
 # Plugins
-zstyle :omz:plugins:ssh-agent identities public private
+zstyle :omz:plugins:ssh-agent identities public private maiste_pub
 plugins=(sudo \
          ssh-agent \
          colored-man-pages \
@@ -22,7 +22,3 @@ cat "$HOME/.config/zsh/banner"
 # Run the starship prompt
 eval "$(starship init zsh)"
 
-
-# Sdk export path
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
