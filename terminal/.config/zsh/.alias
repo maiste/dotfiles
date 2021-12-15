@@ -1,7 +1,7 @@
 ###########################
 # Etienne (Maiste) MARAIS #
 #      Alias config       #
-#    Version 20210125     #
+#    Version 20211215     #
 ###########################
 
 # Alias system
@@ -18,9 +18,6 @@ alias ..="cd .."
 alias .3="cd ../.."
 alias .4="cd ../../.."
 
-# Alias notes
-alias notes="nvim -c \":VimwikiIndex\""
-
 # Alias Vim => Neovim
 alias v="nvim"
 alias vim="nvim"
@@ -31,31 +28,23 @@ alias emacsnw="emacsclient -qt"
 alias e="emacs"
 
 # Alias Python
-alias venv="python3 -m venv"
-alias pip="python3 -m pip"
+alias venv='python3 -m venv'
+alias pip='python3 -m pip'
 
 # Docker helps
 alias clean_docker='docker rmi $(docker images -f "dangling=true" -q) --force'
 alias delete_docker='docker rm $(docker ps -aq)'
 
 # Git alias
-alias ga="git add"
-alias gs="git switch"
-alias gsc="git switch -c"
-alias gst="git status"
-alias gcs="git commit -S"
-alias gcsm="git commit -S -m"
-alias gcsf="git commit -S --fixup"
-alias gcsa="git commit -S --amend"
-alias glg="git log --graph"
-alias glgo="git log --graph --oneline --decorate"
-alias gd="git diff"
-alias gdc="git diff --cached"
+alias g='git'
 
 # OCaml
-alias dub="dune build"
-alias dut="dune runtest"
-alias opamsc="opam switch create"
-alias opami="opam install"
-alias opamdev="opam install merlin ocamlformat ocaml-lsp-server"
-alias rmopam="rm -rf _opam"
+alias dub='dune build'
+alias dut='dune runtest'
+alias dubw='dune build -w --terminal-persistence=clear-on-rebuild'
+alias opamsc='opam switch create'
+alias opami='opam install'
+alias opamdev='opam install merlin ocamlformat ocaml-lsp-server'
+alias rmopam='rm -rf _opam'
+alias opameval='eval $(opam2.1 env)'
+alias opameval0='eval $(opam2.0 env --set-root --root=/home/maiste/.opam2.0)'
