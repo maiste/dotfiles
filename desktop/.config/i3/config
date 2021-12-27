@@ -109,16 +109,16 @@ bindsym $mod+q focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 ""
+set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 ""
-set $ws9 ""
-set $ws10 ""
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # Discord
 assign  [class="discord"]        $ws8
@@ -199,12 +199,12 @@ bindsym $mod+Ctrl+s exec "i3lock -c 000000 ; systemctl suspend"
 #####################
 
 exec --no-startup-id xrdb .Xresources
-exec --no-startup-id compton
+exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nextcloud
 exec --no-startup-id redshift -P -O 3000 &
 exec --no-startup-id nm-applet
-exec --no-startup-id emacs --daemon &
+#exec_always --no-startup-id $HOME/.config/polybar/polybar.sh & # TODO
 
 
 ##################################
@@ -215,8 +215,8 @@ exec --no-startup-id emacs --daemon &
 font pango:Cantarell 9
 
 # Add space between windows
-gaps inner 8
-smart_gaps on
+gaps inner 6
+#smart_gaps on
 smart_borders on
 
 for_window [class=".*"] title_format " %title"
