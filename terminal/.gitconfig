@@ -30,6 +30,9 @@
   fep = fetch -p
 
   # Branch
+  br = branch
+  brd = branch -d
+  brD = branch -D
   sw = switch
   swc = switch -c
   re = restore
@@ -59,3 +62,10 @@
   # Logs
   l = log --graph --decorate --all
   lo = log --oneline --graph --all
+
+  # Stash
+  st = stash
+  stc = stash clear
+  stpu = stash push
+  stpo = stash pop
+  stl = stash list
