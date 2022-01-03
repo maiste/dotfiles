@@ -7,7 +7,7 @@ for working reasons so I have a few preinstalled configuration for different
 distributions. Currently, I support:
  - Archlinux
  - Fedora
- - PopOs [DOING]
+ - PopOs
 
 ### Actual configuration
 
