@@ -11,13 +11,13 @@ return {
       wk.setup(opts)
       wk.register({
         ["<leader>"] = {
-          f = { name = "Find" },
-          l = { name = "Lsp" },
-          g = { name = "Git" },
+          c = { name = "Command"},
           d = { name = "Diagnostics" },
-          s = { name = "Search" },
+          f = { name = "Find" },
+          g = { name = "Git" },
+          l = { name = "Lsp" },
           t = { name = "Tree"},
-          c = { name = "Command"}
+          w = { name = "Writing" }
         }
       })
     end,
