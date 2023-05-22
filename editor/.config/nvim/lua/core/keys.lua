@@ -4,7 +4,7 @@ local vmap = require("core.helpers").vmap
 local tmap = require("core.helpers").tmap
 
 -- Normal mode
-nmap("<leader>ss", "<cmd>nohl<CR>", "Clear search")
+nmap("<leader>fs", "<cmd>nohl<CR>", "[f]ind [s]top")
 
 nmap("<C-h>", "<C-w>h", "Go to left window")
 nmap("<C-j>", "<C-w>j", "Go to down window")
