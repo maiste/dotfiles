@@ -1,5 +1,5 @@
 ############################
-# Étienne (Maiste)  MARAIS #
+#  Maiste <dev@maiste.fr>  #
 #       Shell config       #
 #      Version 20230511    #
 ############################
