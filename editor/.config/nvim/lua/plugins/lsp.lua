@@ -143,5 +143,11 @@ return {
         }
       }
     }
+
+    -- Latex / Markdown
+    lsp.ltex.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
   end
 }
