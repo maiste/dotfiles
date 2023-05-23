@@ -6,6 +6,9 @@ set $mod Mod4
 # Include theme
 include catppuccin-mocha
 
+# Include user conf
+include /etc/sway/config.d/*
+
 ##################
 # Moving windows #
 ##################
@@ -171,7 +174,8 @@ exec_always kanshi
 # Clipboard
 exec wl-paste -t text --watch clipman store --no-persist
 
-# Fix the startup issue
+# Fix the startup issue & XDG display
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 ###################
