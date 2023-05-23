@@ -20,6 +20,7 @@
         "/home/maiste/.dotfiles/editor/.config/nvim/lua",
         "${3rd}/luv/library",
         "${3rd}/luv/library",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "/home/maiste/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/276c99a2"
     ]
 }

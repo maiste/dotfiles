@@ -1,14 +1,19 @@
 return {
-  "iamcco/markdown-preview.nvim",
-  build =
-    function()
-      vim.fn["mkdp#util#install"]()
-    end,
+  "toppair/peek.nvim",
+  event = { "VeryLazy" },
+  build = "deno task --quiet build:fast",
+  ft = "markdown",
+  config = function()
+    require("peek").setup({
+      auto_load = false,
+      app = { "epiphany", "--private-instance" },
+    })
+  end,
   keys = {
     {
       "<leader>wp",
       function()
-        vim.cmd("MarkdownPreview<CR>")
+        require("peek").open()
       end,
       desc = "[w]riting [p]review"
     }
