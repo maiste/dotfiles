@@ -1,7 +1,7 @@
 [user]
     name = Maiste
     email = dev@maiste.fr
-    signingkey = EC3B896D61BC710F
+    signingkey = 030C4ED753794A0E
 
 [core]
     editor = nvim
