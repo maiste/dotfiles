@@ -9,14 +9,19 @@ return {
   },
   keys = {
     {
-      "<leader>to",
+      "<leader>eo",
       "<cmd>Neotree<CR>",
-      desc = "[t]ree [o]pen",
+      desc = "[o]pen",
     },
     {
-      "<leader>tc",
+      "<leader>ec",
       "<cmd>Neotree close<CR>",
-      desc = "[t]ree [c]lose",
+      desc = "[c]lose",
     },
+    {
+      "<leader>et",
+      "<cmd>NeoTreeShowToggle<CR>",
+      desc = "[t]oggle"
+    }
   },
 }

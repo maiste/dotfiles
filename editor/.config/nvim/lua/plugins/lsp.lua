@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    "folke/which-key.nvim", -- For mappings
     "folke/neodev.nvim",
     "hrsh7th/cmp-nvim-lsp",
     {
@@ -45,6 +46,12 @@ return {
       return
     end
 
+    local ok_whichkey, whichkey = pcall(require, "which-key")
+    if not ok_whichkey then
+      print("Which-key not found")
+      return
+    end
+
     neodev.setup()
 
     -- Diagnostic signs
@@ -80,25 +87,35 @@ return {
       lmap('<leader>ls', vim.lsp.buf.signature_help, "[s]ignature")
 
       -- Move
-      lmap('<leader>lgd', vim.lsp.buf.definition, "[g]oto [d]efinition")
-      lmap('<leader>lgD', vim.lsp.buf.declaration, "[g]oto [D]eclaration")
-      lmap('<leader>lgi', vim.lsp.buf.implementation, "[g]oto [i]mplementation")
-      lmap('<leader>lgr', vim.lsp.buf.references, "[g]oto [r]eferences")
-      lmap('<leader>lgt', vim.lsp.buf.type_definition, "[g]oto [t]ype definition")
+      whichkey.register({
+        ["<leader>lg"] = {
+          name = "[g]oto",
+        },
+      })
+      lmap('<leader>lgd', vim.lsp.buf.definition, "[d]efinition")
+      lmap('<leader>lgD', vim.lsp.buf.declaration, "[D]eclaration")
+      lmap('<leader>lgi', vim.lsp.buf.implementation, "[i]mplementation")
+      lmap('<leader>lgr', vim.lsp.buf.references, "[r]eferences")
+      lmap('<leader>lgt', vim.lsp.buf.type_definition, "[t]ype definition")
 
       -- Workspace
-      lmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, "[w]orkspace [a]dd")
-      lmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, "[w]orkspace [r]emove")
-      lmap('<leader>lwl', vim.lsp.buf.list_workspace_folders, "[w]orkspace [l]ist")
+      whichkey.register({
+        ["<leader>lw"] = {
+          name = "[w]orkspace",
+        },
+      })
+      lmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, "[a]dd")
+      lmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, "[r]emove")
+      lmap('<leader>lwl', vim.lsp.buf.list_workspace_folders, "[l]ist")
 
       -- Diagnostics
-      lmap('<leader>do', vim.diagnostic.open_float, "[d]iagnostic [o]pen")
-      lmap('<leader>dp', vim.diagnostic.goto_prev, "[d]iagnostic [p]revious")
-      lmap('<leader>dn', vim.diagnostic.goto_next, "[d]iagnostic [n]ext")
-      lmap('<leader>dl', vim.diagnostic.setloclist, "[d]iagnostic [l]ist")
+      lmap('<leader>do', vim.diagnostic.open_float, "[o]pen")
+      lmap('<leader>dp', vim.diagnostic.goto_prev, "[p]revious")
+      lmap('<leader>dn', vim.diagnostic.goto_next, "[n]ext")
+      lmap('<leader>dl', vim.diagnostic.setloclist, "[l]ist")
 
       -- Actions
-      lmap('<leader>lca', vim.lsp.buf.code_action, "[c]ode [a]ction")
+      lmap('<leader>ca', vim.lsp.buf.code_action, "[a]ction")
       lmap('<leader>lr', vim.lsp.buf.rename, "[r]ename")
       lmap('<leader>lf', vim.lsp.buf.format, "[f]ormat")
     end

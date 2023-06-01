@@ -8,72 +8,72 @@ return {
   },
   keys = {
     {
-      "<leader>ff",
+      "<leader>tf",
       function()
         require('telescope.builtin').find_files({
           hidden = true
         })
       end,
-      desc = "Files"
+      desc = "[f]iles"
     },
     {
-      "<leader>fo",
+      "<leader>to",
       function()
         local ivy = require('telescope.themes').get_ivy()
         require('telescope.builtin').oldfiles(ivy)
       end,
-      desc = "Old files"
+      desc = "[o]ld (Files)"
     },
     {
-      "<leader>fg",
+      "<leader>tr",
       function()
         require('telescope.builtin').live_grep()
       end,
-      desc = "Ripgrep"
+      desc = "[r]ipgrep"
     },
     {
-      "<leader>fb",
+      "<leader>tb",
       function()
         require('telescope.builtin').buffers()
       end,
       desc = "Buffers"
     },
     {
-      "<leader>fh",
+      "<leader>th",
       function()
         require('telescope.builtin').help_tags()
       end,
-      desc = "Help",
+      desc = "[h]help",
     },
     {
-      "<leader>fk",
+      "<leader>tk",
       function()
         require('telescope.builtin').keymaps()
       end,
-      desc = "Keymaps (normal)"
+      desc = "[k]eymaps (normal)"
     },
     {
-      "<leader>ft",
+      "<leader>tt",
       function()
         local ivy = require('telescope.themes').get_ivy()
         require('telescope.builtin').filetypes(ivy)
       end,
-      desc = "Filetypes"
+      desc = "[f]iletypes"
     },
     {
-      "<leader>fa",
+      "<leader>ta",
       function()
         require("telescope").extensions.aerial.aerial()
       end,
-      desc = "Aerial"
+      desc = "[a]erial"
     },
     {
-      "<leader>dl",
+      "<leader>td",
       function()
         local ivy = require('telescope.themes').get_ivy()
         require('telescope.builtin').diagnostics(ivy)
       end,
-      desc = "[d]iagnostic [l]ist"
+      desc = "[d]iagnostic"
     }
   },
   config = function()

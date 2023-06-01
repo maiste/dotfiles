@@ -11,7 +11,7 @@ return {
         function()
           require('gitsigns').blame_line()
         end,
-        desc = "[g]it [b]lame"
+        desc = "[b]lame"
       }
     }
   },
