@@ -136,6 +136,12 @@ return {
 
     -- Specific lsp configs
 
+    -- OCaml
+    lsp.ocamllsp.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
     -- Typescript
     lsp.tsserver.setup {
       on_attach = on_attach,
