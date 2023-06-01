@@ -4,7 +4,7 @@ local vmap = require("core.helpers").vmap
 local tmap = require("core.helpers").tmap
 
 -- Normal mode
-nmap("<leader>fs", "<cmd>nohl<CR>", "[f]ind [s]top")
+nmap("<leader>os", "<cmd>nohl<CR>", "[s]top search")
 
 nmap("<C-h>", "<C-w>h", "Go to left window")
 nmap("<C-j>", "<C-w>j", "Go to down window")
@@ -32,7 +32,6 @@ imap("kj", "<Esc>", "Escape")
 -- Visual mode
 vmap("<", "<gv", "Retab left and keep selected")
 vmap(">", ">gv", "Retab right and keep selected")
-
 
 -- Terminal mode
 tmap("<Esc>", "<C-\\><C-n>", "Escape terminal")

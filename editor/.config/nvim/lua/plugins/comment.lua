@@ -1,6 +1,15 @@
 local specs = {
   "numToStr/Comment.nvim",
+  dependencies = {
+    "folke/which-key.nvim",
+  },
   config = function()
+    local ok_whichkey, whichkey = pcall(require, "which-key")
+    if not ok_whichkey then
+      print("Which-key not found")
+      return
+    end
+
     require('Comment').setup({
       mappings = {
         basic = false,
@@ -15,11 +24,17 @@ local specs = {
     local vmap = require('core.helpers').vmap
     local nmap = require('core.helpers').nmap
 
-    nmap("<leader>ci",
+    whichkey.register({
+      ["<leader>cc"] = {
+        name = "[c]omment",
+      },
+    })
+
+    nmap("<leader>cci",
       require('Comment.api').toggle.linewise.current,
       "[c]omment [i]nvert")
 
-    vmap("<leader>ci",
+    vmap("<leader>cci",
       function()
         vim.api.nvim_feedkeys(esc, 'nx', false)
         require('Comment.api').toggle.linewise(vim.fn.visualmode())
