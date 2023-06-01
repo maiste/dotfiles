@@ -2,9 +2,9 @@ return {
   "mbbill/undotree",
   keys = {
     {
-      "<leader>tu",
+      "<leader>ou",
       vim.cmd.UndotreeToggle,
-      desc = "[t]ree [u]ndotree"
+      desc = "[u]ndotree"
     }
   }
 }

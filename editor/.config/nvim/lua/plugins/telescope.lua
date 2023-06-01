@@ -19,8 +19,7 @@ return {
     {
       "<leader>to",
       function()
-        local ivy = require('telescope.themes').get_ivy()
-        require('telescope.builtin').oldfiles(ivy)
+        require('telescope.builtin').oldfiles()
       end,
       desc = "[o]ld (Files)"
     },
@@ -36,7 +35,7 @@ return {
       function()
         require('telescope.builtin').buffers()
       end,
-      desc = "Buffers"
+      desc = "[b]uffers"
     },
     {
       "<leader>th",
@@ -55,8 +54,7 @@ return {
     {
       "<leader>tt",
       function()
-        local ivy = require('telescope.themes').get_ivy()
-        require('telescope.builtin').filetypes(ivy)
+        require('telescope.builtin').filetypes()
       end,
       desc = "[f]iletypes"
     },
@@ -66,6 +64,13 @@ return {
         require("telescope").extensions.aerial.aerial()
       end,
       desc = "[a]erial"
+    },
+    {
+      "<leader>tp",
+      function()
+        require 'telescope'.extensions.projects.projects()
+      end,
+      desc = "[p]rojects"
     },
     {
       "<leader>td",
@@ -94,7 +99,18 @@ return {
     require('aerial').setup()
 
     local telescope = require('telescope')
+    local actions = require('telescope.actions')
     telescope.load_extension('projects')
     telescope.load_extension('aerial')
+
+    telescope.setup({
+      defaults = require('telescope.themes').get_ivy {
+        mappings = {
+          n = {
+            ["q"] = actions.close
+          },
+        },
+      },
+    })
   end
 }

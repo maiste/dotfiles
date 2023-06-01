@@ -1,10 +1,12 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+    "onsails/lspkind.nvim",         -- VSCode pictogram
+
     "L3MON4D3/LuaSnip",             -- Lua snippets
     "rafamadriz/friendly-snippets", -- Snippets collection for Luasnip
+
     "hrsh7th/nvim-cmp",             -- Completion
-    "onsails/lspkind.nvim",         -- VSCode pictogram
     "hrsh7th/cmp-buffer",           -- Buffer source
     "hrsh7th/cmp-path",             -- Path source
     "hrsh7th/cmp-cmdline",          -- Cmdline completion
@@ -23,14 +25,14 @@ return {
       return
     end
 
-    require("luasnip.loaders.from_vscode").lazy_load()
-    require("luasnip.loaders.from_snipmate").lazy_load()
-
     local ok_lspkind, lspkind = pcall(require, "lspkind")
     if not ok_lspkind then
       print("Lspkind not found")
       return
     end
+
+    require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_snipmate").lazy_load()
 
     cmp.setup({
       -- Specified snippet engine
