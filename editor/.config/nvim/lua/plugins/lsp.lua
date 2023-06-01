@@ -17,7 +17,9 @@ return {
             "tsserver",
             "tailwindcss",
 
-            "jdtls"
+            "jdtls",
+
+            "marksman"
           }
         })
       end,
@@ -147,7 +149,15 @@ return {
     -- Latex / Markdown
     lsp.ltex.setup {
       on_attach = on_attach,
-      capabilities = capabilities
+      capabilities = capabilities,
+      checkFrequency = 'save',
+      settings = {
+        ltex = {
+          disabledRules = {
+            ['en'] = { 'PROFANITY' },
+          },
+        },
+      },
     }
   end
 }
