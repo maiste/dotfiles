@@ -8,10 +8,10 @@ return {
       require('lualine').setup({
         options = {
           icons_enabled = true,
-          theme = auto,
+          theme = "auto",
           always_divide_middle = true,
-          section_separators = { left = '', right = '' },  -- TODO: Replace with slant
-          component_separators = { left = '', right = '' } -- TODO: Replace with slant
+          section_separators = { left = '', right = '' },
+          component_separators = { left = '', right = '' },
         },
         sections = {
           lualine_a = { 'mode' },
