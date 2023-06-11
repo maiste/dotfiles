@@ -53,7 +53,7 @@
     sw = switch
     swc = switch -c
     re = restore
-    ck = checkout
+    co = checkout
     cp = cherry-pick
     rb = rebase
     rbi = rebase -i
@@ -63,6 +63,7 @@
     
     # Status
     s = status
+    st = status
     ss = status -s
     
     # Diff
@@ -82,11 +83,11 @@
     lo = log --oneline --graph --all
     
     # Stash
-    st = stash
-    stc = stash clear
-    stpu = stash push
-    stpo = stash pop
-    stl = stash list
+    sa = stash
+    sac = stash clear
+    sapu = stash push
+    sapo = stash pop
+    sal = stash list
     
     # Worktree
     wta = worktree add
