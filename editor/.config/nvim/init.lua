@@ -10,3 +10,6 @@ require('core.opts')
 
 -- Load generic keymaps
 require('core.keys')
+
+-- Load globals
+require('core.globals')
