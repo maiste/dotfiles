@@ -14,8 +14,8 @@ alias ll="ls -l"
 alias ld="ls -ld"
 
 # Cat replacement
-alias cat='bat -pp --theme="Nord"' # Dark version
-# alias cat='bat -pp --theme="OneHalfLight"'
+# alias cat='bat -pp --theme="Catppuccin-macchiato"' # Dark version
+alias cat='bat -pp --theme="Catppuccin-latte"' # Light version
 
 # Alias moving
 alias ..='cd ..'
@@ -25,11 +25,6 @@ alias .4='cd ../../..'
 # Alias Vim => Neovim
 alias v='nvim'
 alias vim='nvim'
-
-# Alias Emacs
-alias emacs='emacsclient -qc'
-alias emacsnw='emacsclient -qt'
-alias e='emacs'
 
 # Alias Python
 alias venv='python3 -m venv'
