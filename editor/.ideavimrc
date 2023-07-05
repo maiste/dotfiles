@@ -1,0 +1,27 @@
+" ---- Leader key ----
+let mapleader = " "
+
+" ---- Plugins ----
+set surround
+
+" ---- Options ----
+set timeout=300 " Same timeout as neovim
+set scrolloff=5 " Adds few lines above the cursor
+set incsearch   " Support incremental search
+
+" ---- Mappings ----
+
+" -- Comment --
+map <leader>cci <Action>(CommentByLineComment)
+
+" -- ~LSP --
+map <leader>lf <Action>(ReformatCode)
+map <leader>lr <Action>(RenameElement)
+map <leader>lh <Action>(QuickJavaDoc)
+map <leader>lt <Action>(FileStructurePopup)
+
+" -- Diagnostics --
+map <leader>dn <Action>(GotoNextError)
+
+" -- Tree --
+map <leader>to <Action>(ActivateProjectToolWindow)
