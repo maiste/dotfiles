@@ -1,7 +1,7 @@
 ###########################
 # Maiste <dev@maiste.fr>  #
 #      Alias config       #
-#    Version 20211215     #
+#    Version 20230715     #
 ###########################
 
 # Alias system
@@ -14,8 +14,8 @@ alias ll="ls -l"
 alias ld="ls -ld"
 
 # Cat replacement
-# alias cat='bat -pp --theme="Catppuccin-macchiato"' # Dark version
-alias cat='bat -pp --theme="Catppuccin-latte"' # Light version
+alias cat='bat -pp --theme="Catppuccin-macchiato"' # Dark version
+# alias cat='bat -pp --theme="Catppuccin-latte"' # Light version
 
 # Alias moving
 alias ..='cd ..'
