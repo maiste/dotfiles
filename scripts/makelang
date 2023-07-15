@@ -39,13 +39,9 @@ get_python () {
     printf "   - Exit: pip not install\n"
   else
     printf "  - Upgrade pip3\n"
-    pip3 install --user --upgrade pip
-    PIP_PKGS="
-      python-language-server \
-      pynvim
-    "
+    PIP_PKGS="python-pynvim"
     printf "  - Install %s\n" $PIP_PKGS
-    pip3 install --user $PIP_PKGS
+    sudo pacman -Syy $PIP_PKGS
   fi
 }
 
@@ -57,13 +53,13 @@ get_node () {
     printf "  - Exit: curl not found\n"
     exit 1
   else
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
   fi
   nvm install --lts
-  npm install -g @elm-tooling/elm-language-server
+  npm install -g neovim
 }
 
 get_java () {
@@ -75,7 +71,7 @@ get_java () {
   else
     curl -s "https://get.sdkman.io" | bash
     source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk install java 11.0.2-open
+    sdk install java 17-open
   fi
 }
 

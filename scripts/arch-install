@@ -10,29 +10,20 @@ set -e
 sudo pacman -Syu
 
 # Install package
-sudo pacman -Sy neovim \
+sudo pacman -Syy neovim \
                 stow \
                 zsh \
                 curl \
                 wget \
+                zip  \
                 alacritty \
-                htop \
-                xsel \
-                dmenu \
-                i3-gaps \
-                i3lock \
-                i3status \
-                redshift \
-                rofi \
-                picom \
-                nitrogen \
                 htop \
                 git \
                 tig \
-                nextcloud-client \
                 network-manager-applet \
+		        mosh \
                 dunst \
-                xorg-xbacklight \
+		        brightnessctl \
                 arandr \
                 m4 \
                 patch \
@@ -40,15 +31,14 @@ sudo pacman -Sy neovim \
                 arc-gtk-theme \
                 arc-icon-theme \
                 ttf-font-awesome \
+		        ttf-jetbrains-mono-nerd \
+		        ttf-hack \
                 neofetch \
                 python-pip \
                 ripgrep \
                 fzf \
                 gcc \
                 make \
-                texlive-most \
-                texlive-lang \
-                flatpak \
                 bluez \
                 bluez-utils \
                 blueberry \
@@ -56,25 +46,27 @@ sudo pacman -Sy neovim \
                 tree \
                 bat \
                 exa \
-                git-delta
+                git-delta \
+                sway \
+                swaybg \
+                swaylock \
+                waybar \
+                kanshi \
+                wl-clipboard \
+                firefox
+	
 
 # Install Yay
 cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 cd ../
-rm -rf yay
-
+rm -rf paru
 
 # Install AUR packages
-yay -S nerd-fonts-hack fswatch
-
-# Install Metropolis theme
-cd $HOME
-git clone git@github.com:matze/mtheme.git
-cd mtheme
-make sty
-make install
-cd $HOME
-rm -rf mtheme
+paru -Syy fswatch \
+	wdisplays \
+	tofi \
+	pomatez

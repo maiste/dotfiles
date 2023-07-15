@@ -1,0 +1,26 @@
+Fedora packages:
+- bat
+- util-linux-user
+- gcc
+- g++
+- patch
+- papirus-icon-theme
+- gnome-tweaks
+- python-pip
+- tig
+- delta-git
+- foot
+- alacritty
+- Hack font
+- JetBrain Mono Nerd
+- sway
+- waybar
+- swaylock
+- dunst
+- kanshi
+- grim
+- slurp
+- brightnessctl
+- blueman
+- lxappearance
+- ripgrep

@@ -31,7 +31,7 @@ chsh -s /usr/bin/zsh
 printf " - Install starship\n"
 which starship > /dev/null
 if [[ $? -eq 1 ]] ; then
-  curl -fsSL https://starship.rs/install.sh | bash
+  curl -sS https://starship.rs/install.sh | sh 
 else
   printf "   - Skip: starship already install\n"
 fi
@@ -43,6 +43,8 @@ else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   git clone https://github.com/zsh-users/zsh-autosuggestions \
             $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+            $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
 

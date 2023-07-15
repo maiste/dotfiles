@@ -35,12 +35,3 @@ printf "\n#---- Install packages ----#\n"
 
 printf_install "signal"
 flatpak install -y flathub org.signal.Signal
-
-printf_install "telegram"
-flatpak install -y flathub org.telegram.desktop
-
-printf_install "slack"
-flatpak install -y flathub com.slack.Slack
-
-printf_install "discord"
-flatpak install -y flathub com.discordapp.Discord
