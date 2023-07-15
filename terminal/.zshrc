@@ -33,3 +33,4 @@ eval "$(starship init zsh)"
 # Uncomment to analyse ZSH startup (2)
 # zprof
 # Run exec zsh to avoid issue when profiling (3)
+
