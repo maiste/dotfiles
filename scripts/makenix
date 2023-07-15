@@ -28,7 +28,7 @@ if [[ $? -eq 1 ]] ; then
   if [[ $? -eq 0 ]] ; then
     printf " - Curl found\n"
     printf " - Install Nix\n"
-    curl -L https://nixos.org/nix/install | sh
+    sh <(curl -L https://nixos.org/nix/install) --no-daemon
   else
     print " - Exit: curl not found\n"
     exit 1
@@ -50,11 +50,7 @@ fi
 
 printf "\n#----- Install nix packages -----#\n"
 export NIXPKGS_ALLOW_UNFREE=1
-NIX_PKGS="
-discord \
-slack \
-signal-desktop \
-telegram-desktop"
+NIX_PKGS="signal-desktop"
 printf " - Install:\n"
 printf "   - %s\n" $NIX_PKGS
 nix-env -i $NIX_PKGS

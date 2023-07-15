@@ -40,6 +40,7 @@ remove_link "$HOME/.config/nvim"
 remove_link "$HOME/.config/.emacs.d"
 remove_link "$HOME/.config/asset"
 remove_link "$HOME/.config/sway"
+remove_link "$HOME/.config/kanshi"
 
 
 

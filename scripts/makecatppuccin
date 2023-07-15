@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+###########################
+# Maiste <dev@maiste.fr>  #
+#  Catpuccin get script   #
+#    Version 20230715     #
+###########################
+
+set -ue
+cd "$(dirname $0)/.."
+
+printf "\n\n"
+printf "+---------------------------+\n"
+printf "|  Catpuccin configuration  |\n"
+printf "+---------------------------+\n\n"
+
+printf "ROOT DIRECTORY: %s\n" $PWD
+
+#-------------- BAT ------------#
+
+printf "\n- Install Bat Catpuccin\n"
+if [ -e "$HOME/$(bat --config-dir)/themes/Catppuccin-macchiato.tmTheme" ] ; then
+  printf "   - Skip: bat theme already installed\n"
+else
+    cd /tmp
+    git clone git@github.com:catppuccin/bat.git
+    cd bat/ 
+    mkdir -p "$(bat --config-dir)/themes"
+    cp *.tmTheme "$(bat --config-dir)/themes"
+    printf "\t- [COPY] Install to $(bat --config-dir)/themes\n"
+    bat cache --build
+    printf "\t- [ACTION] Rebuild cache\n"
+    rm -rf /tmp/bat
+    printf "\t- [CLEAN] Delete /tmp/bat\n"
+fi
+
