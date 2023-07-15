@@ -177,6 +177,7 @@ exec wl-paste -t text --watch clipman store --no-persist
 # Fix the startup issue & XDG display
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user import-environment
 
 ###################
 # System commands #
@@ -191,10 +192,10 @@ bindsym $mod+d exec tofi-drun --drun-launch=true
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
-bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
-bindsym XF86AudioMute exec amixer set Master +1 toggle
+# Pipewire Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set +10% # increase screen brightness
@@ -223,7 +224,7 @@ bindsym $mod+Ctrl+space exec dunstctl close
 ##################################
 
 # My font
-font pango:Cantarell 9
+font pango:Hack 9
 
 # Add space between windows
 gaps inner 6
