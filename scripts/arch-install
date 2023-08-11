@@ -51,9 +51,15 @@ sudo pacman -Syy neovim \
                 swaybg \
                 swaylock \
                 waybar \
+                sof-firmware \
                 kanshi \
                 wl-clipboard \
-                firefox
+                firefox \
+                textlive \
+                textlive-latexmk \
+                textlive-xelatex \
+                zathura \
+                zathura-pdf-mupdf
 	
 
 # Install Yay
