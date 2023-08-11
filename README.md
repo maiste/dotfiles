@@ -5,19 +5,19 @@
 This repository contains my dotfiles. I tend to change my system regularly
 for working reasons so I have a few preinstalled configuration for different
 distributions. Currently, I support:
- - Archlinux based
+ - Archlinux
  - Fedora
- - PopOs
+ - Ubuntu / PopOs
 
 ### Actual configuration
 
 Actually, I'm working on the following configuration:
- * **EndervourOS** (Arch based) with Flatpak as side package manager
- * **sway** as window manager (former **i3-gaps**)
- * **Rofi** as app launcher
- * **Zsh** as shell with **Starship** as a prompt
- * **Alacritty** as terminal
- * **Neovim** to code and take notes
+ * Since few months, I went back on `Arch Linux`` with `nix` as a side package manager. Before I was using `EndervourOS` or `Fedora`.
+ * `sway` is my window manager based on `Wayland`.
+ * I use `tofi` as my app launcher in replacement of `Rofi`.
+ * My main shell is `zsh` with `starship` as a prompt
+ * `foot`` as my main terminal and `slacritty`
+ * `neovim` to code and take notes.
 
 ## Use the scripts
 
