@@ -1,11 +1,15 @@
 return {
   {
-    "toppair/peek.nvim",
+    'jghauser/follow-md-links.nvim'
+  },
+  {
+    "maiste/peek.nvim",
+    branch = "fix-markdown",
     build = "deno task --quiet build:fast",
     ft = "markdown",
     config = function()
       require("peek").setup({
-        auto_load = false,
+        auto_load = true,
         app = { "epiphany", "--private-instance" },
       })
     end,
@@ -18,8 +22,5 @@ return {
         desc = "[w]riting [p]review"
       }
     },
-    {
-      'jghauser/follow-md-links.nvim'
-    }
-  }
+  },
 }
