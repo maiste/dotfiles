@@ -14,6 +14,8 @@ return {
             "lua_ls",
             "yamlls",
 
+            "rust_analyzer",
+
             "cssls",
             "tsserver",
             "tailwindcss",
@@ -138,6 +140,12 @@ return {
 
     -- OCaml
     lsp.ocamllsp.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    -- Rust
+    lsp.rust_analyzer.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
