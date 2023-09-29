@@ -12,6 +12,7 @@ return {
             "dockerls",
             "pylsp",
             "lua_ls",
+            "jsonls",
             "yamlls",
 
             "rust_analyzer",
