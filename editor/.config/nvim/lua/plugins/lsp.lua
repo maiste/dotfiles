@@ -10,18 +10,18 @@ return {
         require('mason-lspconfig').setup({
           ensure_installed = {
             "dockerls",
-            "pylsp",
-            "lua_ls",
-            "jsonls",
+            "helm_ls",
             "yamlls",
+            "jsonls",
 
+            "lua_ls",
+            "pylsp",
+            "jdtls",
             "rust_analyzer",
 
             "cssls",
             "tsserver",
             "tailwindcss",
-
-            "jdtls",
 
             "marksman"
           }
