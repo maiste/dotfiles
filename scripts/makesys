@@ -45,6 +45,8 @@ else
             $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
             $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  printf "- Create completion directory"
+  mkdir -p "$HOME/.oh-my-zsh/completions"
 fi
 
 
