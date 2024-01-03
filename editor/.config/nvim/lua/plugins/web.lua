@@ -9,12 +9,12 @@ return {
     'windwp/nvim-ts-autotag',
     config = function()
       require('nvim-ts-autotag').setup({
-        filetypes = { "html", "xml" }
+        filetypes = { "html", "xml", "svelte" }
       })
     end
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
@@ -26,19 +26,13 @@ return {
           null_ls.builtins.diagnostics.eslint_d.with({
             only_local = "node_modules/.bin"
           }),
-          null_ls.builtins.diagnostics.zsh,
-          null_ls.builtins.formatting.prettier.with({
-            filetypes = {
-              "css",
-              "javascript",
-              "javascriptreact",
-              "typescript",
-              "typescriptreact",
-              "json",
-              "scss",
-              "less"
-            },
+          null_ls.builtins.code_actions.eslint_d.with({
+            only_local = "node_modules/.bin"
           }),
+          null_ls.builtins.formatting.prettier.with({
+            only_local = "node_modules/.bin"
+          }),
+          null_ls.builtins.diagnostics.zsh
         }
       })
     end
