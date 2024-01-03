@@ -22,6 +22,8 @@ return {
             "cssls",
             "tsserver",
             "tailwindcss",
+            "svelte",
+            "denols",
 
             "marksman"
           }
@@ -155,7 +157,23 @@ return {
     lsp.tsserver.setup {
       on_attach = on_attach,
       capabilities = capabilities,
+      root_dir = lsp.util.root_pattern("package.json"),
       filetypes = { "javascript", "typescript", "typescriptreact", "typescrip.tsx" },
+    }
+
+    -- Svelte
+    lsp.svelte.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = lsp.util.root_pattern("package.json"),
+      filetypes = { "svelte" }
+    }
+
+    -- Deno
+    lsp.denols.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
     }
 
     -- Yaml
@@ -168,6 +186,22 @@ return {
             ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
             ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
           }
+        }
+      }
+    }
+
+    -- JSON
+    lsp.jsonls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      init_options = {
+        provideFormatter = false
+      },
+      commands = {
+        Format = {
+          function()
+            vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
+          end
         }
       }
     }
