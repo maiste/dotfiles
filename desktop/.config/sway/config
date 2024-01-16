@@ -179,6 +179,12 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec systemctl --user import-environment
 
+# Ensure the theme is correctly set
+exec_always {
+  gsettings set org.gnome.desktop.interface gtk-theme "Arc-Darker"
+  gsettings set org.gnome.desktop.interface icon-theme "Papirus"
+}
+
 ###################
 # System commands #
 ###################

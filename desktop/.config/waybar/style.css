@@ -1,23 +1,13 @@
 @import "mocha.css";
 
 * {
-	font-size: 20px;
-	font-family: "Hack", "Font Awesome 6 Free";
+    font-size: 20px;
+    font-family: "Hack", "Font Awesome 6 Free";
 }
 
 window#waybar {
-	background: @base;
-	color: @rosewater;
-}
-
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-	color: @base;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-	color: @base;
-	background: @base;
+    background: @base;
+    color: @rosewater;
 }
 
 #workspaces,
@@ -30,40 +20,39 @@ window#waybar {
 #battery,
 #disk,
 #tray {
-	background: @base;
+    background: @base;
+}
+
+#tray {
+    padding-right: 10px;
 }
 
 #workspaces button {
-	padding: 0 2px;
-	color: @rosewater;
-}
-#workspaces button.focused {
-	color: @blue;
-}
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-}
-#workspaces button:hover {
-	background: @base;
-	border: @base;
-	padding: 0 3px;
+    padding: 0 2px;
+    color: @rosewater;
 }
 
-#pulseaudio {
-	color: @blue;
+#workspaces button.focused {
+    color: @base;
+    background: @blue
 }
-#memory {
-	color: @green;
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
-#cpu {
-	color: @mauve;
+
+#workspaces button:hover {
+    background: @overlay0;
+    padding: 0 3px;
 }
-#battery {
-	color: @yellow;
+
+#pulseaudio, #battery {
+    color: @blue;
 }
-#disk {
-	color: @peach;
+
+#memory, #cpu, #disk {
+    color: @mauve;
 }
 
 #clock,
@@ -72,5 +61,5 @@ window#waybar {
 #cpu,
 #battery,
 #disk {
-	padding: 0 10px;
+    padding: 0 10px;
 }
