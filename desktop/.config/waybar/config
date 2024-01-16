@@ -6,55 +6,21 @@
 
     "modules-left": [
         "sway/workspaces",
-        "custom/right-arrow-dark"
     ],
     "modules-center": [
-        "custom/left-arrow-dark",
         "clock#1",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
         "clock#2",
-        "custom/right-arrow-dark",
-        "custom/right-arrow-light",
         "clock#3",
         "custom/right-arrow-dark"
     ],
     "modules-right": [
-        "custom/left-arrow-dark",
-        "pulseaudio",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
         "memory",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
         "cpu",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "battery",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
         "disk",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
+        "battery",
+        "pulseaudio",
         "tray"
     ],
-
-    "custom/left-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/left-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -75,8 +41,8 @@
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume:2}%",
-        "format-bluetooth": "{icon}  {volume}%",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-muted": "MUTE",
         "format-icons": {
             "headphones": "",
@@ -95,7 +61,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "CPU {usage:2}%"
+        "format": "CPU {usage}%"
     },
     "battery": {
         "states": {
@@ -114,7 +80,7 @@
     },
     "disk": {
         "interval": 5,
-        "format": "Disk {percentage_used:2}%",
+        "format": "Disk {percentage_used}%",
         "path": "/"
     },
     "tray": {
