@@ -1,6 +1,20 @@
+# +-------------------------------+
+# | Dunst - Config File           |
+# +-------------------------------+
+# | Author: Maiste <dev@maiste.fr |
+# | License: MIT                  |
+# | Version: 20240202             |
+# +-------------------------------+
+
+
 [global]
+origin = top-right
+offset = 24x24
+font = "Hack 8"
+format = "<b>%a</b>\n%s\n\n%b"
+frame_width = 1
 frame_color = "#89B4FA"
-separator_color= frame
+gap_size = 12
 
 [urgency_low]
 background = "#1E1E2E"
