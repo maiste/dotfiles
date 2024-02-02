@@ -22,14 +22,11 @@ sudo pacman -Syy neovim \
                 tig \
                 network-manager-applet \
                 mosh \
-                dunst \
-                brightnessctl \
-                arandr \
                 m4 \
                 patch \
                 lxappearance \
                 arc-gtk-theme \
-                arc-icon-theme \
+                papirus-icon-theme \
                 ttf-font-awesome \
                 ttf-jetbrains-mono-nerd \
                 ttf-hack \
@@ -46,13 +43,16 @@ sudo pacman -Syy neovim \
                 tree \
                 bat \
                 exa \
+                fd \
                 git-delta \
                 sway \
                 swaybg \
                 swaylock \
                 waybar \
-                sof-firmware \
+                dunst \
+                brightnessctl \
                 kanshi \
+                sof-firmware \
                 wl-clipboard \
                 firefox \
                 textlive \
