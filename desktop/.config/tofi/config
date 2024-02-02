@@ -1,0 +1,76 @@
+# +-------------------------------+
+# | Tofi - Config File            |
+# +-------------------------------+
+# | Author: Maiste <dev@maiste.fr |
+# | License: MIT                  |
+# | Version: 20240202             |
+# +-------------------------------+
+
+# --- Fonts --- #
+
+    # Font to use, either a path to a font file or a name.
+    # Otherwise, fonts are interpreted in Pango format.
+    font = "Hack"
+
+    # Point size of text.
+    font-size = 14
+
+
+
+# --- Behaviour --- #
+
+    # Hide the mouse cursor.
+    hide-cursor = true
+
+    # Show a text cursor in the input field.
+    text-cursor = true
+
+    # Sort results by number of usages in run and drun modes.
+    history = true
+
+    # Use fuzzy matching for searches.
+    fuzzy-match = false
+
+    # If true, require a match to allow a selection to be made. If false,
+    # making a selection with no matches will print input to stdout.
+    # In drun mode, this is always true.
+    require-match = true
+
+    # If true, automatically accept a result if it is the only one
+    # remaining. If there's only one result on startup, window creation is
+    # skipped altogether.
+    auto-accept-single = false
+
+    # If true, typed input will be hidden, and what is displayed (if
+    # anything) is determined by the hidden-character option.
+    hide-input = false
+
+    # Replace displayed input characters with a character. If the empty
+    # string is given, input will be completely hidden.
+    # This option only has an effect when hide-input is set to true.
+    hidden-character = "*"
+
+    # If true, directly launch applications on selection when in drun mode.
+    # Otherwise, just print the command line to stdout.
+    drun-launch = false
+
+    # Delay keyboard initialisation until after the first draw to screen.
+    # This option is experimental, and will cause tofi to miss keypresses
+    # for a short time after launch. The only reason to use this option is
+    # performance on slow systems.
+    late-keyboard-init = false
+
+    # If true, allow multiple simultaneous processes.
+    # If false, create a lock file on startup to prevent multiple instances
+    # from running simultaneously.
+    multi-instance = false
+
+    # Assume input is plain ASCII, and disable some Unicode handling
+    # functions. This is faster, but means e.g. a search for "e" will not
+    # match "é".
+    ascii-input = false
+
+
+# --- Inclusion --- #
+
+    include = ./cattpucin.ini

@@ -21,9 +21,9 @@ sudo pacman -Syy neovim \
                 git \
                 tig \
                 network-manager-applet \
-		        mosh \
+                mosh \
                 dunst \
-		        brightnessctl \
+                brightnessctl \
                 arandr \
                 m4 \
                 patch \
@@ -31,8 +31,8 @@ sudo pacman -Syy neovim \
                 arc-gtk-theme \
                 arc-icon-theme \
                 ttf-font-awesome \
-		        ttf-jetbrains-mono-nerd \
-		        ttf-hack \
+                ttf-jetbrains-mono-nerd \
+                ttf-hack \
                 neofetch \
                 python-pip \
                 ripgrep \
@@ -60,7 +60,6 @@ sudo pacman -Syy neovim \
                 textlive-xelatex \
                 zathura \
                 zathura-pdf-mupdf
-	
 
 # Install Yay
 cd /tmp
@@ -73,6 +72,6 @@ rm -rf paru
 
 # Install AUR packages
 paru -Syy fswatch \
-	wdisplays \
-	tofi \
-	pomatez
+    wlay \
+    tofi \
+    pomatez 
