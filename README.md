@@ -1,23 +1,33 @@
-## Dot dot dot
+<div align="center">
+    <h1>Dot dot dot</h1>
+    <p>Reproductible Linux configuration</p>
+</div>
 
-### Info
+## Info
 
 This repository contains my dotfiles. I tend to change my system regularly
 for working reasons so I have a few preinstalled configuration for different
 distributions. Currently, I support:
- - Archlinux
- - Fedora
- - Ubuntu / PopOs
+ - Archlinux (_Up to date_)
+ - Fedora (_Outdated_)
+ - Ubuntu / PopOs (_Outdated_)
 
-### Actual configuration
+## Actual configuration
 
 Actually, I'm working on the following configuration:
- * Since few months, I went back on `Arch Linux`` with `nix` as a side package manager. Before I was using `EndervourOS` or `Fedora`.
+ * It works with `Arch Linux` and `nix` as a side package manager.
+   Before I was using `EndervourOS` or `Fedora`.
  * `sway` is my window manager based on `Wayland`.
  * I use `tofi` as my app launcher in replacement of `Rofi`.
  * My main shell is `zsh` with `starship` as a prompt
- * `foot`` as my main terminal and `slacritty`
+ * `foot` as my main terminal and `slacritty`
  * `neovim` to code and take notes.
+ * `Intellij` is what I used for `Java`, `Kotlin` and, `Scala`
+
+
+## Desktop preview
+
+![Sway rendering](./docs/assets/preview.png)
 
 ## Use the scripts
 
@@ -42,7 +52,7 @@ You can choose into one of the following options for the distro:
  - fedora
  - popos
 
-### Licence
-
- (C) MIT Licence.
+<div align="center">
+ (C) MIT Licence - Maiste
+</div>
 
