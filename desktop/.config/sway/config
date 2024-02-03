@@ -1,4 +1,10 @@
-
+# +-------------------------------+
+# | Sway - Config File            |
+# +-------------------------------+
+# | Author: Maiste <dev@maiste.fr |
+# | License: MIT                  |
+# | Version: 20240202             |
+# +-------------------------------+
 
 # Define mod
 set $mod Mod4
@@ -156,7 +162,9 @@ bindsym $mod+Shift+underscore move container to workspace $ws8
 bindsym $mod+Shift+ccedilla move container to workspace $ws9
 bindsym $mod+Shift+agrave move container to workspace $ws10
 
-
+# move with trackpad
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 #####################
 # On start commands #
@@ -213,10 +221,10 @@ bindsym $mod+Shift+c reload
 # Restart Sway inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Exit Sway (logs you out of your X session)
+# Exit Sway (logs you out of your X session) - TODO: replace with tofi!
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-# Shutdown Sway
+# Shutdown Sway - TODO: replace with tofi!
 bindsym $mod+Shift+x exec swaynag -t warning -m 'Do you really want to stop the computer?' -B 'Yes, exit sway' 'shutdown now'
 
 # Lockscreen
@@ -238,7 +246,7 @@ smart_gaps on
 smart_borders on
 
 # Styling border without title
-default_border pixel 2
+default_border pixel 1
 
 
 ##################################
@@ -253,27 +261,9 @@ input * {
         xkb_options "ctrl:nocaps,shift:both_capslock"
 }
 
-input "1:1:AT_Translated_Set_2_keyboard" {
-        xkb_layout "fr"
-        xkb_variant "oss"
-        xkb_options "ctrl:nocaps,shift:both_capslock"
-}
-
-input "1133:45915:MX_Keys_Keyboard" {
-        xkb_layout "fr"
-        xkb_variant "oss"
-        xkb_options "ctrl:nocaps,shift:both_capslock"
-}
-
-input "1133:45929:MX_Keys_Mini_Keyboard" {
-        xkb_layout "fr"
-        xkb_variant "oss"
-        xkb_options "ctrl:nocaps,shift:both_capslock"
-}
-
 input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     tap enabled
-    natural_scroll disabled
+    natural_scroll enabled
 }
 
 output * {
@@ -289,10 +279,18 @@ bar {
     swaybar_command waybar
 }
 
-# TODO: 
-# client.focused           $pink     $base $text  $rosewater $pink
-# client.focused_inactive  $mauve    $base $text  $rosewater $mauve
-# client.unfocused         $mauve    $base $text  $rosewater $mauve
-# client.urgent            $peach    $base $peach $overlay0  $peach
-# client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-# client.background        $base
+
+##########
+# Colors #
+##########
+
+# colorclass             <border>  <background> <text> <indicator> <child_border>
+client.focused           $base      $lavender    $base $green      $lavender
+client.focused_inactive  $base      $base        $base $green      $base
+client.unfocused         $base      $base        $text
+client.urgent            $base      $peach       $base
+client.focused_tab_title $base      $lavender    $base $green     $lavender
+
+# i3 Legacy
+client.placeholder       $base      $base        $text
+client.background        $base
