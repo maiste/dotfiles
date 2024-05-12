@@ -161,6 +161,11 @@ return {
       filetypes = { "javascript", "typescript", "typescriptreact", "typescrip.tsx" },
     }
 
+    lsp.eslint.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+
     -- Svelte
     lsp.svelte.setup {
       on_attach = on_attach,
@@ -174,6 +179,19 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
       root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
+    }
+
+    -- Helm
+    lsp.helm_ls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        ['helm-ls'] = {
+          yamlls = {
+            path = "yaml-language-server",
+          }
+        }
+      }
     }
 
     -- Yaml

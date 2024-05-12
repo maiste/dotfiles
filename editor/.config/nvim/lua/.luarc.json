@@ -21,6 +21,7 @@
         "${3rd}/luv/library",
         "${3rd}/luv/library",
         "${3rd}/luv/library",
-        "/home/maiste/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/276c99a2"
+        "/home/maiste/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/276c99a2",
+        "${3rd}/luassert/library"
     ]
 }
