@@ -3,7 +3,7 @@
 # +-------------------------------+
 # | Author: Maiste <dev@maiste.fr |
 # | License: MIT                  |
-# | Version: 20240202             |
+# | Version: 20240516             |
 # +-------------------------------+
 
 profile "default" {
@@ -11,11 +11,6 @@ profile "default" {
 }
 
 profile "home" {
-    output eDP-1 disable
-    output DP-7 mode 3440x1440 position 0,0 transform normal
-}
-
-profile "homelarge" {
-    output eDP-1 mode 1920x1200 position 3430,500 transform normal
-    output DP-7 mode 3440x1440 position 0,0 transform normal
+    output eDP-1 mode 1920x1200 position 3440,510 transform normal
+    output DP-6 mode 3440x1440 position 0,0 transform normal
 }
