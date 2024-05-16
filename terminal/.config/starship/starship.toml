@@ -14,13 +14,16 @@ $directory\
 $git_branch\
 $git_status\
 $git_state\
-$dart\
 $golang\
+$kotlin\
 $java\
+$dart\
 $nodejs\
+$deno\
 $ocaml\
 $python\
 $rust\
+$c\
 $nix_shell
 $character"""
 
@@ -59,13 +62,13 @@ style = "bold underline purple"
 [git_state]
 format = " \ue725 [$state: $progress_current/$progress_total]($style)"
 style = "bold purple"
-rebase = "R"
+rebase = "Rb"
 merge = "M"
-revert = "Rev"
-cherry_pick = "CP"
+revert = "Re"
+cherry_pick = "Cp"
 bisect = "B"
-am = "AM"
-am_or_rebase = "AMR"
+am = "Am"
+am_or_rebase = "AmR"
 
 [git_status]
 untracked = "?"
@@ -78,30 +81,43 @@ style = "bold purple"
 
 
 ##-------- LANG MODULES -------##
-[dart]
-format= "  [dart:$version]($style)"
+
+[ocaml]
+format = "  [ocaml:$version:$switch_name]($style)"
 style = "blue"
 
 [golang]
 format = "  [go:$version]($style)"
 style = "blue"
 
+[rust]
+format = "  [rust:$version]($style)"
+style = "blue"
+
+[c]
+format = "  [c:$version]($style)"
+style = "blue"
+
+[kotlin]
+format = "  [java:$version]($style)"
+style = "blue"
+
 [java]
 format = "  [java:$version]($style)"
 style = "blue"
 
-[nodejs]
-format = "  [nd:$version]($style)"
+[dart]
+format= "  [dart:$version]($style)"
 style = "blue"
 
-[ocaml]
-format = "  [ocaml:$version]($style)"
+[nodejs]
+format = "  [node:$version]($style)"
+style = "blue"
+
+[deno]
+format = "  [deno:$version]($style)"
 style = "blue"
 
 [python]
-format = "  [python:${pyenv_prefix}(${virtualenv}->)${version}]($style)"
-style = "blue"
-
-[rust]
-format = "  [rust:$version]($style)"
+format = "  [python:${pyenv_prefix}(${virtualenv}):${version}]($style)"
 style = "blue"
