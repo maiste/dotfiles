@@ -3,16 +3,17 @@
 {
     "layer": "top",
     "position": "top",
+     "height": 35,
 
     "modules-left": [
-        "sway/workspaces",
+        "sway/workspaces"
     ],
     "modules-center": [
         "clock#1",
         "clock#2",
-        "clock#3",
-        "custom/right-arrow-dark"
+        "clock#3"
     ],
+
     "modules-right": [
         "memory",
         "cpu",
@@ -27,6 +28,9 @@
         "format": "{name}"
     },
 
+    "clock": {
+        "timezone": "Europe/Paris"
+    },
     "clock#1": {
         "format": "{:%a}",
         "tooltip": false
@@ -36,7 +40,7 @@
         "tooltip": false
     },
     "clock#3": {
-        "format": "{:%m-%d}",
+        "format": "{:%Y-%m-%d}",
         "tooltip": false
     },
 
@@ -66,8 +70,8 @@
     "battery": {
         "states": {
             "good": 95,
-            "warning": 30,
-            "critical": 15
+            "warning": 20,
+            "critical": 10
         },
         "format": "{icon} {capacity}%",
         "format-icons": [
@@ -84,6 +88,7 @@
         "path": "/"
     },
     "tray": {
-        "icon-size": 20
+        "icon-size": 20,
+        "spacing": 10
     }
 }

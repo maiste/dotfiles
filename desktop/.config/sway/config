@@ -222,10 +222,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit Sway (logs you out of your X session) - TODO: replace with tofi!
-bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Close sessiong?' -B 'Yes, close' 'swaymsg exit'
 
 # Shutdown Sway - TODO: replace with tofi!
-bindsym $mod+Shift+x exec swaynag -t warning -m 'Do you really want to stop the computer?' -B 'Yes, exit sway' 'shutdown now'
+bindsym $mod+Shift+x exec swaynag -t warning -m 'Power off?' -B 'Yes, power off' 'shutdown now'
 
 # Lockscreen
 bindsym $mod+Shift+s exec "swaylock -c 2e3440 --ring-color 5e81ac --inside-color 2e3440 --line-color 5e81ac --text-color 5e81ac --key-hl-color 81a1c1 --ring-wrong-color bf616a --text-wrong-color bf616a --inside-wrong-color 2e3440 --separator-color 81a1c1 -s fit"
@@ -267,7 +267,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
 }
 
 output * {
-    bg ~/.config/wallpaper/sunset.jpg fill
+    bg ~/.config/assets/bg.jpg fill
 }
 
 

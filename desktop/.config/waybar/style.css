@@ -1,50 +1,56 @@
 @import "mocha.css";
 
 * {
-    font-size: 20px;
+    font-size: 16px;
     font-family: "Hack", "Font Awesome 6 Free";
+    border-radius: 0px;
+    border: none;
 }
 
 window#waybar {
-    background: @base;
     color: @rosewater;
-}
-
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
-#tray {
     background: @base;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-#tray {
+.modules-right, .modules-center {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    border-radius: 20px;
+    background: @surface0;
     padding-right: 10px;
+    padding-left: 10px;
+}
+
+#workspaces {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background: @base;
 }
 
 #workspaces button {
+    margin-right: 5px;
     padding: 0 2px;
     color: @rosewater;
+    border-radius: 20px;
 }
 
 #workspaces button.focused {
     color: @base;
-    background: @blue
+    background: @blue;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
+    color: @base;
+    background: @text;
 }
 
-#workspaces button:hover {
-    background: @overlay0;
-    padding: 0 3px;
+#workspaces button.urgent {
+    background-color: @red;
 }
 
 #pulseaudio, #battery {
@@ -61,5 +67,23 @@ window#waybar {
 #cpu,
 #battery,
 #disk {
-    padding: 0 10px;
+    margin: 0 10px;
 }
+
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#clock.2 {
+    color: @mauve
+}
+
+

@@ -2,5 +2,5 @@
 # Ask for a confirmation command
 # prompt "question" "command"
 
-[ $(echo -e "Yes\nNo" | dmenu -i -p "$1") == "Yes" ] && $2
+[ $(echo -e "Yes\nNo" | tofi --prompt-text "$1") == "Yes" ] && $2
 
