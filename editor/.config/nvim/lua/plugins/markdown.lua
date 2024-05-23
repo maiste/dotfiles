@@ -3,8 +3,7 @@ return {
     'jghauser/follow-md-links.nvim'
   },
   {
-    "maiste/peek.nvim",
-    branch = "fix-markdown",
+    "toppair/peek.nvim",
     build = "deno task --quiet build:fast",
     ft = "markdown",
     config = function()
@@ -20,6 +19,13 @@ return {
           require("peek").open()
         end,
         desc = "[w]riting [p]review"
+      },
+      {
+        "<leader>wc",
+        function()
+          require("peek").open()
+        end,
+        desc = "[w]riting [c]lose"
       }
     },
   },

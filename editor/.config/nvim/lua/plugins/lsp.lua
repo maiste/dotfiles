@@ -9,15 +9,15 @@ return {
       config = function()
         require('mason-lspconfig').setup({
           ensure_installed = {
+            "lua_ls",
+            "basedpyright",
+            "rust_analyzer",
+
             "dockerls",
             "helm_ls",
+
             "yamlls",
             "jsonls",
-
-            "lua_ls",
-            "pylsp",
-            "jdtls",
-            "rust_analyzer",
 
             "cssls",
             "tsserver",
@@ -57,6 +57,7 @@ return {
       return
     end
 
+    -- Add Neovim lua elements for configuration writting
     neodev.setup()
 
     -- Diagnostic signs
@@ -149,6 +150,12 @@ return {
 
     -- Rust
     lsp.rust_analyzer.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    -- Python
+    lsp.basedpyright.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
