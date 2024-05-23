@@ -21,6 +21,12 @@ Fedora packages:
 - grim
 - slurp
 - brightnessctl
-- blueman
+- blueberry
 - lxappearance
 - ripgrep
+
+New package for sway:
+- Manager history: https://github.com/sentriz/cliphist
+- Color screen sunset: https://git.sr.ht/~kennylevinsen/wlsunset
+
+Setup exit prompt with tofi
