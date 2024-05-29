@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd $HOME/Documents
+cd "$HOME/Projects"
 
 ack --ignore-ack-defaults \
     --ignore-dir=".opam" \
