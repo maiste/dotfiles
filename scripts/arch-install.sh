@@ -22,7 +22,7 @@ TERMINAL_PKGS="foot\
 ttf-jetbrains-mono-nerd \
 ttf-hack \
 ttf-font-awesome \
-fastfetch" # condition with alacritty + check monosapace from GitHub
+fastfetch"
 
 # Install packages
 SWAY_PKGS="sway \
@@ -40,8 +40,9 @@ network-manager-applet \
 xdg-desktop-portal \
 xdg-desktop-portal-wlr \
 mpv \
-imv"
-# TODO: ajouter les tools pour le screensharing
+imv \
+glow \
+ranger"
 
 SYS_PKGS="stow \
 zsh \
@@ -69,7 +70,9 @@ tig \
 m4 \
 patch \
 diffutils \
-bubblewrap"
+bubblewrap \
+docker \
+docker compose"
 
 TOOL_PKGS="fzf \
 ripgrep \
@@ -89,6 +92,9 @@ slurp \
 obsidian \
 simple-scan \
 calibre \
+libreoffice-fresh \
+torbrowser-launcher \
+transmission-gtk \
 firefox"
 
 AUR_PKGS="fswatch \
