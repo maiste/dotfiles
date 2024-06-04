@@ -1,0 +1,7 @@
+function dune(){
+    if [ -e ./dune.exe ]; then
+        command ./dune.exe $argv
+    else
+        command dune $argv
+    fi
+}

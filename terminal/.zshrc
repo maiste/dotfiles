@@ -20,9 +20,10 @@ plugins=(sudo \
          zsh-autosuggestions )
 
 # Init env
-. "$HOME/.config/zsh/.env"
+. "$HOME/.config/zsh/env"
 . "$ZSH/oh-my-zsh.sh"
-. "$HOME/.config/zsh/.alias"
+. "$HOME/.config/zsh/alias"
+. "$HOME/.config/zsh/functions"
 
 # Print banner
 cat "$HOME/.config/zsh/banner"
