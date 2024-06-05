@@ -5,3 +5,16 @@ function dune(){
         command dune $argv
     fi
 }
+
+function googledoc_me () {
+    if [ -e "$1" ]; then
+        (   cd "$(dirname $1)" &&
+            FILE=$(basename -- "$1") &&
+            FILENAME="${FILE%.*}" &&
+            pandoc --from=gfm+tex_math_dollars --to docx "$FILE" > "$HOME/Sandbox/Docs/$FILENAME.docx" &&
+            printf "Export $1 to $HOME/Sandbox/Docs/$FILENAME.docx\nOpenning it." &&
+            xdg-open "$HOME/Sandbox/Docs/$FILENAME.docx")
+    else
+        printf "Sorry, we can't find $1.md. Make sure to run:\n>googledoc_me [FILE]\n - FILE is the name with the .md extension."
+    fi
+}
