@@ -72,7 +72,8 @@ patch \
 diffutils \
 bubblewrap \
 docker \
-docker compose"
+docker compose \
+strace"
 
 TOOL_PKGS="fzf \
 ripgrep \
@@ -80,6 +81,7 @@ bat \
 tree \
 exa \
 fd \
+zoxyde \
 git-delta \
 pandoc \
 texlive \

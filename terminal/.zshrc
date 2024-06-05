@@ -25,8 +25,12 @@ plugins=(sudo \
 . "$HOME/.config/zsh/alias"
 . "$HOME/.config/zsh/functions"
 
+# Init zoxyde
+eval "$(zoxide init zsh)"
+
 # Print banner
 cat "$HOME/.config/zsh/banner"
+
 
 # Run the starship prompt
 eval "$(starship init zsh)"
