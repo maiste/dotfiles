@@ -79,7 +79,7 @@ TOOL_PKGS="fzf \
 ripgrep \
 bat \
 tree \
-exa \
+eza \
 fd \
 zoxyde \
 git-delta \

@@ -78,7 +78,7 @@ TOOL_PKGS="fzf \
 ripgrep \
 bat \
 tree \
-exa \
+eza \
 fd \
 git-delta \
 pandoc \

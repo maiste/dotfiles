@@ -8,7 +8,7 @@
 alias rm="rm --preserve-root"
 
 # Alias displaying
-alias ls="exa"
+alias ls="eza"
 alias la="ls -la"
 alias ll="ls -l"
 alias ld="ls -ld"
