@@ -17,12 +17,12 @@ return {
   opts = {
     workspaces = {
       {
-        name = "wiki",
+        name = "notes",
         path = vim.fn.expand "~" .. "/Wiki/Notes",
       },
       {
         name = "monica",
-        path = vim.fn.expand "~" .. "/Wiki/Monica",
+        path = vim.fn.expand "~" .. "/Wiki/.monica",
       },
     },
   },
