@@ -39,13 +39,11 @@
 [alias]
 
    # Remote
-    cl = clone
     pl = pull
     ps = push
-    psf = push --force
     fe = fetch
     fep = fetch -p
-    
+
     # Branch
     br = branch
     brd = branch -d
@@ -53,54 +51,53 @@
     sw = switch
     swc = switch -c
     re = restore
+    rs = reset
     co = checkout
     cp = cherry-pick
     rb = rebase
     rbi = rebase -i
     rbf = rebase -i --autosquash
-    mr = merge
-    rs = reset
-    
+
     # Status
     s = status
-    st = status
     ss = status -s
-    
+
     # Diff
     df = diff
     dfc = diff --cached
     dfs = diff --staged
-    
+
     # Commits
     a = add
     c = commit
+    cs = commit --signoff
     cm = commit -m
+    csm = commit --signoff --message
     ca = commit --amend
     cf = commit --fixup
-    
+    csf = commit --signoff --fixup
+
     # Logs
     l = log --graph --decorate --all
     lo = log --oneline --graph --all
-    
+
     # Stash
     sa = stash
     sac = stash clear
-    sapu = stash push
-    sapo = stash pop
+    sai = stash push
+    sao = stash pop
     sal = stash list
-    
+
     # Worktree
     wta = worktree add
     wtr = worktree remove
     wtp = worktree prune
-    
+
     # Submodules
     sbiu = submodule update --init
     sbiur = submodule update --init --recursive
 
 [credential "https://github.com"]
-    helper = 
     helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-    helper = 
     helper = !/usr/bin/gh auth git-credential
