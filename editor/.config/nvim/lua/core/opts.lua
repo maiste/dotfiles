@@ -23,6 +23,7 @@ vim.opt.listchars:append("trail:·")
 -- UI
 vim.o.termguicolors = true
 vim.o.bg = "dark"
+-- vim.o.bg = "light"
 vim.o.mouse = 'a' -- Always be able to use mouse
 vim.o.number = true
 vim.o.splitbelow = true

@@ -93,9 +93,10 @@ return {
       lmap('<leader>ls', vim.lsp.buf.signature_help, "[s]ignature")
 
       -- Move
-      whichkey.register({
-        ["<leader>lg"] = {
-          name = "[g]oto",
+      whichkey.add({
+        {
+          "<leader>lg",
+          group = "[g]oto",
         },
       })
       lmap('<leader>lgd', vim.lsp.buf.definition, "[d]efinition")
@@ -105,10 +106,9 @@ return {
       lmap('<leader>lgt', vim.lsp.buf.type_definition, "[t]ype definition")
 
       -- Workspace
-      whichkey.register({
-        ["<leader>lw"] = {
-          name = "[w]orkspace",
-        },
+      whichkey.add({
+        "<leader>lw",
+        group = "[w]orkspace"
       })
       lmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, "[a]dd")
       lmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, "[r]emove")

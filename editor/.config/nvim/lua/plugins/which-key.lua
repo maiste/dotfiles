@@ -9,17 +9,15 @@ return {
 
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register({
-        ["<leader>"] = {
-          c = { name = "[c]ode" },
-          d = { name = "[d]iagnostics" },
-          e = { name = "[e]xplorer" },
-          g = { name = "[g]it" },
-          l = { name = "[l]sp" },
-          o = { name = "[o]ther" },
-          t = { name = "[t]elescope" },
-          w = { name = "[w]riting" }
-        }
+      wk.add({
+        { "<leader>c", group = "[c]ode" },
+        { "<leader>d", group = "[d]iagnostics" },
+        { "<leader>e", group = "[e]xplorer" },
+        { "<leader>g", group = "[g]it" },
+        { "<leader>l", group = "[l]sp" },
+        { "<leader>o", group = "[o]ther" },
+        { "<leader>t", group = "[t]elescope" },
+        { "<leader>w", group = "[w]riting" },
       })
     end,
   }

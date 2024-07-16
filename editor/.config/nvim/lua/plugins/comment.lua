@@ -24,10 +24,8 @@ local specs = {
     local vmap = require('core.helpers').vmap
     local nmap = require('core.helpers').nmap
 
-    whichkey.register({
-      ["<leader>cc"] = {
-        name = "[c]omment",
-      },
+    whichkey.add({
+      { "<leader>cc", group = "[c]omment" }
     })
 
     nmap("<leader>cci",
