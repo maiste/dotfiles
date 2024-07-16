@@ -58,7 +58,8 @@ blueberry \
 pavucontrol \
 flatpak  \
 cups \
-hplip"
+hplip \
+fwupd"
 
 DEV_PKGS="neovim \
 python-pip \
@@ -73,7 +74,9 @@ diffutils \
 bubblewrap \
 docker \
 docker compose \
-strace"
+strace \
+hyperfine \
+zeal"
 
 TOOL_PKGS="fzf \
 ripgrep \

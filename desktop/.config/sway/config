@@ -80,15 +80,6 @@ bindsym $mod+Shift+p move scratchpad
 # Show the scratchpad window
 bindsym $mod+Ctrl+p scratchpad show
 
-
-######################
-#    Windows specs   #
-######################
-
-# Set pomatez as a floating scratchpad
-for_window [class="pomatez"] floating enable
-for_window [class="pomatez"] move scratchpad
-
 ###############
 # Resize mode #
 ###############
@@ -165,6 +156,18 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 # move with trackpad
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
+
+
+
+######################
+#    Windows specs   #
+######################
+
+# Set pomatez as a floating scratchpad
+for_window [class="pomatez"] floating enable
+for_window [class="pomatez"] move window to workspace $ws10
+
+
 
 #####################
 # On start commands #

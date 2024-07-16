@@ -9,6 +9,7 @@
 
 # Set nvm plugin as lazy
 zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd typescript prettier nvim vim dune opam
 zstyle ':omz:plugins:ssh-agent' lazy
 
 # Plugins
