@@ -104,6 +104,7 @@ return {
 
     telescope.setup({
       defaults = require('telescope.themes').get_ivy {
+        file_ignore_patterns = { "node_modules", ".git" },
         mappings = {
           n = {
             ["q"] = actions.close
