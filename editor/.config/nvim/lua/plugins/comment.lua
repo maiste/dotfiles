@@ -41,10 +41,26 @@ local specs = {
   end,
   {
     "folke/todo-comments.nvim",
+    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("todo-comments").setup()
-    end
+      local ok_telescope, telescope = pcall(require, "telescope")
+      if not ok_telescope then
+        print("Telescope not found!")
+        return
+      end
+      telescope.load_extension("todo-comments")
+    end,
+    keys = {
+      {
+        "<leader>tcf",
+        function()
+          require("telescope").extensions['todo-comments'].todo()
+        end,
+        desc = "[f]ixme"
+      }
+    }
   }
 }
 

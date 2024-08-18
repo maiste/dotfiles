@@ -17,6 +17,7 @@ return {
         { "<leader>l", group = "[l]sp" },
         { "<leader>o", group = "[o]ther" },
         { "<leader>t", group = "[t]elescope" },
+        { "<leader>tc", group = "[t]elescope [c]omment" },
         { "<leader>w", group = "[w]riting" },
       })
     end,
