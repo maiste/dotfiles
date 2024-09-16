@@ -3,7 +3,7 @@
 -- +-------------------------------+
 -- | Author: Maiste <dev@maiste.fr |
 -- | License: MIT                  |
--- | Version: 20240131             |
+-- | Version: 20240915             |
 -- +-------------------------------+
 
 
@@ -27,4 +27,9 @@ if not ok then
   return
 end
 
-lazy.setup({ spec = { import = 'plugins' }})
+lazy.setup({
+  change_detection = {
+    notify = false -- Ensure we don't get the annoying notification message
+  },
+  spec = { import = 'plugins' }
+})
