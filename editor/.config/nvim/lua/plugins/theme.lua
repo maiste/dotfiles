@@ -4,7 +4,9 @@ return {
     name = "catppuccin",
     priority = 10000,
     config = function()
-      vim.cmd.colorscheme("catppuccin-macchiato")
+      -- require("catppuccin").setup({
+      -- });
+      vim.cmd.colorscheme("catppuccin-mocha")
     end
   }
 }

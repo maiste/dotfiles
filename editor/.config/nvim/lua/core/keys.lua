@@ -28,7 +28,6 @@ nmap("<S-TAB>", ":bprevious<CR>", "Previous buffer")
 imap("jk", "<Esc>", "Escape")
 imap("kj", "<Esc>", "Escape")
 
-
 -- Visual mode
 vmap("<", "<gv", "Retab left and keep selected")
 vmap(">", ">gv", "Retab right and keep selected")
