@@ -49,7 +49,6 @@ local function barbecue_config()
   barbecue.setup() -- Default config is enough, I don't need "speed" here.
 end
 
-
 local specs = {
   {
 
@@ -58,9 +57,6 @@ local specs = {
       'nvim-tree/nvim-web-devicons'
     },
     config = lualine_config
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim"
   },
   {
     "utilyre/barbecue.nvim",

@@ -28,8 +28,10 @@ if not ok then
 end
 
 lazy.setup({
+  { import = 'plugins' },
+  { import = 'plugins.lsp' }
+}, {
   change_detection = {
     notify = false -- Ensure we don't get the annoying notification message
-  },
-  spec = { import = 'plugins' }
+  }
 })

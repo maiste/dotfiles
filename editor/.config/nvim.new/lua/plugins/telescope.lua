@@ -38,6 +38,15 @@ local function aerial_config()
   aerial.setup()
 end
 
+local function todo_comment_config()
+  local ok, todo_comment = pcall(require, "todo-comments")
+  if not ok then
+    print("Todo-comment not found")
+    return
+  end
+  todo_comment.setup()
+end
+
 local function telescope_mapping(telescope)
   local ok, builtin = pcall(require, "telescope.builtin")
   if not ok then
@@ -45,6 +54,7 @@ local function telescope_mapping(telescope)
     return
   end
 
+  nmap("<leader>tcf", telescope.extensions['todo-comments'].todo, "[f]ixme")
   nmap("<leader>tb", builtin.buffers, "[b]uffers")
   nmap("<leader>td", builtin.diagnostics, "[d]iagnostic")
   nmap("<leader>tf", function() builtin.find_files({ hidden = true }) end, "[f]iles")
@@ -75,6 +85,9 @@ local function telescope_config()
   aerial_config()
   telescope.load_extension('aerial')
 
+  todo_comment_config()
+  telescope.load_extension("todo-comments")
+
   telescope.setup({
     defaults = require('telescope.themes').get_ivy {
       file_ignore_patterns = { "node_modules", ".git" },
@@ -95,12 +108,16 @@ local function telescope_config()
   telescope_mapping(telescope)
 end
 
-
 local specs = {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'ahmedkhalf/project.nvim',
+    {
+      "folke/todo-comments.nvim",
+      lazy = false,
+      dependencies = { "nvim-lua/plenary.nvim" },
+    },
     'stevearc/aerial.nvim'
   },
   config = telescope_config
