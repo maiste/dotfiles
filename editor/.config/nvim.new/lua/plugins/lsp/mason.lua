@@ -9,10 +9,11 @@
 local function masonlsp_config()
   local ok_masonlsp, masonlsp = pcall(require, "mason-lspconfig")
   if not ok_masonlsp then
-    print("Mason-lspconfig not found")
+    print("Mason-lspconfig not found in mason")
     return
   end
 
+  -- List of LSP to install
   masonlsp.setup({
     ensure_installed = {
       "lua_ls",
@@ -32,6 +33,24 @@ local function masonlsp_config()
       "denols",
 
       "marksman"
+    }
+  })
+end
+
+local function masontool_config()
+  local ok, masontool = pcall(require, "mason-tool-installer")
+  if not ok then
+    print("Mason-tool-install not found")
+    return
+  end
+
+  -- List of Tools other than LSP to install (formatter, linter, dap, etc)
+  masontool.setup({
+    ensure_installed = {
+      "prettier",
+      "stylua",
+
+      "shellcheck"
     }
   })
 end
@@ -56,14 +75,24 @@ local function mason_config()
   })
 
   masonlsp_config()
+  masontool_config()
 end
 
 local specs = {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+    }
   },
-  config = mason_config
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
+    config = mason_config
+  }
 }
 
 return specs

@@ -3,7 +3,7 @@
 -- +-------------------------------+
 -- | Author: Maiste <dev@maiste.fr |
 -- | License: MIT                  |
--- | Version: 20240915             |
+-- | Version: 20240917             |
 -- +-------------------------------+
 
 -- Default indentation options
@@ -32,16 +32,10 @@ vim.opt.listchars:append("trail:·")
 -- UX / UI
 vim.opt.termguicolors = true
 vim.opt.mouse = "a"       -- Always allows mouse
-vim.o.number = true     -- Always show line number
+vim.o.number = true       -- Always show line number
 vim.opt.splitbelow = true -- On sp, split below
 vim.opt.splitright = true -- On vsp, split right
 vim.opt.cursorline = true -- Highlight the line where your cursor is
-
-
--- Theme
-local scheme = "catppuccin"
-vim.opt.bg = "dark"
-vim.cmd.colorscheme(scheme)
 
 -- Search
 vim.opt.ignorecase = true -- Case insentive when searching
@@ -55,12 +49,12 @@ vim.opt.timeout = true
 vim.opt.timeoutlen = 500
 
 -- Configure wrapping
-vim.opt.wrap = false      -- Do not wrap line
+vim.opt.wrap = false -- Do not wrap line
 
 -- Backup & swaps
-vim.opt.swapfile = false  -- Don't use swap file (I don't like them)
-vim.opt.backup = false    -- Do not keep backup file either
+vim.opt.swapfile = false -- Don't use swap file (I don't like them)
+vim.opt.backup = false   -- Do not keep backup file either
 
 -- Search
-vim.opt.hlsearch = false  -- Don't keep the old search highligh
-vim.opt.incsearch = true  -- Display the search as it is written
+vim.opt.hlsearch = false -- Don't keep the old search highligh
+vim.opt.incsearch = true -- Display the search as it is written

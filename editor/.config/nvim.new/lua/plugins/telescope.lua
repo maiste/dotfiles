@@ -91,9 +91,6 @@ local function telescope_config()
   telescope.setup({
     defaults = require('telescope.themes').get_ivy {
       file_ignore_patterns = { "node_modules", ".git" },
-      path_display = {
-        smart = 1
-      },
       mappings = {
         n = {
           ["q"] = actions.close

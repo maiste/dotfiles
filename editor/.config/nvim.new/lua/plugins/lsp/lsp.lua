@@ -54,7 +54,7 @@ local function lsp_config()
 
   local ok_masonlsp, masonlsp = pcall(require, "mason-lspconfig")
   if not ok_masonlsp then
-    print("Mason-lspconfig not found")
+    print("Mason-lspconfig not found in lsp")
     return
   end
 
