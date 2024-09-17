@@ -20,7 +20,7 @@ return {
             "jsonls",
 
             "cssls",
-            "tsserver",
+            "ts_ls",
             "tailwindcss",
             "svelte",
             "denols",
@@ -161,7 +161,7 @@ return {
     }
 
     -- Typescript
-    lsp.tsserver.setup {
+    lsp.ts_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
       root_dir = lsp.util.root_pattern("package.json"),
@@ -199,6 +199,12 @@ return {
           }
         }
       }
+    }
+
+    -- Nil_ls for NIX
+    lsp.nixd.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
     }
 
     -- Yaml

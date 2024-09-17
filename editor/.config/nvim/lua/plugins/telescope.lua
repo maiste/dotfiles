@@ -1,116 +1,123 @@
-return {
+-- +-------------------------------+
+-- | Neovim - Telescope            |
+-- +-------------------------------+
+-- | Author: Maiste <dev@maiste.fr |
+-- | License: MIT                  |
+-- | Version: 20240915             |
+-- +-------------------------------+
+
+local nmap = require("core.helpers").nmap
+
+local function project_nvim_config()
+  local ok, project_nvim = pcall(require, "project_nvim")
+  if not ok then
+    print("Project_nvim not found")
+    return
+  end
+  project_nvim.setup({
+    patterns = {
+      ".git",
+      "_opam",
+      "_darcs",
+      ".hg",
+      ".bzr",
+      ".svn",
+      "Makefile",
+      "package.json"
+    },
+    show_hidden = true,
+  })
+end
+
+local function aerial_config()
+  local ok, aerial = pcall(require, "aerial")
+  if not ok then
+    print("Aerial not found")
+    return
+  end
+  aerial.setup()
+end
+
+local function todo_comment_config()
+  local ok, todo_comment = pcall(require, "todo-comments")
+  if not ok then
+    print("Todo-comment not found")
+    return
+  end
+  todo_comment.setup()
+end
+
+local function telescope_mapping(telescope)
+  local ok, builtin = pcall(require, "telescope.builtin")
+  if not ok then
+    print("Telescope.builtin not found")
+    return
+  end
+
+  nmap("<leader>tcf", telescope.extensions['todo-comments'].todo, "[f]ixme")
+  nmap("<leader>tb", builtin.buffers, "[b]uffers")
+  nmap("<leader>td", builtin.diagnostics, "[d]iagnostic")
+  nmap("<leader>tf", function() builtin.find_files({ hidden = true }) end, "[f]iles")
+  nmap("<leader>th", builtin.help_tags, "[h]elp")
+  nmap("<leader>tk", builtin.keymaps, "[k]eymaps")
+  nmap("<leader>tp", telescope.extensions.projects.projects, "[p]rojects")
+  nmap("<leader>tr", builtin.live_grep, "[r]igrep")
+  nmap("<leader>ts", telescope.extensions.aerial.aerial, "[s]tructure")
+  nmap("<leader>tt", builtin.filetypes, "file[t]ypes")
+end
+
+local function telescope_config()
+  local ok, telescope = pcall(require, "telescope")
+  if not ok then
+    print("Telescope not found")
+    return
+  end
+
+  local ok_actions, actions = pcall(require, "telescope.actions")
+  if not ok_actions then
+    print("Telescope.actions not found")
+    return
+  end
+
+  project_nvim_config()
+  telescope.load_extension('projects')
+
+  aerial_config()
+  telescope.load_extension('aerial')
+
+  todo_comment_config()
+  telescope.load_extension("todo-comments")
+
+  telescope.setup({
+    defaults = require('telescope.themes').get_ivy {
+      file_ignore_patterns = { "node_modules", ".git" },
+      mappings = {
+        n = {
+          ["q"] = actions.close
+        },
+        i = {
+          ["<C-h>"] = "which_key"
+        }
+      },
+    },
+  })
+
+  telescope_mapping(telescope)
+end
+
+local specs = {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'ahmedkhalf/project.nvim',
+    {
+      "folke/todo-comments.nvim",
+      lazy = false,
+      dependencies = { "nvim-lua/plenary.nvim" },
+    },
     'stevearc/aerial.nvim'
   },
-  keys = {
-    {
-      "<leader>tf",
-      function()
-        require('telescope.builtin').find_files({
-          hidden = true
-        })
-      end,
-      desc = "[f]iles"
-    },
-    {
-      "<leader>to",
-      function()
-        require('telescope.builtin').oldfiles()
-      end,
-      desc = "[o]ld (Files)"
-    },
-    {
-      "<leader>tr",
-      function()
-        require('telescope.builtin').live_grep()
-      end,
-      desc = "[r]ipgrep"
-    },
-    {
-      "<leader>tb",
-      function()
-        require('telescope.builtin').buffers()
-      end,
-      desc = "[b]uffers"
-    },
-    {
-      "<leader>th",
-      function()
-        require('telescope.builtin').help_tags()
-      end,
-      desc = "[h]help",
-    },
-    {
-      "<leader>tk",
-      function()
-        require('telescope.builtin').keymaps()
-      end,
-      desc = "[k]eymaps (normal)"
-    },
-    {
-      "<leader>tt",
-      function()
-        require('telescope.builtin').filetypes()
-      end,
-      desc = "[f]iletypes"
-    },
-    {
-      "<leader>ta",
-      function()
-        require("telescope").extensions.aerial.aerial()
-      end,
-      desc = "[a]erial"
-    },
-    {
-      "<leader>tp",
-      function()
-        require 'telescope'.extensions.projects.projects()
-      end,
-      desc = "[p]rojects"
-    },
-    {
-      "<leader>td",
-      function()
-        local ivy = require('telescope.themes').get_ivy()
-        require('telescope.builtin').diagnostics(ivy)
-      end,
-      desc = "[d]iagnostic"
-    }
-  },
-  config = function()
-    require("project_nvim").setup({
-      patterns = {
-        ".git",
-        "_opam",
-        "_darcs",
-        ".hg",
-        ".bzr",
-        ".svn",
-        "Makefile",
-        "package.json"
-      },
-      show_hidden = true,
-    })
-
-    require('aerial').setup()
-
-    local telescope = require('telescope')
-    local actions = require('telescope.actions')
-    telescope.load_extension('projects')
-    telescope.load_extension('aerial')
-
-    telescope.setup({
-      defaults = require('telescope.themes').get_ivy {
-        file_ignore_patterns = { "node_modules", ".git" },
-        mappings = {
-          n = {
-            ["q"] = actions.close
-          },
-        },
-      },
-    })
-  end
+  config = telescope_config
 }
+
+return specs

@@ -1,11 +1,3 @@
--- +-------------------------------+
--- | Neovim - Helper functions     |
--- +-------------------------------+
--- | Author: Maiste <dev@maiste.fr |
--- | License: MIT                  |
--- | Version: 20240915             |
--- +-------------------------------+
-
 local M = {}
 
 M.nmap = function(lhs, rhs, desc)

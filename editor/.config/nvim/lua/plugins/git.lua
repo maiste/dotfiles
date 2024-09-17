@@ -1,26 +1,31 @@
-return {
+-- +-------------------------------+
+-- | Neovim - Git config           |
+-- +-------------------------------+
+-- | Author: Maiste <dev@maiste.fr |
+-- | License: MIT                  |
+-- | Version: 20240917             |
+-- +-------------------------------+
+
+local nmap = require("core.helpers").nmap
+
+local function git_config()
+  local ok, git = pcall(require, 'gitsigns')
+  if not ok then
+    print("Gitsign not found")
+    return
+  end
+  git.setup()
+
+
+  nmap("<leader>gb", git.blame_line, "[b]lame")
+end
+
+local specs = {
   {
     'lewis6991/gitsigns.nvim',
     lazy = false,
-    config = function()
-      require('gitsigns').setup()
-    end,
-    keys = {
-      {
-        "<leader>gb",
-        function()
-          require('gitsigns').blame_line()
-        end,
-        desc = "[b]lame"
-      }
-    }
+    config = git_config
   },
-  {
-    'dinhhuy258/git.nvim',
-    config = function()
-      require('git').setup({
-        default_mappings = false
-      })
-    end
-  }
 }
+
+return specs

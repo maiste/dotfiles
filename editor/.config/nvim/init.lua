@@ -1,15 +1,19 @@
+-- +-------------------------------+
+-- | Neovim - Startup File         |
+-- +-------------------------------+
+-- | Author: Maiste <dev@maiste.fr |
+-- | License: MIT                  |
+-- | Version: 20240131             |
+-- +-------------------------------+
 
--- Needs to be set first
+-- Need to be set first
 vim.g.mapleader = " "
 
--- Initialize lazy and associated plugins
-require('core.lazy')
+-- Initialize package manager and plugins
+require("core.package")
 
--- Load personnal core setup
-require('core.opts')
+-- Setup global options
+require("core.options")
 
--- Load generic keymaps
-require('core.keys')
-
--- Load globals
-require('core.globals')
+-- Setup generic keys
+require("core.keys")
