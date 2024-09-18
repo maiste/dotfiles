@@ -112,28 +112,28 @@ print_task "pacman packages"
 sudo pacman -Sy --noconfirm $PACMAN_PKGS
 
 
-# --- Install Paru -- #
+# --- Install Yay -- #
 
-print_section "paru"
+print_section "yay"
 
-print_task "install Paru"
-which "paru" > /dev/null
+print_task "install yay"
+which "yay" > /dev/null
 if [[ $? -eq 1 ]] ; then
-    print_info "install Paru"
+    print_info "install Yay"
     cd /tmp
     sudo pacman -S --needed base-devel
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
     makepkg -si
     cd ../
-    print_info "delete paru temporary directory"
-    rm -rf paru
-    print_success "aru installed"
+    print_info "delete yay temporary directory"
+    rm -rf yay
+    print_success "yay installed"
 else
-    skip_already_installed "paru"
+    skip_already_installed "yay"
 fi
 
 # Install AUR packages
-print_task "installing paru packages"
-paru -Sy $AUR_PKGS
+print_task "installing AUR packages"
+yay -Sy $AUR_PKGS
 print_success "AUR packages installed"
