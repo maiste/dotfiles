@@ -3,11 +3,20 @@
 -- +-------------------------------+
 -- | Author: Maiste <dev@maiste.fr |
 -- | License: MIT                  |
--- | Version: 20240917             |
+-- | Version: 20240920             |
 -- +-------------------------------+
 
+local function mlx_config()
+  local ok, _ocaml_mlx = pcall(require, "ocaml_mlx")
+  if not ok then
+    print("OCaml-mlx not found")
+    return
+  end
+end
 
 local function treesitter_config()
+  mlx_config()
+
   local ok, treesitter = pcall(require, "nvim-treesitter.configs")
   if not ok then
     print("Treesitter not found")
@@ -17,7 +26,7 @@ local function treesitter_config()
     -- Syntax highlighting
     highlight = {
       enable = true,
-      use_languagetree = true
+      use_languagetree = true,
     },
     -- Smart indent
     indent = {
@@ -26,7 +35,7 @@ local function treesitter_config()
     },
     -- Use the dependency
     autotag = {
-      enable = true
+      enable = true,
     },
     -- Select using Treesitter parser
     incremental_selection = {
@@ -35,11 +44,13 @@ local function treesitter_config()
         init_selection = "<C-space>",
         node_incremental = "<C-space>",
         scope_incremental = false,
-        node_decremental = "<BS>"
-      }
+        node_decremental = "<BS>",
+      },
     },
     -- Auto install and update parsers
     auto_install = true,
+    sync_install = false,
+    ignore_install = {},
     ensure_installed = {
       "yaml",
       "json",
@@ -56,6 +67,7 @@ local function treesitter_config()
       "lua",
 
       "ocaml",
+      "ocaml_mlx",
       "haskell",
 
       "java",
@@ -67,8 +79,7 @@ local function treesitter_config()
       "c",
 
       "markdown",
-    }
-
+    },
   })
 end
 
@@ -78,10 +89,11 @@ local specs = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "windwp/nvim-ts-autotag"
+      "windwp/nvim-ts-autotag",
+      "ocaml-mlx/ocaml_mlx.nvim",
     },
-    config = treesitter_config
-  }
+    config = treesitter_config,
+  },
 }
 
 return specs
