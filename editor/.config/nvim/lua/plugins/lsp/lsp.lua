@@ -31,9 +31,9 @@ local function diagnostic_config()
 
   -- Diagnostics config
   local config = {
-    virtual_text = false,    -- Disable virtual text
-    signs = true,            -- Display signs
-    update_in_insert = false -- In insert mode, doesn't display errors
+    virtual_text = false,     -- Disable virtual text
+    signs = true,             -- Display signs
+    update_in_insert = false, -- In insert mode, doesn't display errors
   }
 
   vim.diagnostic.config(config)
@@ -72,37 +72,34 @@ local function lsp_config()
         vim.keymap.set("n", lhs, rhs, { silent = true, buffer = ev.buffer, desc = desc })
       end
 
-
       -- Docs
-      lmap('<leader>lh', vim.lsp.buf.hover, "[h]over")
-      lmap('<leader>ls', vim.lsp.buf.signature_help, "[s]ignature")
+      lmap("<leader>lh", vim.lsp.buf.hover, "[h]over")
+      lmap("<leader>ls", vim.lsp.buf.signature_help, "[s]ignature")
 
       -- Move
-      lmap('<leader>lgd', vim.lsp.buf.definition, "[d]efinition")
-      lmap('<leader>lgD', vim.lsp.buf.declaration, "[D]eclaration")
-      lmap('<leader>lgi', vim.lsp.buf.implementation, "[i]mplementation")
-      lmap('<leader>lgr', vim.lsp.buf.references, "[r]eferences")
-      lmap('<leader>lgt', vim.lsp.buf.type_definition, "[t]ype definition")
+      lmap("<leader>lgd", vim.lsp.buf.definition, "[d]efinition")
+      lmap("<leader>lgD", vim.lsp.buf.declaration, "[D]eclaration")
+      lmap("<leader>lgi", vim.lsp.buf.implementation, "[i]mplementation")
+      lmap("<leader>lgr", vim.lsp.buf.references, "[r]eferences")
+      lmap("<leader>lgt", vim.lsp.buf.type_definition, "[t]ype definition")
 
       -- Workspace
 
-      lmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, "[a]dd")
-      lmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, "[r]emove")
-      lmap('<leader>lwl', vim.lsp.buf.list_workspace_folders, "[l]ist")
+      lmap("<leader>lwa", vim.lsp.buf.add_workspace_folder, "[a]dd")
+      lmap("<leader>lwr", vim.lsp.buf.remove_workspace_folder, "[r]emove")
+      lmap("<leader>lwl", vim.lsp.buf.list_workspace_folders, "[l]ist")
 
       -- Diagnostics
-      lmap('<leader>ldo', vim.diagnostic.open_float, "[o]pen")
-      lmap('<leader>ldp', vim.diagnostic.goto_prev, "[p]revious")
-      lmap('<leader>ldn', vim.diagnostic.goto_next, "[n]ext")
-      lmap('<leader>ldl', vim.diagnostic.setloclist, "[l]ist")
+      lmap("<leader>ldo", vim.diagnostic.open_float, "[o]pen")
+      lmap("<leader>ldp", vim.diagnostic.goto_prev, "[p]revious")
+      lmap("<leader>ldn", vim.diagnostic.goto_next, "[n]ext")
+      lmap("<leader>ldl", vim.diagnostic.setloclist, "[l]ist")
 
       -- Actions
-      lmap('<leader>ca', vim.lsp.buf.code_action, "[a]ction")
-      lmap('<leader>lr', vim.lsp.buf.rename, "[r]ename")
-      lmap('<leader>lf', vim.lsp.buf.format, "[f]ormat")
+      lmap("<leader>ca", vim.lsp.buf.code_action, "[a]ction")
+      lmap("<leader>lr", vim.lsp.buf.rename, "[r]ename")
     end,
   })
-
 
   -- Capabilities
   local capabilities = cmp.default_capabilities()
@@ -111,92 +108,101 @@ local function lsp_config()
   masonlsp.setup_handlers({
     function(lsp_server)
       lsp[lsp_server].setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
-    end
+    end,
   })
 
   -- Generic servers without Mason
-  lsp.ocamllsp.setup {} -- OCaml
-  lsp.nixd.setup {}     -- Nix
-
+  lsp.ocamllsp.setup({}) -- OCaml
+  lsp.nixd.setup({})     -- Nix
+  lsp.gopls.setup({})    -- Golang
 
   -- Specific lsp configs
 
   -- Typescript
-  lsp.ts_ls.setup {
+  lsp.ts_ls.setup({
     capabilities = capabilities,
     root_dir = lsp.util.root_pattern("package.json"),
     filetypes = { "javascript", "typescript", "typescriptreact", "typescrip.tsx" },
-  }
+  })
 
   -- Svelte
-  lsp.svelte.setup {
+  lsp.svelte.setup({
     capabilities = capabilities,
     root_dir = lsp.util.root_pattern("package.json"),
-    filetypes = { "svelte" }
-  }
+    filetypes = { "svelte" },
+  })
 
   -- Deno
-  lsp.denols.setup {
+  lsp.denols.setup({
     capabilities = capabilities,
     root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
-  }
+  })
 
   -- Helm
-  lsp.helm_ls.setup {
+  lsp.helm_ls.setup({
     capabilities = capabilities,
     settings = {
-      ['helm-ls'] = {
+      ["helm-ls"] = {
         yamlls = {
           path = "yaml-language-server",
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  })
 
   -- Yaml
-  lsp.yamlls.setup {
+  lsp.yamlls.setup({
     capabilities = capabilities,
     settings = {
       yaml = {
         schemas = {
-          ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
-          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
-        }
-      }
-    }
-  }
+          ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] =
+          "conf/**/*catalog*",
+          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        },
+      },
+    },
+  })
 
   -- JSON
-  lsp.jsonls.setup {
+  lsp.jsonls.setup({
     capabilities = capabilities,
     init_options = {
-      provideFormatter = false
+      provideFormatter = false,
     },
     commands = {
       Format = {
         function()
           vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-        end
-      }
-    }
-  }
+        end,
+      },
+    },
+  })
 
   -- Latex / Markdown
-  lsp.ltex.setup {
+  lsp.ltex.setup({
     capabilities = capabilities,
-    checkFrequency = 'save',
+    checkFrequency = "save",
     settings = {
       ltex = {
         disabledRules = {
-          ['en'] = { 'PROFANITY' },
+          ["en"] = { "PROFANITY" },
         },
       },
     },
-  }
-end
+  })
 
+
+  -- TODO: Use OCaml with Dune Package Management
+  -- OCaml Bleeding Edge
+  -- lsp.ocamllsp.setup({
+  --   cmd = { "dune", "tools", "exec", "ocamllsp" },
+  --   filetype = { "ocaml", "menhir", "ocamlinterface", "ocamllex", "reason", "dune" },
+  --   root_pattern = { "dune.lock" }
+  -- })
+end
 
 local specs = {
   "neovim/nvim-lspconfig",
@@ -205,7 +211,7 @@ local specs = {
     "folke/neodev.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
-  config = lsp_config
+  config = lsp_config,
 }
 
 return specs

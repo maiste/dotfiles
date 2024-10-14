@@ -3,7 +3,7 @@
 -- +-------------------------------+
 -- | Author: Maiste <dev@maiste.fr |
 -- | License: MIT                  |
--- | Version: 20240917             |
+-- | Version: 20240920             |
 -- +-------------------------------+
 
 local function masonlsp_config()
@@ -19,6 +19,7 @@ local function masonlsp_config()
       "lua_ls",
       "basedpyright",
       "rust_analyzer",
+      "gopls",
 
       "dockerls",
       "helm_ls",
@@ -32,8 +33,8 @@ local function masonlsp_config()
       "svelte",
       "denols",
 
-      "marksman"
-    }
+      "marksman",
+    },
   })
 end
 
@@ -50,8 +51,8 @@ local function masontool_config()
       "prettier",
       "stylua",
 
-      "shellcheck"
-    }
+      "shellcheck",
+    },
   })
 end
 
@@ -62,7 +63,6 @@ local function mason_config()
     return
   end
 
-
   -- Source: https://github.com/josean-dev/dev-environment-files/blob/cb670e8890ca9d8baf978b38ed75987b742032e6/.config/nvim/lua/josean/plugins/lsp/mason.lua#L17
   mason.setup({
     ui = {
@@ -70,8 +70,8 @@ local function mason_config()
         package_installed = "✓",
         package_pending = "➜",
         package_uninstalled = "✗",
-      }
-    }
+      },
+    },
   })
 
   masonlsp_config()
@@ -83,16 +83,16 @@ local specs = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-    }
+    },
   },
   {
     "williamboman/mason.nvim",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim"
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
-    config = mason_config
-  }
+    config = mason_config,
+  },
 }
 
 return specs
