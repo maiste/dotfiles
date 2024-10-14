@@ -21,10 +21,12 @@ if [[ $SHLVL == 1 ]]; then
 
   # PATH for binaries
   export PATH="$PATH:$HOME/.local/bin"
-  export PATH="$PATH:$HOME/.cargo/bin"
   export PATH="$PATH:$HOME/.deno/bin"
   export PATH="$PATH:$HOME/go/bin"
   export PATH="$PATH:$HOME/.berkelium"
+
+  # Source configurations
+  source "$HOME/.cargo/env"
 
   # Starship conf
   export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
