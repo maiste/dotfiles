@@ -123,6 +123,7 @@ local function lsp_config()
   -- Typescript
   lsp.ts_ls.setup({
     capabilities = capabilities,
+    single_file_support = false,
     root_dir = lsp.util.root_pattern("package.json"),
     filetypes = { "javascript", "typescript", "typescriptreact", "typescrip.tsx" },
   })

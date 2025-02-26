@@ -56,5 +56,5 @@ vim.opt.swapfile = false -- Don't use swap file (I don't like them)
 vim.opt.backup = false   -- Do not keep backup file either
 
 -- Search
-vim.opt.hlsearch = false -- Don't keep the old search highligh
+vim.opt.hlsearch = true -- Keep the old search highligh
 vim.opt.incsearch = true -- Display the search as it is written

@@ -1,5 +1,5 @@
 -- +-------------------------------+
--- | neovim - complition config    |
+-- | neovim - completion config    |
 -- +-------------------------------+
 -- | author: maiste <dev@maiste.fr |
 -- | license: mit                  |

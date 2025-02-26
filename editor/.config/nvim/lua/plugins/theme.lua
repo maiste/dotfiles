@@ -7,16 +7,17 @@
 -- +-------------------------------+
 
 local function theme_config()
-	local scheme = "catppuccin"
-	vim.opt.bg = "dark"
-	vim.cmd.colorscheme(scheme)
+  local scheme = "catppuccin"
+  vim.opt.bg = "dark"
+  vim.cmd.colorscheme(scheme)
 end
 
 return {
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = theme_config,
-	},
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = theme_config,
+  },
+  { "NLKNguyen/papercolor-theme" },
 }

@@ -15,5 +15,8 @@ require("core.package")
 -- Setup global options
 require("core.options")
 
+-- Setup file options
+require("core.file")
+
 -- Setup generic keys
 require("core.keys")
