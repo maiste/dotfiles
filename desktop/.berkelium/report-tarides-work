@@ -1,0 +1,45 @@
+#!/bin/env bash
+
+set -eu
+
+# Helper functions
+ok() {
+  echo "[OK] $1"
+}
+
+failed() {
+  echo "[FAILED] $1"
+}
+
+# Variables
+USER="maiste"
+YEAR=$(date +"%Y")
+WEEK=$(date +"%V")
+DIR="weekly/$YEAR/$WEEK"
+FILE="$DIR/$USER.md"
+
+# Load the repository
+cd "$HOME/Documents/Tarides/admin"
+opam switch tarides
+
+# Create the file with OKRA
+mkdir -p "$DIR"
+ok "create path $DIR"
+
+opam exec -- okra gen --week="$WEEK" > "$FILE"
+ok "create file $FILE"
+
+CHOICE=""
+read -r -p "Open in NeoVIM (y/n)? " CHOICE
+case "$CHOICE" in
+  y|Y ) nvim "$FILE"; ok "modified file in NeoVIM";;
+  * ) ok "moving on without NeoVIM";;
+esac
+
+opam exec -- okra lint "$FILE" || nvim "$FILE"
+
+# Synchronise with git
+git pull origin main 2>&1 > /dev/null
+git add "$FILE"
+git commit -m "@$USER $YEAR-$WEEK :owl:" > /dev/null
+ok "create commit"

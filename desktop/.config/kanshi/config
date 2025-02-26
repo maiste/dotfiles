@@ -16,6 +16,6 @@ profile "home" {
 }
 
 profile "work" {
-    output eDP-1 mode 1920x1200 position 0,750 transform normal
-    output DP-3 mode 2560x1440 position 1910,0 transform normal
+    output eDP-1 mode 1920x1200 position 0,240 transform normal
+    output DP-3 mode 2560x1440 position 1926,0 transform normal
 }
