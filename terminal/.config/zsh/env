@@ -1,15 +1,14 @@
 ###########################
 # Maiste <dev@maiste.fr>  #
 #        Env config       #
-#     Version 20240529    #
+#     Version 20241204    #
 ###########################
-
 
 
 # Export only once
 if [[ $SHLVL == 1 ]]; then
 
-  # ZSH path
+  # OMZ path
   export ZSH=~/.oh-my-zsh
 
   # Editor option
@@ -25,19 +24,26 @@ if [[ $SHLVL == 1 ]]; then
   export PATH="$PATH:$HOME/go/bin"
   export PATH="$PATH:$HOME/.berkelium"
 
-  # Source configurations
-  source "$HOME/.cargo/env"
-
-  # Starship conf
+  # Starship configuration
   export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
-  # Opam configuration
-  test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-  # Java configuration
-  export SDKMAN_DIR="$HOME/.sdkman"
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && . "$HOME/.sdkman/bin/sdkman-init.sh"
 
   # Nix configuration
   if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer
+
+  # Opam configuration (OCaml)
+  test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+  # Sdkman configuration (JVM)
+  export SDKMAN_DIR="$HOME/.sdkman"
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && . "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+  # Cargo configuration (Rust)
+  source "$HOME/.cargo/env"
+
+  # GHCup configuration (Haskell)
+  [ -f "/home/maiste/.ghcup/env" ] && . "/home/maiste/.ghcup/env" # ghcup-env
+
+  # OMZ sourcing (ZSH)
+  . "$ZSH/oh-my-zsh.sh"
 fi
