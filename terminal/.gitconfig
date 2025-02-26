@@ -9,18 +9,36 @@
 
 [commit]
     gpgsign = true                        # Sign all code
+    verbose = true                        # Add more information when updating the commit message
 [gpg]
     program = gpg                         # Program to sign commit
+[column]
+    ui = auto                             # Display using column mode
+[branch]
+    sort = -committerdate                 # Use the last commit date
+[tag]
+    sort = version:refname                # Sort tag by treating the SemVer correctly
 
 [init]
     defaultBranch = main                  # Select main as the main branch
 [pull]
-    rebase = true                         # Force rebase
+    rebase = true                         # Use rebase by default instead of merge: cleaner
 [push]
     default = simple                      # Push the branch like upstream if local has the same name
+    # autoSetupRemote = true                # If upstream branch is not set, it will automatically set it. Deactivate because don't like auto.
+[fetch]
+    prune = true                            # Auto prune on fetch
+    pruneTags = true                        # Same as prune but for tags
+[merge]
+    conflictstyle = zdiff3                 # Add a parent commit to check the diffs (z if for zealous diff3)
+[rebase]
+    autoSquash = true                     # Force the rebase to use --autosquash
+    autoStash = true                      # Create a stash before rebase and reapply after
 
 [interactive]
     diffFilter = delta --color-only
+[help]
+    autocorrect = prompt                    # Auto correct but ask for confirmation
 [delta]
     line-numbers = true
     # Use n and N to move between diff sections
@@ -30,11 +48,10 @@
     # Theme to use as dark theme
     syntax-theme = Nord
 [diff]
-    # Use the default mode
-    colorMoved = default 
-[merge]
-    # Add a parent commit to check the diffs
-    conflictstyle = diff3
+    colorMoved = default                  # Use the default mode
+    algorithm = histogram                 # Better diff algorithm
+    renames = true                        # Detect if this is a file renaming or not
+
 
 [alias]
 
@@ -42,7 +59,6 @@
     pl = pull
     ps = push
     fe = fetch
-    fep = fetch -p
     rt = remote
 
     # Branch
@@ -56,10 +72,9 @@
     co = checkout
     cp = cherry-pick
     rb = rebase
+    rbi = rebase -i
     rbc = rebase --continue
     rba = rebase --abort
-    rbi = rebase -i
-    rbf = rebase -i --autosquash
 
     # Status
     s = status
@@ -75,21 +90,22 @@
     c = commit
     cs = commit --signoff
     cm = commit -m
-    csm = commit --signoff --message
+    cms = commit --signoff --message
     ca = commit --amend
+    cas = commit --signoff --amend
     cf = commit --fixup
-    csf = commit --signoff --fixup
+    cfs = commit --signoff --fixup
 
     # Log
     l = log --graph --decorate --all
-    lo = log --oneline --graph --all
+    lg = log --oneline --graph --all
 
     # Stash
-    sa = stash
-    sac = stash clear
-    sai = stash push
-    sao = stash pop
-    sal = stash list
+    st = stash
+    stc = stash clear
+    stl = stash list
+    stpu = stash push
+    stpo = stash pop
 
     # Worktree
     wta = worktree add
