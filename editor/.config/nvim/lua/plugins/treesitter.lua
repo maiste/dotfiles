@@ -33,10 +33,6 @@ local function treesitter_config()
       enable = true,
       disable = {},
     },
-    -- Use the dependency
-    autotag = {
-      enable = true,
-    },
     -- Select using Treesitter parser
     incremental_selection = {
       enable = true,
@@ -83,13 +79,31 @@ local function treesitter_config()
   })
 end
 
+local function nvim_ts_autotag_config()
+  local ok, nvim_ts_autotag = pcall(require, "nvim-ts-autotag")
+  if not ok then
+    print("nvim-ts-autotag not found")
+    return
+  end
+  nvim_ts_autotag.setup({
+    opts = {
+      enable_close = true,          -- Auto close tags
+      enable_rename = true,         -- Auto rename pairs of tags
+      enable_close_on_slash = false -- Auto close on trailing </
+    },
+  })
+end
+
 local specs = {
-  "windwp/nvim-ts-autotag",
+
+  {
+    "windwp/nvim-ts-autotag",
+    config = nvim_ts_autotag_config
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "windwp/nvim-ts-autotag",
       "ocaml-mlx/ocaml_mlx.nvim",
     },
     config = treesitter_config,
