@@ -9,7 +9,7 @@
 local function mlx_config()
   local ok, _ocaml_mlx = pcall(require, "ocaml_mlx")
   if not ok then
-    print("OCaml-mlx not found")
+    print("ocaml-mlx not found")
     return
   end
 end
@@ -95,7 +95,6 @@ local function nvim_ts_autotag_config()
 end
 
 local specs = {
-
   {
     "windwp/nvim-ts-autotag",
     config = nvim_ts_autotag_config

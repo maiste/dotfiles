@@ -6,14 +6,14 @@
 -- | Version: 20240131             |
 -- +-------------------------------+
 
-local function neodev_config()
-  local ok_neodev, neodev = pcall(require, "neodev")
-  if not ok_neodev then
-    print("Neodev not found")
+local function lazydev_config()
+  local ok_lazydev, lazydev = pcall(require, "lazydev")
+  if not ok_lazydev then
+    print("lazydev not found")
     return
   end
 
-  neodev.setup()
+  lazydev.setup()
 end
 
 local function diagnostic_config()
@@ -59,7 +59,7 @@ local function lsp_config()
   end
 
   -- Add Neovim lua elements for configuration writting
-  neodev_config()
+  lazydev_config()
 
   -- Configure error signs
   diagnostic_config()
@@ -105,18 +105,20 @@ local function lsp_config()
   local capabilities = cmp.default_capabilities()
 
   -- Default Mason config
-  masonlsp.setup_handlers({
-    function(lsp_server)
-      lsp[lsp_server].setup({
-        capabilities = capabilities,
-      })
-    end,
-  })
+  -- TODO: Remove me and replace me with a structure that registers with vim.lsp.config + Mason (no Mason-lspconfig)
+  -- masonlsp.setup_handlers({
+  --   function(lsp_server)
+  --     lsp[lsp_server].setup({
+  --       capabilities = capabilities,
+  --     })
+  --   end,
+  -- })
 
   -- Generic servers without Mason
   lsp.ocamllsp.setup({}) -- OCaml
   lsp.nixd.setup({})     -- Nix
   lsp.gopls.setup({})    -- Golang
+  lsp.luals.setup({})    -- Lua
 
   -- Specific lsp configs
 
@@ -209,7 +211,7 @@ local specs = {
   "neovim/nvim-lspconfig",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "folke/neodev.nvim",
+    "folke/lazydev.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
   config = lsp_config,

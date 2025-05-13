@@ -35,24 +35,7 @@ local function masonlsp_config()
 
       "marksman",
     },
-  })
-end
-
-local function masontool_config()
-  local ok, masontool = pcall(require, "mason-tool-installer")
-  if not ok then
-    print("Mason-tool-install not found")
-    return
-  end
-
-  -- List of Tools other than LSP to install (formatter, linter, dap, etc)
-  masontool.setup({
-    ensure_installed = {
-      "prettier",
-      "stylua",
-
-      "shellcheck",
-    },
+    automatic_enable = true,
   })
 end
 
@@ -75,21 +58,13 @@ local function mason_config()
   })
 
   masonlsp_config()
-  masontool_config()
 end
 
 local specs = {
   {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-    },
-  },
-  {
     "williamboman/mason.nvim",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = mason_config,
   },
