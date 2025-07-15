@@ -1,7 +1,7 @@
 [user]
     name = Etienne Marais
-    email = dev@maiste.fr
-    signingkey = 030C4ED753794A0E
+    email = self@maiste.fr
+    signingkey = ~/.ssh/signature
 
 [core]
     editor = nvim
@@ -11,13 +11,16 @@
     gpgsign = true                        # Sign all code
     verbose = true                        # Add more information when updating the commit message
 [gpg]
-    program = gpg                         # Program to sign commit
+    format = ssh                          # Sign with SSH
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/git/allowed_signers     # Allowed signers
 [column]
     ui = auto                             # Display using column mode
 [branch]
     sort = -committerdate                 # Use the last commit date
 [tag]
     sort = version:refname                # Sort tag by treating the SemVer correctly
+    gpgsign = true                        # Sign all code
 
 [init]
     defaultBranch = main                  # Select main as the main branch
