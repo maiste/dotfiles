@@ -80,7 +80,15 @@ local function cmp_config()
     -- Setup sources
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },   -- Import from lsp
-      { name = 'buffer' },     -- Import from buffer
+      -- { name = 'buffer' },     -- Import from buffer
+      {
+        name = 'buffer',
+        option = {
+          get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end
+        }
+      },                      -- Import from all buffers
       { name = 'treesitter' }, -- Import treesitter
       { name = "cmp_git" },    -- Git completion
       { name = "path" },       -- Path completion
